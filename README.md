@@ -2,3 +2,7 @@
 
 # TODO
 # Future
+# Purpose
+Help me understand how to deal with images/videos better... and I also like to take pictures in cyberpunk. 
+# Learned
+[optimization](FUTURE LINK)
