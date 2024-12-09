@@ -31,11 +31,11 @@ document.addEventListener("mousemove", (e) => {
     x = e.clientX;
     y = e.clientY;
 
-    if (document.elementsFromPoint(x, y).findIndex((e)=>e==filter) != -1) {
+    if (document.elementsFromPoint(x, y).findIndex((e) => e == filter) != -1) {
         // move cursor, pupil into filter
         if (!inFilter) {
             cursor.style.display = "none";
-            inFilter= true;
+            inFilter = true;
         }
     } else {
         if (inFilter) {
@@ -58,15 +58,26 @@ document.addEventListener("mousemove", (e) => {
 
 
 const filterOptions = body.querySelectorAll(".filter-option");
+let selectedOption = null;
 function filterOptionBrackets(option) {
     const before = option.querySelector(".before");
     const after = option.querySelector(".after");
     before.classList.toggle("hidden");
     after.classList.toggle("hidden");
-} 
+}
+function toggleOptionBackground(option) {
+    option.querySelector(".background").classList.toggle("hidden")
+}
+
+let selectedOptionFunction = null;
 
 filterOptions.forEach((option) => {
-    let isSelected = false; 
+    let isSelected = false;
+
+    function t() {
+        isSelected = false;
+    }
+
     option.addEventListener("mouseenter", () => {
         // show brackets
         if (!isSelected) {
@@ -82,8 +93,20 @@ filterOptions.forEach((option) => {
         }
     })
     option.addEventListener("click", () => {
-        isSelected = !isSelected;
-        option.querySelector(".background").classList.toggle("hidden")
+        if (!isSelected && selectedOption) {
+            // another filter-option already selected
+            // make this one the selected one
+            filterOptionBrackets(selectedOption)
+            toggleOptionBackground(selectedOption)
+            selectedOptionFunction()
+            selectedOption = null;
+        }
+        if (!isSelected && !selectedOption) {
+            isSelected = !isSelected;
+            selectedOption = option;
+            selectedOptionFunction = t;
+            toggleOptionBackground(option)
+        }
     })
 })
 
