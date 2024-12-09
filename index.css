@@ -3,6 +3,7 @@
     --filter-size: 2.2em;
     --rock: #7d7d7d;
 }
+
 @font-face {
     font-family: "LogoFont";
     src: url("./fonts/BrunoAce-Regular.ttf") format("truetype");
@@ -13,7 +14,8 @@
     src: url("./fonts/Akshar-Regular.ttf") format("truetype");
 }
 
-html, body {
+html,
+body {
     overflow: hidden;
 
     cursor: none;
@@ -23,6 +25,7 @@ html, body {
     color: var(--white);
     font-family: "MainFont", Arial, Helvetica, sans-serif;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -43,6 +46,8 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 2em 0;
+
+    position: relative;
 }
 
 header h1 {
@@ -69,13 +74,36 @@ header small {
     border-right-color: rgb(8, 158, 8);
     border-bottom-color: rgb(217, 0, 255);
     border-bottom-width: .3em;
-    border-left-color: rgb(0, 136, 255);;
+    border-left-color: rgb(0, 136, 255);
 }
+
+#filter {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: black;
+    padding: 0 0 2em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#filter-options {
+    text-align: right;
+}
+
+#filter-options ul li {
+    position: relative;
+    z-index: 1000;
+    list-style-type: none;
+}
+
 
 
 .row {
     display: flex;
 }
+
 .row img {
     width: 33.33%;
     /* user-select: none -> not supported on WebView IOS */
@@ -83,12 +111,13 @@ header small {
     pointer-events: none;
     -webkit-user-drag: none;
 }
+
 .row .two {
     width: 66.66%;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #eye {
@@ -99,7 +128,11 @@ header small {
     position: absolute;
     border: 1px solid black;
 
+    /* 
+    smaller screen = increase steps
+     */
     transition: top .1s steps(2, jump-start), left .1s steps(2, jump-start);
+    z-index: 100;
 }
 
 #pupil {
@@ -109,7 +142,9 @@ header small {
     border-radius: 100%;
     position: absolute;
     border: 1px solid white;
+    z-index: 101;
 }
+
 .blink {
     animation-name: blink;
     animation-duration: .5s;
@@ -117,10 +152,14 @@ header small {
     animation-iteration-count: 1;
     animation-play-state: running;
 }
+
 @keyframes blink {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }

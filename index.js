@@ -1,6 +1,7 @@
 const cursor = document.querySelector("#eye");
 const pupil = document.querySelector("#pupil");
 
+
 cursor.style.left = document.clientX-16 + "px";
 cursor.style.top = document.clientY-16 + "px";
 
@@ -13,6 +14,7 @@ let y = 0;
 let initialMouseMovement = null;
 initialMouseMovement = () => {
     if (cursor.classList.contains("hidden")) {
+        pupil.classList.remove("hidden")
         cursor.classList.remove("hidden");
     }
     document.removeEventListener("mousemove", initialMouseMovement);
@@ -44,7 +46,7 @@ async function blink() {
     pupil.classList.add("blink")
     await new Promise((resolve, reject) =>{
         setTimeout(()=>{
-            console.log("ran")
+            console.log("removing .blink")
             pupil.classList.remove("blink")
             blinked = null;
             resolve()
@@ -55,5 +57,31 @@ async function blink() {
 document.addEventListener("mousedown", (e)=>{
     if (!blinked) {
         blinked = blink();
+    }
+})
+
+
+const body = document.querySelector("body");
+const filterButton = document.querySelector("#filter-button");
+const filter = body.querySelector("#filter");
+
+filterButton.addEventListener("click", ()=>{
+    filter.classList.toggle("hidden")
+})
+
+document.addEventListener("click", (e)=>{
+
+    for (const element of document.elementsFromPoint(e.clientX, e.clientY)) {
+        switch (element) {
+            case body:
+                return;
+            case filterButton:
+                let buttonClick = new MouseEvent("click");
+                filterButton.dispatchEvent(buttonClick)
+                return;
+            default:
+                console.log(element)
+                break;
+        }
     }
 })
