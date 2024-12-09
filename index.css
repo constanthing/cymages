@@ -2,6 +2,11 @@
     --white: #EFEFEF;
     --filter-size: 2.2em;
     --rock: #7d7d7d;
+
+    --screen: blue;
+    --location: red;
+    --gang: orange;
+    --time: green;
 }
 
 @font-face {
@@ -50,11 +55,12 @@ header {
     position: relative;
 }
 
-header h1 {
+#logo h1 {
     font-family: "LogoFont", Arial, Helvetica, sans-serif;
+    z-index: 1001;
 }
 
-header small {
+#logo small {
     color: var(--rock);
 }
 
@@ -70,12 +76,13 @@ header small {
 
     border-width: .2em;
     border-style: solid;
-    border-top-color: rgb(207, 27, 27);
-    border-right-color: rgb(8, 158, 8);
-    border-bottom-color: rgb(217, 0, 255);
+    border-top-color: var(--screen);
+    border-right-color: var(--location);
+    border-bottom-color: var(--gang);
     border-bottom-width: .3em;
-    border-left-color: rgb(0, 136, 255);
+    border-left-color: var(--time);
 }
+
 
 #filter {
     width: 100%;
@@ -86,16 +93,63 @@ header small {
     padding: 0 0 2em 0;
     display: flex;
     justify-content: space-between;
+
 }
 
 #filter-options {
     text-align: right;
+
+}
+
+#filter-options ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 #filter-options ul li {
+    width: fit-content;
     position: relative;
     z-index: 1000;
     list-style-type: none;
+}
+#filter-options ul li::before {
+    content: "[";
+    opacity: 0;
+}
+#filter-options ul li::after {
+    content: "]";
+    opacity: 0;
+}
+#filter-options ul li:hover::before {
+    opacity: 1;
+}
+#filter-options ul li:hover::after {
+    opacity: 1;
+}
+#screen-option.selected {
+    background: var(--screen);
+}
+#screen-option::before, #screen-option::after {
+    color: var(--screen);
+}
+#location-option.selected {
+    background: var(--location);
+}
+#location-option::before, #location-option::after {
+    color: var(--location);
+}
+#gang-option.selected {
+    background: var(--gang);
+}
+#gang-option::before, #gang-option::after {
+    color: var(--gang);
+}
+#time-option.selected {
+    background: var(--time);
+}
+#time-option::before, #time-option::after {
+    color: var(--time);
 }
 
 
