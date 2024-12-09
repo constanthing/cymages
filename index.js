@@ -48,77 +48,95 @@ function selectOption(option) {
 
 }
 
+class Option {
+    static selected = null;
+    static selectedOutput = null;
 
-let selectedOption = null;
-let selectedOptionOutput = null;
-function toggleOptionBrackets(option) {
-    const before = option.querySelector(".before");
-    const after = option.querySelector(".after");
-    before.classList.toggle("hidden");
-    after.classList.toggle("hidden");
-}
-function toggleOptionBackground(option) {
-    option.querySelector(".background").classList.toggle("hidden")
-}
-
-let unselectOption = null;
-
-const filterOptions = body.querySelectorAll(".filter-option");
-filterOptions.forEach((option) => {
-    let isSelected = false;
-    const optionType = option.id.slice(0, option.id.indexOf("-"));
-
-    function t() {
-        isSelected = false;
+    constructor(option) {
+        this.option = option;
+        this.selected = false;
+        this.optionType = option.id.slice(0, option.id.indexOf("-"));
+        this.trackHover()
+        this.trackClick()
     }
 
-    option.addEventListener("mouseenter", () => {
-        // show brackets
-        if (!isSelected) {
-            toggleOptionBrackets(option)
-        }
+    toggleBackground() {
+        this.option.querySelector(".background").classList.toggle("hidden")
+    }
 
+    toggleBrackets() {
+        const before = this.option.querySelector(".before");
+        const after = this.option.querySelector(".after");
+        before.classList.toggle("hidden")
+        after.classList.toggle("hidden")
+    }
 
-        // modify filter-button border colors
-    })
-    option.addEventListener("mouseleave", () => {
-        // remove brackets
-        if (!isSelected) {
-            toggleOptionBrackets(option)
-        }
+    deselect() {
+        console.log("deselect()")
+        this.selected = false;
+    }
 
-    })
-    option.addEventListener("click", () => {
-        if (!isSelected && selectedOption) {
-            // another filter-option already selected
-            // make this one the selected one
-            toggleOptionBrackets(selectedOption)
-            toggleOptionBackground(selectedOption)
-            if (selectedOptionOutput) {
-                selectedOptionOutput.classList.toggle("hidden")
+    trackClick() {
+        this.option.addEventListener("click", () => {
+            if (!this.selected && Option.selected) {
+                // another filter-option already selected
+                // reset state of selected option
+                Option.selected.toggleBackground()
+                Option.selected.toggleBrackets()
+                if (Option.selectedOutput) {
+                    Option.selectedOutput.classList.toggle("hidden")
+                }
+
+                // removes unselects the selected option
+                Option.selected.deselect()
+                Option.selected = null;
             }
 
-            // removes unselects the selected option
-            unselectOption()
-            selectedOption = null;
-        }
+            // select current option
+            if (!this.selected && !Option.selected) {
+                // changed from isSelected = !isSelected;
+                this.selected = true;
+                Option.selected = this;
+                this.toggleBackground()
+                Option.selectedOutput = document.querySelector(`#filter-output-${this.optionType}`);
 
-        // select current option
-        if (!isSelected && !selectedOption) {
-            // changed from isSelected = !isSelected;
-            isSelected = true;
-            selectedOption = option;
-            unselectOption = t;
-            toggleOptionBackground(option)
-            selectedOptionOutput = document.querySelector(`#filter-output-${optionType}`);
-
-            // debugging purposes
-            if (selectedOptionOutput) {
-                selectedOptionOutput.classList.toggle("hidden")
+                // debugging purposes
+                if (Option.selectedOutput) {
+                    Option.selectedOutput.classList.toggle("hidden")
+                }
             }
-        }
-    })
+        })
+    }
+
+    select() {
+        const click = new MouseEvent("click");
+        const hover = new MouseEvent("mouseenter");
+        this.option.dispatchEvent(hover)
+        this.option.dispatchEvent(click)
+    }
+
+
+    trackHover() {
+        this.option.addEventListener("mouseenter", () => {
+            if (!this.selected) {
+                this.toggleBrackets()
+            }
+        })
+        this.option.addEventListener("mouseleave", () => {
+            if (!this.selected) {
+                this.toggleBrackets()
+            }
+        })
+    }
+}
+
+let options = { "screen": null, "location": null, "gang": null, "time": null };
+body.querySelectorAll(".filter-option").forEach((option) => {
+    let temp = new Option(option);
+    options[temp.optionType] = temp;
 })
+
+options["gang"].select()
 
 
 let blinked = null;
