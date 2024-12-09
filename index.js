@@ -1,5 +1,6 @@
-const cursor = document.querySelector("#eye");
-const pupil = document.querySelector("#pupil");
+const body = document.querySelector("body");
+const cursor = body.querySelector("#eye");
+const pupil = body.querySelector("#pupil");
 
 
 cursor.style.left = document.clientX - 16 + "px";
@@ -24,9 +25,25 @@ document.addEventListener("mousemove", initialMouseMovement);
 
 let move = false;
 
+let inFilter = false;
 document.addEventListener("mousemove", (e) => {
+
     x = e.clientX;
     y = e.clientY;
+
+    if (document.elementsFromPoint(x, y).findIndex((e)=>e==filter) != -1) {
+        // move cursor, pupil into filter
+        if (!inFilter) {
+            cursor.style.display = "none";
+            inFilter= true;
+        }
+    } else {
+        if (inFilter) {
+            cursor.style.display = "unset";
+            inFilter = false;
+        }
+    }
+
 
     const centerX = x - 16;
     const centerY = y - 8;
@@ -37,6 +54,27 @@ document.addEventListener("mousemove", (e) => {
     pupil.style.top = y + "px";
 
     // 32 px 
+})
+
+
+const filterOptions = body.querySelectorAll(".filter-option");
+function filterOptionBrackets(option) {
+    const before = option.querySelector(".before");
+    const after = option.querySelector(".after");
+    before.classList.toggle("hidden");
+    after.classList.toggle("hidden");
+} 
+
+filterOptions.forEach((option) => {
+    option.addEventListener("mouseenter", () => {
+        filterOptionBrackets(option)
+    })
+    option.addEventListener("mouseleave", () => {
+        filterOptionBrackets(option)
+
+    })
+    option.addEventListener("click", () => {
+    })
 })
 
 
@@ -61,8 +99,7 @@ document.addEventListener("mousedown", (e) => {
 })
 
 
-const body = document.querySelector("body");
-const filterButton = document.querySelector("#filter-button");
+const filterButton = body.querySelector("#filter-button");
 const filter = body.querySelector("#filter");
 
 function stopRotateBorderColors() {
@@ -147,6 +184,7 @@ document.addEventListener("click", (e) => {
 
     for (const element of document.elementsFromPoint(e.clientX, e.clientY)) {
         switch (element) {
+            // could check for main element but idk too lazy ?
             case body:
                 return;
             case filterButton:

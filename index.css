@@ -113,43 +113,46 @@ header {
     z-index: 1000;
     list-style-type: none;
 }
-#filter-options ul li::before {
-    content: "[";
-    opacity: 0;
+
+.filter-option {
+    position: relative;
+    display: flex;
 }
-#filter-options ul li::after {
-    content: "]";
-    opacity: 0;
-}
-#filter-options ul li:hover::before {
-    opacity: 1;
-}
-#filter-options ul li:hover::after {
-    opacity: 1;
-}
-#screen-option.selected {
-    background: var(--screen);
-}
-#screen-option::before, #screen-option::after {
+#screen-option .before, #screen-option .after {
     color: var(--screen);
 }
-#location-option.selected {
-    background: var(--location);
+#screen-option .background {
+    background: var(--screen);
+
 }
-#location-option::before, #location-option::after {
+#location-option .before, #location-option .after {
     color: var(--location);
 }
-#gang-option.selected {
-    background: var(--gang);
+#location-option .background {
+    background: var(--location);
 }
-#gang-option::before, #gang-option::after {
+#gang-option .before, #gang-option .after {
     color: var(--gang);
 }
-#time-option.selected {
+#gang-option .background {
+    background: var(--gang);
+}
+#time-option .before, #time-option .after {
+    color: var(--time);
+}
+#time-option .background {
     background: var(--time);
 }
-#time-option::before, #time-option::after {
-    color: var(--time);
+
+
+
+
+
+.filter-option .background {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 
