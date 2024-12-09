@@ -351,3 +351,18 @@ header {
         transition: top .1s steps(5, jump-start), left .1s steps(5, jump-start);
     }
 }
+
+
+
+footer {
+    background: black;
+    width: 60%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer img {
+    height: 1.2em;
+}

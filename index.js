@@ -50,6 +50,7 @@ function selectOption(option) {
 
 
 let selectedOption = null;
+let selectedOptionOutput = null;
 function toggleOptionBrackets(option) {
     const before = option.querySelector(".before");
     const after = option.querySelector(".after");
@@ -65,6 +66,7 @@ let unselectOption = null;
 const filterOptions = body.querySelectorAll(".filter-option");
 filterOptions.forEach((option) => {
     let isSelected = false;
+    const optionType = option.id.slice(0, option.id.indexOf("-"));
 
     function t() {
         isSelected = false;
@@ -92,17 +94,28 @@ filterOptions.forEach((option) => {
             // make this one the selected one
             toggleOptionBrackets(selectedOption)
             toggleOptionBackground(selectedOption)
+            if (selectedOptionOutput) {
+                selectedOptionOutput.classList.toggle("hidden")
+            }
 
             // removes unselects the selected option
             unselectOption()
             selectedOption = null;
         }
+
+        // select current option
         if (!isSelected && !selectedOption) {
             // changed from isSelected = !isSelected;
             isSelected = true;
             selectedOption = option;
             unselectOption = t;
             toggleOptionBackground(option)
+            selectedOptionOutput = document.querySelector(`#filter-output-${optionType}`);
+
+            // debugging purposes
+            if (selectedOptionOutput) {
+                selectedOptionOutput.classList.toggle("hidden")
+            }
         }
     })
 })
