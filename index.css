@@ -1,0 +1,127 @@
+:root {
+    --white: #EFEFEF;
+    --filter-size: 2.2em;
+    --rock: #7d7d7d;
+}
+@font-face {
+    font-family: "LogoFont";
+    src: url("./fonts/BrunoAce-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "MainFont";
+    src: url("./fonts/Akshar-Regular.ttf") format("truetype");
+}
+
+html, body {
+    overflow: hidden;
+
+    cursor: none;
+
+    margin: 0;
+    background: black;
+    color: var(--white);
+    font-family: "MainFont", Arial, Helvetica, sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 1.3em;
+}
+
+main {
+    width: 60%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 0;
+}
+
+header h1 {
+    font-family: "LogoFont", Arial, Helvetica, sans-serif;
+}
+
+header small {
+    color: var(--rock);
+}
+
+#logo {
+    display: flex;
+    flex-direction: column;
+}
+
+#filter-button {
+    height: var(--filter-size);
+    width: var(--filter-size);
+    background: var(--white);
+
+    border-width: .2em;
+    border-style: solid;
+    border-top-color: rgb(207, 27, 27);
+    border-right-color: rgb(8, 158, 8);
+    border-bottom-color: rgb(217, 0, 255);
+    border-bottom-width: .3em;
+    border-left-color: rgb(0, 136, 255);;
+}
+
+
+.row {
+    display: flex;
+}
+.row img {
+    width: 33.33%;
+    /* user-select: none -> not supported on WebView IOS */
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+}
+.row .two {
+    width: 66.66%;
+}
+
+.hidden {
+    display: none;
+}
+
+#eye {
+    height: 2em;
+    width: 2em;
+    background: var(--white);
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid black;
+
+    transition: top .1s steps(2, jump-start), left .1s steps(2, jump-start);
+}
+
+#pupil {
+    height: 1em;
+    width: 1em;
+    background: black;
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid white;
+}
+.blink {
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
