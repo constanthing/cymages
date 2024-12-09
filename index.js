@@ -66,14 +66,24 @@ function filterOptionBrackets(option) {
 } 
 
 filterOptions.forEach((option) => {
+    let isSelected = false; 
     option.addEventListener("mouseenter", () => {
-        filterOptionBrackets(option)
+        // show brackets
+        if (!isSelected) {
+            filterOptionBrackets(option)
+        }
+
+        // modify filter-button border colors
     })
     option.addEventListener("mouseleave", () => {
-        filterOptionBrackets(option)
-
+        // remove brackets
+        if (!isSelected) {
+            filterOptionBrackets(option)
+        }
     })
     option.addEventListener("click", () => {
+        isSelected = !isSelected;
+        option.querySelector(".background").classList.toggle("hidden")
     })
 })
 
@@ -127,10 +137,10 @@ let rotateSignal = rotateAbortController.signal;
 let rotateAbort = null;
 
 let rotateTimeout = null;
+// if changing color order in css -- change this
+let colors = ["screen", "location", "gang", "time"];
 async function rotateBorderColors() {
-    let colors = ["screen", "location", "gang", "time"];
     while (true) {
-
         let newColors = [];
         for (let colorIndex = 0; colorIndex < 4; colorIndex++) {
             let previousColorIndex = colorIndex - 1;

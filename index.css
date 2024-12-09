@@ -29,6 +29,10 @@ body {
     background: black;
     color: var(--white);
     font-family: "MainFont", Arial, Helvetica, sans-serif;
+
+    /* user-select: none -> not supported on WebView IOS */
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 * {
@@ -90,7 +94,8 @@ header {
     top: 100%;
     left: 0;
     background: black;
-    padding: 0 0 2em 0;
+    padding: 2em 1em;
+    border-top: 1px solid var(--white);
     display: flex;
     justify-content: space-between;
 
@@ -163,10 +168,7 @@ header {
 
 .row img {
     width: 33.33%;
-    /* user-select: none -> not supported on WebView IOS */
-    user-select: none;
     pointer-events: none;
-    -webkit-user-drag: none;
 }
 
 .row .two {
