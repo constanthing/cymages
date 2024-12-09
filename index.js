@@ -9,7 +9,6 @@ cursor.style.top = document.clientY - 16 + "px";
 let x = 0;
 let y = 0;
 
-
 // reveal cursor upon first moving mouse
 // AND delete function call
 let initialMouseMovement = null;
@@ -26,24 +25,12 @@ document.addEventListener("mousemove", initialMouseMovement);
 let move = false;
 
 let inFilter = false;
+
+
 document.addEventListener("mousemove", (e) => {
 
     x = e.clientX;
     y = e.clientY;
-
-    if (document.elementsFromPoint(x, y).findIndex((e) => e == filter) != -1) {
-        // move cursor, pupil into filter
-        if (!inFilter) {
-            cursor.style.display = "none";
-            inFilter = true;
-        }
-    } else {
-        if (inFilter) {
-            cursor.style.display = "unset";
-            inFilter = false;
-        }
-    }
-
 
     const centerX = x - 16;
     const centerY = y - 8;
@@ -57,9 +44,13 @@ document.addEventListener("mousemove", (e) => {
 })
 
 
-const filterOptions = body.querySelectorAll(".filter-option");
+function selectOption(option) {
+
+}
+
+
 let selectedOption = null;
-function filterOptionBrackets(option) {
+function toggleOptionBrackets(option) {
     const before = option.querySelector(".before");
     const after = option.querySelector(".after");
     before.classList.toggle("hidden");
@@ -69,8 +60,9 @@ function toggleOptionBackground(option) {
     option.querySelector(".background").classList.toggle("hidden")
 }
 
-let selectedOptionFunction = null;
+let unselectOption = null;
 
+const filterOptions = body.querySelectorAll(".filter-option");
 filterOptions.forEach((option) => {
     let isSelected = false;
 
@@ -81,30 +73,35 @@ filterOptions.forEach((option) => {
     option.addEventListener("mouseenter", () => {
         // show brackets
         if (!isSelected) {
-            filterOptionBrackets(option)
+            toggleOptionBrackets(option)
         }
+
 
         // modify filter-button border colors
     })
     option.addEventListener("mouseleave", () => {
         // remove brackets
         if (!isSelected) {
-            filterOptionBrackets(option)
+            toggleOptionBrackets(option)
         }
+
     })
     option.addEventListener("click", () => {
         if (!isSelected && selectedOption) {
             // another filter-option already selected
             // make this one the selected one
-            filterOptionBrackets(selectedOption)
+            toggleOptionBrackets(selectedOption)
             toggleOptionBackground(selectedOption)
-            selectedOptionFunction()
+
+            // removes unselects the selected option
+            unselectOption()
             selectedOption = null;
         }
         if (!isSelected && !selectedOption) {
-            isSelected = !isSelected;
+            // changed from isSelected = !isSelected;
+            isSelected = true;
             selectedOption = option;
-            selectedOptionFunction = t;
+            unselectOption = t;
             toggleOptionBackground(option)
         }
     })
@@ -134,6 +131,23 @@ document.addEventListener("mousedown", (e) => {
 
 const filterButton = body.querySelector("#filter-button");
 const filter = body.querySelector("#filter");
+
+filter.addEventListener("mouseenter", e => {
+    if (!inFilter) {
+        cursor.style.opacity = 0;
+        pupil.style.background = "unset";
+        // cursor.classList.toggle("hidden")
+        inFilter = true;
+    }
+})
+filter.addEventListener("mouseleave", e => {
+    if (inFilter) {
+        cursor.style.opacity = 1;
+        pupil.style.background = "";
+        // cursor.classList.toggle("hidden")
+        inFilter = false;
+    }
+})
 
 function stopRotateBorderColors() {
     rotateAbortController.abort();
@@ -213,20 +227,35 @@ async function rotateBorderColors() {
 rotateBorderColors()
 
 
-document.addEventListener("click", (e) => {
+const filterOutput = document.querySelector("#filter-output");
 
-    for (const element of document.elementsFromPoint(e.clientX, e.clientY)) {
-        switch (element) {
-            // could check for main element but idk too lazy ?
-            case body:
-                return;
-            case filterButton:
-                let buttonClick = new MouseEvent("click");
-                filterButton.dispatchEvent(buttonClick)
-                return;
-            default:
-                console.log(element)
-                break;
+const gangs = filterOutput.querySelectorAll(".gang");
+gangs.forEach(gang => {
+    const ribbon = gang.querySelector(".gang-selected");
+    const dimmer = gang.querySelector(".gang-dimmer");
+    let selected = false;
+    gang.addEventListener("click", e => {
+        if (selected) {
+            ribbon.style.top = "-15%";
+            dimmer.style.background = "";
+            pupil.classList.add("indicate")
+        } else {
+            ribbon.style.top = "0";
+            pupil.classList.remove("indicate")
+            dimmer.style.background = "rgba(0, 0, 0, .48)";
         }
-    }
+        selected = !selected;
+    })
+    gang.addEventListener("mouseenter", e => {
+        if (!selected) {
+            ribbon.style.top = "-15%";
+            pupil.classList.add("indicate")
+        }
+    })
+    gang.addEventListener("mouseleave", e => {
+        if (!selected) {
+            ribbon.style.top = "";
+        }
+        pupil.classList.remove("indicate")
+    })
 })

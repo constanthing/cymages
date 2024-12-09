@@ -19,6 +19,16 @@
     src: url("./fonts/Akshar-Regular.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Maelstrom";
+    src: url("./fonts/MetalMania-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "66th street";
+    src: url("./fonts/LeagueGothic-Regular-VariableFont_wdth.ttf") format("truetype");
+}
+
 html,
 body {
     overflow: hidden;
@@ -77,6 +87,7 @@ header {
     height: var(--filter-size);
     width: var(--filter-size);
     background: var(--white);
+    border-radius: 100%;
 
     border-width: .2em;
     border-style: solid;
@@ -90,20 +101,22 @@ header {
 
 #filter {
     width: 100%;
+    height: 250%;
     position: absolute;
     top: 100%;
     left: 0;
     background: black;
-    padding: 2em 1em;
+    padding: 2em 0;
     border-top: 1px solid var(--white);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
 }
 
 #filter-options {
     text-align: right;
-
+    width: 20%;
 }
 
 #filter-options ul {
@@ -115,7 +128,6 @@ header {
 #filter-options ul li {
     width: fit-content;
     position: relative;
-    z-index: 1000;
     list-style-type: none;
 }
 
@@ -123,42 +135,128 @@ header {
     position: relative;
     display: flex;
 }
-#screen-option .before, #screen-option .after {
+
+.filter-option .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+#screen-option .before,
+#screen-option .after {
     color: var(--screen);
 }
+
 #screen-option .background {
     background: var(--screen);
 
 }
-#location-option .before, #location-option .after {
+
+#location-option .before,
+#location-option .after {
     color: var(--location);
 }
+
 #location-option .background {
     background: var(--location);
 }
-#gang-option .before, #gang-option .after {
+
+#gang-option .before,
+#gang-option .after {
     color: var(--gang);
 }
+
 #gang-option .background {
     background: var(--gang);
 }
-#time-option .before, #time-option .after {
+
+#time-option .before,
+#time-option .after {
     color: var(--time);
 }
+
 #time-option .background {
     background: var(--time);
 }
 
+#filter-output {
+    /* background: rgb(38, 38, 38);
+    background: linear-gradient(102deg, rgba(38, 38, 38, 1) 0%, rgba(25, 25, 25, 1) 100%); */
 
-
-
-
-.filter-option .background {
-    position: absolute;
-    top: 0; left: 0;
+    width: 80%;
     height: 100%;
-    width: 100%;
+
 }
+#filter-output section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: fit-content;
+    overflow: hidden;
+}
+
+.gang img {
+    height: 100%;
+}
+
+.gang h2 {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.gang-dimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+}
+
+.gang-selected {
+    position: absolute;
+    top: -25%;
+    left: 1.5em;
+    background: var(--gang);
+    padding: .7em .3em .3em .3em;
+    transition: top .3s ease;
+
+}
+
+.gang-selected img {
+    height: .7em;
+}
+
+#maelstrom {
+    font-family: "Maelstrom";
+}
+
+#damox {
+    font-family: "Da mox";
+}
+
+#sixty-sixth-street {
+    font-family: "66th street";
+}
+
+#filter-output-gang {
+    width: 100%;
+    height: 100%;
+}
+
 
 
 
@@ -190,8 +288,8 @@ header {
     /* 
     smaller screen = increase steps
      */
-    transition: top .1s steps(2, jump-start), left .1s steps(2, jump-start);
-    z-index: 100;
+    transition: top .1s steps(2, jump-start), left .1s steps(2, jump-start), opacity .2s linear;
+    pointer-events: none;
 }
 
 #pupil {
@@ -201,7 +299,7 @@ header {
     border-radius: 100%;
     position: absolute;
     border: 1px solid white;
-    z-index: 101;
+    pointer-events: none;
 }
 
 .blink {
@@ -221,5 +319,35 @@ header {
 
     50% {
         opacity: 0;
+    }
+}
+
+.indicate {
+    animation-name: indicate;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+
+@keyframes indicate {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    main {
+        width: 80%;
+    }
+
+    #eye {
+        transition: top .1s steps(5, jump-start), left .1s steps(5, jump-start);
     }
 }
