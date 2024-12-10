@@ -188,6 +188,9 @@ function stopRotateBorderColors() {
     rotateAbort = null;
 }
 
+const images = body.querySelector("#images");
+const imagesDimmer = body.querySelector("#images-dimmer");
+
 let rotating = true;
 filterButton.addEventListener("click", () => {
     if (rotating) {
@@ -197,6 +200,7 @@ filterButton.addEventListener("click", () => {
         rotateBorderColors();
         rotating = true;
     }
+    imagesDimmer.classList.toggle("hidden")
     filter.classList.toggle("hidden")
 })
 
@@ -269,6 +273,7 @@ let dragging = false;
 let startX = null;
 filterOutput.addEventListener("pointerdown", e=>{
     if (!dragging) {
+        pupil.style.background = "white";
         dragging = true;
         startX = e.clientX;
     }
@@ -288,45 +293,19 @@ filterOutput.addEventListener("pointermove", e=>{
 })
 document.addEventListener("pointerup", e=>{
     if(dragging) {
+        pupil.style.background = "";
         dragging = false;
     }
 })
 filterOutput.addEventListener("pointerleave", e=>{
+    console.log("left")
     if (dragging) {
+        pupil.style.background = "";
         dragging = false;
     }
 })
 
 const gangs = filterOutput.querySelectorAll(".gang");
-// gangs.forEach(gang => {
-//     const ribbon = gang.querySelector(".gang-selected");
-//     const dimmer = gang.querySelector(".gang-dimmer");
-//     let selected = false;
-//     gang.addEventListener("click", e => {
-//         if (selected) {
-//             ribbon.style.top = "-15%";
-//             dimmer.style.background = "";
-//             pupil.classList.add("indicate")
-//         } else {
-//             ribbon.style.top = "0";
-//             pupil.classList.remove("indicate")
-//             dimmer.style.background = "rgba(0, 0, 0, .48)";
-//         }
-//         selected = !selected;
-//     })
-//     gang.addEventListener("mouseenter", e => {
-//         if (!selected) {
-//             ribbon.style.top = "-15%";
-//             pupil.classList.add("indicate")
-//         }
-//     })
-//     gang.addEventListener("mouseleave", e => {
-//         if (!selected) {
-//             ribbon.style.top = "";
-//         }
-//         pupil.classList.remove("indicate")
-//     })
-// })
 
 gangs.forEach(gang => {
     const logo = gang.querySelector(".gang-logo");
@@ -338,6 +317,7 @@ gangs.forEach(gang => {
         if (!clicked) {
             logo.style.filter = "grayscale(0) drop-shadow(0 0 .5em black)";
             background.style.filter = "grayscale(0)";
+            pupil.classList.add("indicate")
         }
     })
     gang.addEventListener("mouseleave", e=>{
@@ -345,11 +325,13 @@ gangs.forEach(gang => {
             logo.style.filter = "";
             background.style.filter = "";
         }
+        pupil.classList.remove("indicate")
     })
     gang.addEventListener("click", e=>{
         clicked = !clicked;
 
         if (clicked) {
+            pupil.classList.remove("indicate")
             if (!gang.id) {
                 logo.style.width = "4em";
             } else {
