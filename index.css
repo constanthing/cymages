@@ -106,7 +106,7 @@ header {
     top: 100%;
     left: 0;
     background: black;
-    padding: 2em 0;
+    /* padding: 2em 0; */
     border-top: 1px solid var(--white);
     display: flex;
     justify-content: space-between;
@@ -189,25 +189,77 @@ header {
 
     width: 80%;
     height: 100%;
-
+    overflow-y: scroll;
+    /* overflow: hidden; */
+    position: relative;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
 }
+/* for webkit browsers such as chrome, safari, etc. */
+#filter-output::-webkit-scrollbar {
+    display: none;
+}
+
 #filter-output section {
+    /* 
+    align #filter-output and #filter-options 
+     */
     display: flex;
     justify-content: space-between;
 }
 
+
+#filter-output-gang {
+    width: fit-content;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 .gang {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     height: 100%;
-    width: fit-content;
+    width: 10em;
+    padding: 0 2em;
+    /* hide background image */
     overflow: hidden;
 }
+.gang:nth-child(even) {
+    border: 2px solid black;
+    border-top: none;
+    border-bottom: none;
+}
 
-.gang img {
+.gang-logo {
+    width: 3em;
+    filter: grayscale(1);
+    transition: filter .3s ease, width .3s ease;
+    /*  */
+    pointer-events: none;
+}
+#maelstrom .gang-logo {
+    width: 4em;
+}
+
+
+.gang-dimmer {
+    position: absolute;
+    top: 0; left: 0;
     height: 100%;
+    width: 100%;
+    background: black;
+    opacity: .8;
+}
+.gang-background {
+    position: absolute;
+    height: 100%;
+    top: 50%; right: 50%;
+    filter: grayscale(1);
+    transform: translate(50%, -50%);
+    transition: filter .3s ease;
 }
 
 .gang h2 {
@@ -217,14 +269,6 @@ header {
     transform: translate(50%, -50%);
 }
 
-.gang-dimmer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .8);
-}
 
 .gang-selected {
     position: absolute;
@@ -251,12 +295,6 @@ header {
 #sixty-sixth-street {
     font-family: "66th street";
 }
-
-#filter-output-gang {
-    width: 100%;
-    height: 100%;
-}
-
 
 
 

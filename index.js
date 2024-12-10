@@ -260,33 +260,105 @@ rotateBorderColors()
 
 const filterOutput = document.querySelector("#filter-output");
 
+/*
+mousemove, click for mouse only interaction
+pointer events for touch and mouse interaction!
+*/
+
+let dragging = false;
+let startX = null;
+filterOutput.addEventListener("pointerdown", e=>{
+    if (!dragging) {
+        dragging = true;
+        startX = e.clientX;
+    }
+})
+filterOutput.addEventListener("pointermove", e=>{
+    if (dragging) {
+        let move = (e.clientX - startX);
+        let scroll = filterOutput.scrollLeft - move;
+
+        // scroll = Math.max(0, Math.min(scroll, filterOutput.scrollWidth - filterOutput.clientWidth));
+
+        filterOutput.scrollTo(scroll, 0)
+
+        // for smoother scrolling 
+        startX = e.clientX;
+    }
+})
+document.addEventListener("pointerup", e=>{
+    if(dragging) {
+        dragging = false;
+    }
+})
+filterOutput.addEventListener("pointerleave", e=>{
+    if (dragging) {
+        dragging = false;
+    }
+})
+
 const gangs = filterOutput.querySelectorAll(".gang");
+// gangs.forEach(gang => {
+//     const ribbon = gang.querySelector(".gang-selected");
+//     const dimmer = gang.querySelector(".gang-dimmer");
+//     let selected = false;
+//     gang.addEventListener("click", e => {
+//         if (selected) {
+//             ribbon.style.top = "-15%";
+//             dimmer.style.background = "";
+//             pupil.classList.add("indicate")
+//         } else {
+//             ribbon.style.top = "0";
+//             pupil.classList.remove("indicate")
+//             dimmer.style.background = "rgba(0, 0, 0, .48)";
+//         }
+//         selected = !selected;
+//     })
+//     gang.addEventListener("mouseenter", e => {
+//         if (!selected) {
+//             ribbon.style.top = "-15%";
+//             pupil.classList.add("indicate")
+//         }
+//     })
+//     gang.addEventListener("mouseleave", e => {
+//         if (!selected) {
+//             ribbon.style.top = "";
+//         }
+//         pupil.classList.remove("indicate")
+//     })
+// })
+
 gangs.forEach(gang => {
-    const ribbon = gang.querySelector(".gang-selected");
+    const logo = gang.querySelector(".gang-logo");
     const dimmer = gang.querySelector(".gang-dimmer");
-    let selected = false;
-    gang.addEventListener("click", e => {
-        if (selected) {
-            ribbon.style.top = "-15%";
-            dimmer.style.background = "";
-            pupil.classList.add("indicate")
+    const background = gang.querySelector(".gang-background");
+    let clicked = false;
+
+    gang.addEventListener("mouseenter", e=>{
+        if (!clicked) {
+            logo.style.filter = "grayscale(0) drop-shadow(0 0 .5em black)";
+            background.style.filter = "grayscale(0)";
+        }
+    })
+    gang.addEventListener("mouseleave", e=>{
+        if (!clicked) {
+            logo.style.filter = "";
+            background.style.filter = "";
+        }
+    })
+    gang.addEventListener("click", e=>{
+        clicked = !clicked;
+
+        if (clicked) {
+            if (!gang.id) {
+                logo.style.width = "4em";
+            } else {
+                logo.style.width = "5em";
+            }
+            dimmer.style.opacity = ".4";
         } else {
-            ribbon.style.top = "0";
-            pupil.classList.remove("indicate")
-            dimmer.style.background = "rgba(0, 0, 0, .48)";
+            dimmer.style.opacity = "";
+            logo.style.width = "";
         }
-        selected = !selected;
-    })
-    gang.addEventListener("mouseenter", e => {
-        if (!selected) {
-            ribbon.style.top = "-15%";
-            pupil.classList.add("indicate")
-        }
-    })
-    gang.addEventListener("mouseleave", e => {
-        if (!selected) {
-            ribbon.style.top = "";
-        }
-        pupil.classList.remove("indicate")
     })
 })
