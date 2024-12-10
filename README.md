@@ -4,6 +4,8 @@
 - instead of making #eye display: none; when in #filter maybe just make #filter z-index: 100; same as #eye?
 - prevent blink from firing when dragging #filter-output-gang it looks odd
 - clicking out of #filter-output close it 
+- Add cool image altering,shaping,molding, etc. effect when hovering over them that follows the cursor? (maybe too much idk just an idea)
+- add dragging functionality too #images 
 # BUGS
 - dragging #filter-output-gang when returning to drag area and its on a element that element is selected... don't want that!
 - dragging to the end of the #filter-output area causes scroll to go in that direction instead of the intended opposite direction! 

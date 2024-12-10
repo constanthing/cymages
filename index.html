@@ -10,6 +10,7 @@
     <main>
         <header>
             <div id="logo">
+                <!-- clicking logo should take to github page -->
                 <h1>CYMAGES</h1>
                 <small>no mods - sfw - exportable</small>
             </div>
@@ -99,6 +100,11 @@
                         </div>
                         <!-- <li id="weather-option">weather</li> -->
                     </ul>
+                    <div id="filter-actions">
+                        <button id="filter-reset">&gt;&gt;reset&lt;&lt;</button>
+                        <br>
+                        <button id="filter-apply">&gt;&gt;apply&lt;&lt;</button>
+                    </div>
                 </section>
             </section>
 
@@ -123,19 +129,28 @@
             </div>
         </section>
 
-        <!-- <footer>
-            <small>Made by &lesssim;3 constanthing</small>
+        <footer>
+            <small id="possible-action">[POSSIBLE ACTION]</small>
+            <small id="status">[STATUS PENDING]</small>
             <div>
-                <img src="./vectors/cat.svg" alt="">
-                <img src="./vectors/coffee.svg" alt="">
+                <img src="./vectors/images.svg" alt="">
+                <small>pending: 0</small>
             </div>
-        </footer> -->
+        </footer>
     </main>
+
 
 
 
     <div id="eye" class="hidden"></div>
     <div id="pupil" class="hidden"></div>
+    <div id="image-actions" class="hidden">
+        <small>export</small>
+        <br>
+        <small class="image-action">now</small>
+        <br>
+        <small class="image-action">later</small>
+    </div>
 
 
     <script src="index.js"></script>

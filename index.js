@@ -1,10 +1,10 @@
 const body = document.querySelector("body");
-const cursor = body.querySelector("#eye");
+const eye = body.querySelector("#eye");
 const pupil = body.querySelector("#pupil");
 
 
-cursor.style.left = document.clientX - 16 + "px";
-cursor.style.top = document.clientY - 16 + "px";
+eye.style.left = document.clientX - 16 + "px";
+eye.style.top = document.clientY - 16 + "px";
 
 let x = 0;
 let y = 0;
@@ -13,9 +13,9 @@ let y = 0;
 // AND delete function call
 let initialMouseMovement = null;
 initialMouseMovement = () => {
-    if (cursor.classList.contains("hidden")) {
+    if (eye.classList.contains("hidden")) {
         pupil.classList.remove("hidden")
-        cursor.classList.remove("hidden");
+        eye.classList.remove("hidden");
     }
     document.removeEventListener("mousemove", initialMouseMovement);
     console.log("iniitalMouseMovement()")
@@ -25,18 +25,19 @@ document.addEventListener("mousemove", initialMouseMovement);
 let move = false;
 
 let inFilter = false;
-
+let eyeTrack = true;
 
 document.addEventListener("mousemove", (e) => {
 
     x = e.clientX;
     y = e.clientY;
 
-    const centerX = x - 16;
-    const centerY = y - 8;
-    cursor.style.left = centerX + "px";
-    cursor.style.top = centerY + "px";
-
+    if (eyeTrack) {
+        const centerX = x - 16;
+        const centerY = y - 8;
+        eye.style.left = centerX + "px";
+        eye.style.top = centerY + "px";
+    }
     pupil.style.left = x - 8 + "px";
     pupil.style.top = y + "px";
 
@@ -165,7 +166,7 @@ const filter = body.querySelector("#filter");
 
 filter.addEventListener("mouseenter", e => {
     if (!inFilter) {
-        cursor.style.opacity = 0;
+        eye.style.opacity = 0;
         pupil.style.background = "unset";
         // cursor.classList.toggle("hidden")
         inFilter = true;
@@ -173,7 +174,7 @@ filter.addEventListener("mouseenter", e => {
 })
 filter.addEventListener("mouseleave", e => {
     if (inFilter) {
-        cursor.style.opacity = 1;
+        eye.style.opacity = 1;
         pupil.style.background = "";
         // cursor.classList.toggle("hidden")
         inFilter = false;
@@ -190,6 +191,84 @@ function stopRotateBorderColors() {
 
 const images = body.querySelector("#images");
 const imagesDimmer = body.querySelector("#images-dimmer");
+let currentImage = null;
+
+const imageActions = body.querySelector("#image-actions");
+let imageActionsOpen = false;
+
+imageActions.addEventListener("mouseenter", e=>{
+    console.log(imageActionsOpen)
+    imageActionsOpen = true;
+})
+imageActions.addEventListener("mouseleave", e=>{
+    imageActionsOpen = false;
+    imageActions.classList.toggle("hidden")
+
+    const click = new MouseEvent("click");
+    currentImage.dispatchEvent(click)
+})
+
+images.querySelectorAll("img").forEach(image => {
+    let clicked = false;
+    image.addEventListener("click", e=>{
+        clicked = !clicked;
+        if (clicked) {
+            currentImage = image;
+
+            imageActions.classList.toggle("hidden")
+            imageActionsOpen = true;
+            imageActions.style.top = (e.clientY-16) + "px";
+            // center of eye (horizontally) 
+            imageActions.style.left = (e.clientX - (imageActions.clientWidth / 2)) + "px";
+
+            pupil.style.background = "none";
+            eyeTrack = false;
+            eye.style.background = "black";
+
+            if (!blinked) {
+                blink()
+            }
+            // pupil.classList.remove("indicate")
+        } else {
+            currentImage = null;
+            eyeTrack = true;
+            eye.style.background = "";
+            pupil.style.background = "";
+            // pupil.classList.add("indicate")
+        }
+    })
+    image.addEventListener("mouseenter", e=>{
+        // pupil.classList.toggle("indicate")
+    })
+    image.addEventListener("mouseleave", e=>{
+        if (!clicked) {
+            // pupil.classList.toggle("indicate")
+        }
+        if (clicked && !imageActionsOpen) {
+            console.log("left")
+            eyeTrack = true;
+            pupil.style.background = "";
+            eye.style.background = "";
+            // pupil.classList.add("indicate")
+
+            imageActions.classList.toggle("hidden")
+        }
+    })
+})
+imageActions.querySelectorAll(".image-action").forEach(action=>{
+    action.addEventListener("mouseenter", e=>{
+        console.log(action.innerText)
+        action.innerText = "[" + action.innerText + "]";
+    })
+    action.addEventListener("mouseleave", e=>{
+        action.innerText = action.innerText.slice(1, action.innerText.length-1);
+    })
+
+    action.addEventListener("click", e=>{
+        // TODO RESET BACKGROUND COLOR UPON LEAVING #IMAGE-ACTIONS
+        action.style.background = "var(--white)";
+    })
+})
 
 let rotating = true;
 filterButton.addEventListener("click", () => {
