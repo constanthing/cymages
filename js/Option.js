@@ -13,32 +13,24 @@ class Option {
         this.loadingFilters = false;
         this.loadedFilters = false;
 
+        this.outputs = null;
+
         this.trackHover()
         this.trackClick()
     }
 
     loadFilters() {
-        this.loadingFilters = true;
-        // this.filters = JSON.parse(localStorage.getItem(`${this.type}Filters`));
         // load filters
         if (this.filters.length) {
-            console.log("loading filters", this.filters)
-            const click = new MouseEvent("click");
-            const mouseEnter = new MouseEvent("mouseenter");
             for (const filter of this.filters) {
-                let filterElement =  document.querySelector(`.${this.type}[data-index="${filter}"]`);
-                filterElement.dispatchEvent(click)
-                filterElement.dispatchEvent(mouseEnter)
+                let filterElement = this.outputs[filter];
+                filterElement.selectStyle()
+                filterElement.hoverStyle()
             }
-            this.loadedFilters = true;
         } else {
             // nothing to load
             console.info("nothing to load")
         }
-
-        this.loadingFilters = false;
-
-        // document.querySelectorAll(`.${this.type}[dat]`)
     }
 
     toggleBackground() {
@@ -91,6 +83,15 @@ class Option {
     }
 
     select() {
+        if (this.outputs == null) {
+            this.outputs = []
+            const t = document.querySelectorAll(`.${this.type}`);
+            for (let output of t) {
+                output = new Output(output);
+                this.outputs.push(output)
+            }
+        }
+
         const click = new MouseEvent("click");
         const hover = new MouseEvent("mouseenter");
         this.option.dispatchEvent(hover)
@@ -108,5 +109,17 @@ class Option {
                 this.toggleBrackets()
             }
         })
+    }
+
+    reset() {
+        for (const filter of this.filters) {
+            // filter is the index of the output
+            let output = this.outputs[filter];
+            // remove click style
+            output.deselectStyle()
+            output.leaveStyle()
+        }
+        this.filters = [];
+        localStorage.setItem(`${this.type}Filters`, JSON.stringify([]))
     }
 }

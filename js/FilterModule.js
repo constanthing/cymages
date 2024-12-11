@@ -151,67 +151,6 @@ options.gang.select()
 /*
 FILTER GANGS
 */
-const gangs = filterOutput.querySelectorAll(".gang");
-gangs.forEach(gang => {
-    const logo = gang.querySelector(".gang-logo");
-    const dimmer = gang.querySelector(".gang-dimmer");
-    const background = gang.querySelector(".gang-background");
-    const gangIndex = gang.dataset.index;
-    let clicked = false;
-
-    gang.addEventListener("mouseenter", e => {
-        if (!clicked || Option.selected.loadingFilters) {
-            logo.style.filter = "grayscale(0) drop-shadow(0 0 .5em black)";
-            background.style.filter = "grayscale(0)";
-            pupil.addClass("indicate")
-            // pupil.classList.add("indicate")
-        }
-    })
-    gang.addEventListener("mouseleave", e => {
-        if (!clicked) {
-            logo.style.filter = "";
-            background.style.filter = "";
-        }
-        pupil.removeClass("indicate")
-        // pupil.classList.remove("indicate")
-    })
-    gang.addEventListener("click", e => {
-        clicked = !clicked;
-
-        if (clicked) {
-            if (!Option.selected.loadingFilters) {
-                // add this gang to filter
-                Option.selected.filters.push(gangIndex)
-            }
-
-            pupil.removeClass("indicate")
-            // pupil.classList.remove("indicate")
-            if (!gang.id) {
-                logo.style.width = "4em";
-            } else {
-                logo.style.width = "5em";
-            }
-            dimmer.style.opacity = ".4";
-        } else {
-            // remove this gang from filter 
-            if (!resetting) {
-                Option.selected.filters.splice(Option.selected.filters.findIndex(e=>e==gangIndex), 1)
-            }
-
-            dimmer.style.opacity = "";
-            logo.style.width = "";
-        }
-
-        if (!resetting && !Option.selected.loadingFilters) {
-            localStorage.setItem("gangFilters", JSON.stringify(Option.selected.filters))
-            console.log(localStorage.getItem("gangFilters"))
-        }
-    })
-})
-
-
-
-
 /*
 FILTER ACTION/RESET BUTTONS
 */
@@ -226,22 +165,9 @@ const filterReset = filter.querySelector("#filter-reset");
 // })
 let resetting = false;
 filterReset.addEventListener("click", e => {
-    const click = new MouseEvent("click");
-    const mouseLeave = new MouseEvent("mouseleave");
-    resetting = true;
-    for (const filter of Option.selected.filters) {
-        let t = document.querySelector(`.${Option.selected.type}[data-index="${filter}"]`);
-        t.dispatchEvent(click)
-        t.dispatchEvent(mouseLeave)
-    }
-    Option.selected.filters = [];
-    localStorage.setItem(`${Option.selected.type}Filters`, JSON.stringify([]))
-
-    resetting = false;
+    Option.selected.reset()
 })
 
-
-// probably add document.onload
 
 // selecting gang by default for testing purposes
 options.gang.loadFilters()
