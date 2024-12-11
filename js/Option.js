@@ -8,10 +8,37 @@ class Option {
         this.type = option.id.slice(0, option.id.indexOf("-"));
 
         // LOAD FILTERS
-        this.filters = [];
+        this.filters = JSON.parse(localStorage.getItem(`${this.type}Filters`));
+
+        this.loadingFilters = false;
+        this.loadedFilters = false;
 
         this.trackHover()
         this.trackClick()
+    }
+
+    loadFilters() {
+        this.loadingFilters = true;
+        // this.filters = JSON.parse(localStorage.getItem(`${this.type}Filters`));
+        // load filters
+        if (this.filters.length) {
+            console.log("loading filters", this.filters)
+            const click = new MouseEvent("click");
+            const mouseEnter = new MouseEvent("mouseenter");
+            for (const filter of this.filters) {
+                let filterElement =  document.querySelector(`.${this.type}[data-index="${filter}"]`);
+                filterElement.dispatchEvent(click)
+                filterElement.dispatchEvent(mouseEnter)
+            }
+            this.loadedFilters = true;
+        } else {
+            // nothing to load
+            console.info("nothing to load")
+        }
+
+        this.loadingFilters = false;
+
+        // document.querySelectorAll(`.${this.type}[dat]`)
     }
 
     toggleBackground() {
@@ -58,6 +85,7 @@ class Option {
                 if (Option.selectedOutput) {
                     Option.selectedOutput.classList.toggle("hidden")
                 }
+
             }
         })
     }

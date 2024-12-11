@@ -135,21 +135,32 @@ filterOutput.addEventListener("pointerleave", e => {
 })
 
 
+
+/*
+FILTER OPTIONS
+*/
+let options = { "screen": null, "location": null, "gang": null, "time": null };
+// 1. creating an object out of each filter option
+// 2. assigning object to relative key in options dict.
+filter.querySelectorAll(".filter-option").forEach((option) => {
+    let optionObj = new Option(option);
+    options[optionObj.type] = optionObj;
+})
+options.gang.select()
+
 /*
 FILTER GANGS
 */
 const gangs = filterOutput.querySelectorAll(".gang");
-let added = 0;
 gangs.forEach(gang => {
     const logo = gang.querySelector(".gang-logo");
     const dimmer = gang.querySelector(".gang-dimmer");
     const background = gang.querySelector(".gang-background");
-    let filterIndex = null;
     const gangIndex = gang.dataset.index;
     let clicked = false;
 
     gang.addEventListener("mouseenter", e => {
-        if (!clicked) {
+        if (!clicked || Option.selected.loadingFilters) {
             logo.style.filter = "grayscale(0) drop-shadow(0 0 .5em black)";
             background.style.filter = "grayscale(0)";
             pupil.addClass("indicate")
@@ -168,10 +179,10 @@ gangs.forEach(gang => {
         clicked = !clicked;
 
         if (clicked) {
-            filterIndex = added;
-
-            // add this gang to filter
-            Option.selected.filters.push(gangIndex)
+            if (!Option.selected.loadingFilters) {
+                // add this gang to filter
+                Option.selected.filters.push(gangIndex)
+            }
 
             pupil.removeClass("indicate")
             // pupil.classList.remove("indicate")
@@ -184,33 +195,20 @@ gangs.forEach(gang => {
         } else {
             // remove this gang from filter 
             if (!resetting) {
-                Option.selected.filters.splice(filterIndex, 1)
+                Option.selected.filters.splice(Option.selected.filters.findIndex(e=>e==gangIndex), 1)
             }
 
             dimmer.style.opacity = "";
             logo.style.width = "";
         }
 
-        if (!resetting) {
+        if (!resetting && !Option.selected.loadingFilters) {
             localStorage.setItem("gangFilters", JSON.stringify(Option.selected.filters))
             console.log(localStorage.getItem("gangFilters"))
         }
     })
 })
 
-
-/*
-FILTER OPTIONS
-*/
-let options = { "screen": null, "location": null, "gang": null, "time": null };
-// 1. creating an object out of each filter option
-// 2. assigning object to relative key in options dict.
-filter.querySelectorAll(".filter-option").forEach((option) => {
-    let optionObj = new Option(option);
-    options[optionObj.type] = optionObj;
-})
-// selecting gang by default for testing purposes
-options.gang.select()
 
 
 
@@ -241,3 +239,9 @@ filterReset.addEventListener("click", e => {
 
     resetting = false;
 })
+
+
+// probably add document.onload
+
+// selecting gang by default for testing purposes
+options.gang.loadFilters()
