@@ -11,6 +11,8 @@
     - does it on safari not google chrome
 - dragging to the end of the #filter-output area causes scroll to go in that direction instead of the intended opposite direction! 
 
+# Warnings
+- Filter button click may cause dealy in filter-output reveal after moving filter code to FilterModule.js
 # Future
 - appropriate solution to adjusting #gallery-dimmer height to gallery height including scroll height not just visible height (implementation in js but doesn't resize)
 # Purpose

@@ -11,6 +11,10 @@ filter.addEventListener("mouseleave", e => {
     eye.setOpacity()
     pupil.setBackground()
 })
+
+/*
+FILTER BUTTON
+*/
 const filterButton = body.querySelector("#filter-button");
 // TEMPORARY solution to adjusting dimmer height
 let rotating = true;
@@ -28,7 +32,6 @@ filterButton.addEventListener("click", () => {
 let rotateAbortController = new AbortController();
 let rotateSignal = rotateAbortController.signal;
 let rotateAbort = null;
-
 let rotateTimeout = null;
 // if changing color order in css -- change this
 let colors = ["screen", "location", "gang", "time"];
@@ -88,6 +91,11 @@ function stopRotateBorderColors() {
     rotateAbort = null;
 }
 rotateBorderColors()
+
+
+/*
+FILTER OUTPUT
+*/
 const filterOutput = body.querySelector("#filter-output");
 /*
 mousemove, click for mouse only interaction
@@ -125,14 +133,19 @@ filterOutput.addEventListener("pointerleave", e => {
         dragging = false;
     }
 })
+
+
 /*
 FILTER GANGS
 */
 const gangs = filterOutput.querySelectorAll(".gang");
+let added = 0;
 gangs.forEach(gang => {
     const logo = gang.querySelector(".gang-logo");
     const dimmer = gang.querySelector(".gang-dimmer");
     const background = gang.querySelector(".gang-background");
+    let filterIndex = null;
+    const gangIndex = gang.dataset.index;
     let clicked = false;
 
     gang.addEventListener("mouseenter", e => {
@@ -155,6 +168,11 @@ gangs.forEach(gang => {
         clicked = !clicked;
 
         if (clicked) {
+            filterIndex = added;
+
+            // add this gang to filter
+            Option.selected.filters.push(gangIndex)
+
             pupil.removeClass("indicate")
             // pupil.classList.remove("indicate")
             if (!gang.id) {
@@ -164,11 +182,23 @@ gangs.forEach(gang => {
             }
             dimmer.style.opacity = ".4";
         } else {
+            // remove this gang from filter 
+            if (!resetting) {
+                Option.selected.filters.splice(filterIndex, 1)
+            }
+
             dimmer.style.opacity = "";
             logo.style.width = "";
         }
+
+        if (!resetting) {
+            localStorage.setItem("gangFilters", JSON.stringify(Option.selected.filters))
+            console.log(localStorage.getItem("gangFilters"))
+        }
     })
 })
+
+
 /*
 FILTER OPTIONS
 */
@@ -177,7 +207,37 @@ let options = { "screen": null, "location": null, "gang": null, "time": null };
 // 2. assigning object to relative key in options dict.
 filter.querySelectorAll(".filter-option").forEach((option) => {
     let optionObj = new Option(option);
-    options[optionObj.optionType] = optionObj;
+    options[optionObj.type] = optionObj;
 })
 // selecting gang by default for testing purposes
 options.gang.select()
+
+
+
+/*
+FILTER ACTION/RESET BUTTONS
+*/
+// const filterApply = filter.querySelector("#filter-apply");
+const filterReset = filter.querySelector("#filter-reset");
+
+// filterApply.addEventListener("click", e=>{
+//     // add filters of currently selected option to localStorage
+//     // empty = null
+//     // let optionFilters = JSON.parse(localStorage.getItem(`${Option.type}Filters`));
+//     localStorage.setItem(`${Option.selected.type}Filters`, JSON.stringify(Option.selected.filters))
+// })
+let resetting = false;
+filterReset.addEventListener("click", e => {
+    const click = new MouseEvent("click");
+    const mouseLeave = new MouseEvent("mouseleave");
+    resetting = true;
+    for (const filter of Option.selected.filters) {
+        let t = document.querySelector(`.${Option.selected.type}[data-index="${filter}"]`);
+        t.dispatchEvent(click)
+        t.dispatchEvent(mouseLeave)
+    }
+    Option.selected.filters = [];
+    localStorage.setItem(`${Option.selected.type}Filters`, JSON.stringify([]))
+
+    resetting = false;
+})

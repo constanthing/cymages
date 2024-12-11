@@ -5,7 +5,11 @@ class Option {
     constructor(option) {
         this.option = option;
         this.selected = false;
-        this.optionType = option.id.slice(0, option.id.indexOf("-"));
+        this.type = option.id.slice(0, option.id.indexOf("-"));
+
+        // LOAD FILTERS
+        this.filters = [];
+
         this.trackHover()
         this.trackClick()
     }
@@ -48,7 +52,7 @@ class Option {
                 this.selected = true;
                 Option.selected = this;
                 this.toggleBackground()
-                Option.selectedOutput = document.querySelector(`#filter-output-${this.optionType}`);
+                Option.selectedOutput = document.querySelector(`#filter-output-${this.type}`);
 
                 // debugging purposes
                 if (Option.selectedOutput) {
@@ -64,7 +68,6 @@ class Option {
         this.option.dispatchEvent(hover)
         this.option.dispatchEvent(click)
     }
-
 
     trackHover() {
         this.option.addEventListener("mouseenter", () => {
