@@ -8,9 +8,11 @@
 - add dragging functionality too #images 
 # BUGS
 - dragging #filter-output-gang when returning to drag area and its on a element that element is selected... don't want that!
+    - does it on safari not google chrome
 - dragging to the end of the #filter-output area causes scroll to go in that direction instead of the intended opposite direction! 
 
 # Future
+- appropriate solution to adjusting #gallery-dimmer height to gallery height including scroll height not just visible height (implementation in js but doesn't resize)
 # Purpose
 Help me understand how to deal with images/videos better... and I also like to take pictures in cyberpunk. 
 # Learned
