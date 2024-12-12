@@ -3,7 +3,7 @@
     --filter-size: 2.2em;
     --rock: #7d7d7d;
 
-    --screen: blue;
+    --feeling: blue;
     --location: red;
     --gang: orange;
     --time: green;
@@ -95,7 +95,7 @@ header {
 
     border-width: .2em;
     border-style: solid;
-    border-top-color: var(--screen);
+    border-top-color: var(--feeling);
     border-right-color: var(--location);
     border-bottom-color: var(--gang);
     border-bottom-width: .3em;
@@ -151,12 +151,12 @@ header {
     height: 100%;
     width: 100%;
 }
-#screen-option .before,
-#screen-option .after {
-    color: var(--screen);
+#feeling-option .before,
+#feeling-option .after {
+    color: var(--feeling);
 }
-#screen-option .background {
-    background: var(--screen);
+#feeling-option .background {
+    background: var(--feeling);
 
 }
 #location-option .before,
@@ -211,19 +211,21 @@ header {
     /* 
     align #filter-output and #filter-options 
      */
-    display: flex;
-    justify-content: space-between;
 }
 
 
-#filter-output-gang {
+/* #filter-output-gang */
+#filter-output > section {
+    display: flex;
+    justify-content: space-between;
     width: fit-content;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
-.gang {
+/* .gang */
+#filter-output > section > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,16 +236,15 @@ header {
     /* hide background image */
     overflow: hidden;
 }
-.gang:nth-child(even) {
+#filter-output > section > div:nth-child(even) {
     border: 2px solid black;
     border-top: none;
     border-bottom: none;
 }
-
 #filter-output .logo {
     width: 3em;
     filter: grayscale(1);
-    transition: filter .3s ease, width .3s ease;
+    transition: filter .3s ease, width .3s ease, scale .3s ease;
     /*  */
     pointer-events: none;
 }
@@ -267,41 +268,21 @@ header {
     transition: filter .3s ease;
 }
 
-.gang h2 {
+/* logos are white grascale() does nothing */
+#filter-output .time .logo, #filter-output .location .logo {
+    filter: invert(.4);
+}
+.description {
     position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
+    bottom: 1em;
+    margin: 0 auto;
 }
-
-
-.gang-selected {
-    position: absolute;
-    top: -25%;
-    left: 1.5em;
-    background: var(--gang);
-    padding: .7em .3em .3em .3em;
-    transition: top .3s ease;
-
+.location .logo {
+    text-align: center;
 }
-
-.gang-selected img {
-    height: .7em;
+.time {
+    width: 15em !important;
 }
-
-#maelstrom {
-    font-family: "Maelstrom";
-}
-
-#damox {
-    font-family: "Da mox";
-}
-
-#sixty-sixth-street {
-    font-family: "66th street";
-}
-
-
 
 .row {
     display: flex;
@@ -335,7 +316,6 @@ header {
     transition: top .1s steps(2, jump-start), left .1s steps(2, jump-start), opacity .2s linear;
     pointer-events: none;
 }
-
 #pupil {
     z-index: 4;
 

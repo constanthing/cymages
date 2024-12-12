@@ -34,7 +34,7 @@ let rotateSignal = rotateAbortController.signal;
 let rotateAbort = null;
 let rotateTimeout = null;
 // if changing color order in css -- change this
-let colors = ["screen", "location", "gang", "time"];
+let colors = ["feeling", "location", "gang", "time"];
 async function rotateBorderColors() {
     while (true) {
         // maybe just use an index and go from there instead of making
@@ -139,14 +139,13 @@ filterOutput.addEventListener("pointerleave", e => {
 /*
 FILTER OPTIONS
 */
-let options = { "screen": null, "location": null, "gang": null, "time": null };
+let options = { "feeling": null, "location": null, "gang": null, "time": null };
 // 1. creating an object out of each filter option
 // 2. assigning object to relative key in options dict.
 filter.querySelectorAll(".filter-option").forEach((option) => {
     let optionObj = new Option(option);
     options[optionObj.type] = optionObj;
 })
-options.gang.select()
 
 /*
 FILTER GANGS
@@ -169,5 +168,6 @@ filterReset.addEventListener("click", e => {
 })
 
 
-// selecting gang by default for testing purposes
-options.gang.loadFilters()
+
+
+options.gang.select()

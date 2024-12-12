@@ -1,11 +1,11 @@
 class Output {
-    static option = null;
     constructor(output) {
         this.output = output;
         this.logo = output.querySelector(".logo");
         this.dimmer = output.querySelector(".dimmer");
         this.background = output.querySelector(".background");
         this.index = output.dataset.index;
+        this.description = output.querySelector(".description");
 
         this.selected = false;
 
@@ -26,7 +26,7 @@ class Output {
             }
 
             // update local storage 
-            localStorage.setItem("gangFilters", JSON.stringify(Option.selected.filters))
+            localStorage.setItem(`${Option.selected.type}Filters`, JSON.stringify(Option.selected.filters))
         })
     }
     select() {
@@ -42,21 +42,42 @@ class Output {
         this.selected = false;
     }
     selectStyle() {
-        console.log("this ran")
         // add cool properties
         pupil.removeClass("indicate")
+
+        this.description.classList.add("hidden");
 
         // maelstrom gang only one with an id
         // maelstrom gang logo is a bit smaller than the rest
         // so we make it bigger than the rest
-        if (!this.id) {
-            this.logo.style.width = "4em";
+        if (Option.selected.type != "location") {
+            if (!this.id) {
+                this.logo.style.width = "4em";
+            } else {
+                this.logo.style.width = "5em";
+            }
         } else {
-            this.logo.style.width = "5em";
+            this.logo.style.scale = "1.1";
         }
+
         this.dimmer.style.opacity = ".4";
+        
+        if (Option.selected.type == "time") {
+            this.logo.setAttribute("src", this.logo.src.substring(0, this.logo.src.length-4)+"-fill.svg")
+        }
     }
     deselectStyle() {
+        switch (Option.selected.type) {
+            case "time":
+                this.logo.setAttribute("src", this.logo.src.substring(0, this.logo.src.length-9)+'.svg');
+                break;
+            case "location":
+                this.logo.style.scale = "";
+                break;
+        }
+
+        this.description.classList.remove("hidden");
+
         // remove properties from select
         this.dimmer.style.opacity = "";
         this.logo.style.width = "";
@@ -67,23 +88,30 @@ class Output {
         this.output.addEventListener("mouseenter", e=>{
             if (!this.selected) {
                 this.hoverStyle()
+                pupil.addClass("indicate")
             }
         })
         this.output.addEventListener("mouseleave", e=>{
             if (!this.selected) {
                 this.leaveStyle()
+                pupil.removeClass("indicate")
             }
         })
     }
     hoverStyle() {
-        this.logo.style.filter = "grayscale(0) drop-shadow(0 0 .5em black)";
+        if (Option.selected.type == "gang") {
+            // gangs
+            this.logo.style.filter = "grayscale(0) drop-shadow(0 0 .5em black)";
+        } else {
+            // all else 
+            this.logo.style.filter = "invert(0) drop-shadow(0 0 .5em black)";
+        }
         this.background.style.filter = "grayscale(0)";
-        pupil.addClass("indicate")
     }
+
     leaveStyle() {
         this.logo.style.filter = "";
         this.background.style.filter = "";
-        pupil.removeClass("indicate")
     }
 
 }

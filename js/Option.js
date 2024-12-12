@@ -9,8 +9,11 @@ class Option {
 
         // LOAD FILTERS
         this.filters = JSON.parse(localStorage.getItem(`${this.type}Filters`));
+        if (this.filters == null) {
+            this.filters = [];
+            localStorage.setItem(`${this.type}Filters`, JSON.stringify([]))
+        }
 
-        this.loadingFilters = false;
         this.loadedFilters = false;
 
         this.outputs = null;
@@ -26,6 +29,7 @@ class Option {
                 let filterElement = this.outputs[filter];
                 filterElement.selectStyle()
                 filterElement.hoverStyle()
+                filterElement.selected = true;
             }
         } else {
             // nothing to load
@@ -51,8 +55,8 @@ class Option {
 
     trackClick() {
         this.option.addEventListener("click", () => {
+            // unselects currently selected option
             if (!this.selected && Option.selected) {
-                // another filter-option already selected
                 // reset state of selected option
                 Option.selected.toggleBackground()
                 Option.selected.toggleBrackets()
@@ -67,11 +71,11 @@ class Option {
 
             // select current option
             if (!this.selected && !Option.selected) {
-                // changed from isSelected = !isSelected;
                 this.selected = true;
                 Option.selected = this;
                 this.toggleBackground()
                 Option.selectedOutput = document.querySelector(`#filter-output-${this.type}`);
+                this.select()
 
                 // debugging purposes
                 if (Option.selectedOutput) {
@@ -96,6 +100,12 @@ class Option {
         const hover = new MouseEvent("mouseenter");
         this.option.dispatchEvent(hover)
         this.option.dispatchEvent(click)
+
+        // only loads once when selected 
+        if (!this.loadedFilters) {
+            this.loadFilters()
+            this.loadedFilters = true;
+        }
     }
 
     trackHover() {
@@ -118,6 +128,7 @@ class Option {
             // remove click style
             output.deselectStyle()
             output.leaveStyle()
+            output.selected = false;
         }
         this.filters = [];
         localStorage.setItem(`${this.type}Filters`, JSON.stringify([]))
