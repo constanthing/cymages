@@ -118,7 +118,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 #filter-options {
@@ -205,6 +204,29 @@ header {
 /* for webkit browsers such as chrome, safari, etc. */
 #filter-output::-webkit-scrollbar {
     display: none;
+}
+
+#filter-scroll {
+    width: 80%; /* same as filter-output */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#scroll-left, #scroll-right{
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    right: 99%;
+    z-index: 2;
+}
+#filter-scroll img {
+    width: 1.5em;
+    filter: drop-shadow(0 0 1em black);
+}
+#scroll-right {
+    right: unset;
+    left: 99%;
 }
 
 #filter-output section {

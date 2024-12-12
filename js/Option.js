@@ -1,6 +1,5 @@
 class Option {
     static selected = null;
-    static selectedOutput = null;
 
     constructor(option) {
         this.option = option;
@@ -13,6 +12,10 @@ class Option {
             this.filters = [];
             localStorage.setItem(`${this.type}Filters`, JSON.stringify([]))
         }
+
+        this.before = option.querySelector(".before");
+        this.after = option.querySelector(".after");
+        this.background = option.querySelector(".background");
 
         this.loadedFilters = false;
 
@@ -37,15 +40,20 @@ class Option {
         }
     }
 
-    toggleBackground() {
-        this.option.querySelector(".background").classList.toggle("hidden")
+    addBackground() {
+        this.background.classList.remove("hidden")
+    }
+    removeBackground() {
+        this.background.classList.add("hidden")
     }
 
-    toggleBrackets() {
-        const before = this.option.querySelector(".before");
-        const after = this.option.querySelector(".after");
-        before.classList.toggle("hidden")
-        after.classList.toggle("hidden")
+    addBrackets() {
+        this.before.classList.remove("hidden")
+        this.after.classList.remove("hidden")
+    }
+    removeBrackets() {
+        this.before.classList.add("hidden")
+        this.after.classList.add("hidden")
     }
 
     deselect() {
@@ -58,30 +66,36 @@ class Option {
             // unselects currently selected option
             if (!this.selected && Option.selected) {
                 // reset state of selected option
-                Option.selected.toggleBackground()
-                Option.selected.toggleBrackets()
+                Option.selected.removeBrackets()
+                Option.selected.removeBackground()
+
                 if (Option.selectedOutput) {
                     Option.selectedOutput.classList.toggle("hidden")
                 }
 
                 // removes unselects the selected option
                 Option.selected.deselect()
-                Option.selected = null;
+                Option.selected = false;
             }
 
             // select current option
             if (!this.selected && !Option.selected) {
+                console.log("running")
                 this.selected = true;
                 Option.selected = this;
-                this.toggleBackground()
+                this.addBackground()
+                if (this.before.classList.contains("hidden")) {
+                    this.addBrackets()
+                }
                 Option.selectedOutput = document.querySelector(`#filter-output-${this.type}`);
-                this.select()
 
                 // debugging purposes
                 if (Option.selectedOutput) {
+                    // reveal respective output to currently selected option 
                     Option.selectedOutput.classList.toggle("hidden")
                 }
 
+                this.select()
             }
         })
     }
@@ -96,27 +110,26 @@ class Option {
             }
         }
 
-        const click = new MouseEvent("click");
-        const hover = new MouseEvent("mouseenter");
-        this.option.dispatchEvent(hover)
-        this.option.dispatchEvent(click)
-
         // only loads once when selected 
         if (!this.loadedFilters) {
             this.loadFilters()
             this.loadedFilters = true;
         }
+
+        // IMPORTANT: RUN reveal SCROLL after data has been loaded in scrollable content
+        // - ex: outputs loaded into filter-output 
+        revealScroll()
     }
 
     trackHover() {
         this.option.addEventListener("mouseenter", () => {
             if (!this.selected) {
-                this.toggleBrackets()
+                this.addBrackets()
             }
         })
         this.option.addEventListener("mouseleave", () => {
             if (!this.selected) {
-                this.toggleBrackets()
+                this.removeBrackets()
             }
         })
     }

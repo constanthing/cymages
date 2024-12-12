@@ -28,6 +28,8 @@ filterButton.addEventListener("click", () => {
     }
     galleryDimmer.classList.toggle("hidden")
     filter.classList.toggle("hidden")
+
+    revealScroll()
 })
 let rotateAbortController = new AbortController();
 let rotateSignal = rotateAbortController.signal;
@@ -103,6 +105,35 @@ pointer events for touch and mouse interaction!
 */
 let dragging = false;
 let startX = null;
+
+const left = filter.querySelector("#scroll-left");
+const right = filter.querySelector("#scroll-right");
+// NOT SURE where this should go ? In Option.js ? Output.js? or just here ?
+function revealScroll() {
+    // total possible scroll
+    const scrollWidth = filterOutput.scrollWidth - filterOutput.clientWidth;
+    const percent = 10;
+    const leftMax = (percent*scrollWidth) / 100; // 10%
+    const rightMax = scrollWidth - ((percent*scrollWidth) / 100); // 10% 
+    console.log(leftMax, rightMax, scrollWidth)
+
+    if (filterOutput.scrollLeft > leftMax) {
+        // show left scroll
+        left.classList.remove("hidden")
+    } else {
+        // hide left scroll
+        left.classList.add("hidden")
+    }
+
+    if (filterOutput.scrollLeft < rightMax) {
+        // show right scroll
+        right.classList.remove("hidden")
+    } else {
+        right.classList.add("hidden")
+    }
+}
+
+
 filterOutput.addEventListener("pointerdown", e => {
     if (!dragging) {
         pupil.setBackground("var(--white)")
@@ -123,6 +154,10 @@ filterOutput.addEventListener("pointermove", e => {
         // for smoother scrolling 
         startX = e.clientX;
     }
+})
+
+filterOutput.addEventListener("scroll", e=>{
+    revealScroll()
 })
 
 filterOutput.addEventListener("pointerleave", e => {
@@ -170,4 +205,6 @@ filterReset.addEventListener("click", e => {
 
 
 
-options.gang.select()
+const click = new MouseEvent("click");
+options.gang.option.dispatchEvent(click)
+// options.gang.select()
