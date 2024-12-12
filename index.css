@@ -62,6 +62,8 @@ main {
     width: 60%;
     height: 100%;
     margin: 0 auto;
+
+    position: relative;
 }
 
 header {
@@ -213,18 +215,20 @@ header {
     top: 0;
     left: 0;
 }
-#scroll-left, #scroll-right{
+/* scroll-left, scroll-right are img elements */
+#filter-scroll img {
     position: absolute;
     top: 50%;
-    transform: translateY(50%);
+    transform: translateY(-50%);
     right: 99%;
     z-index: 2;
-}
-#filter-scroll img {
     width: 1.5em;
     filter: drop-shadow(0 0 1em black);
 }
-#scroll-right {
+#filter-scroll #scroll-left {
+    transform: rotate(180deg) translateY(50%);
+}
+#filter-scroll #scroll-right {
     right: unset;
     left: 99%;
 }
@@ -306,17 +310,7 @@ header {
     width: 15em !important;
 }
 
-.row {
-    display: flex;
-}
 
-.row img {
-    width: 33.33%;
-}
-
-.row .two {
-    width: 66.66%;
-}
 
 .hidden {
     display: none !important;
@@ -421,7 +415,7 @@ header {
 footer {
     z-index: 1;
     background: black;
-    width: 60%;
+    width: 100%;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -436,6 +430,28 @@ footer img {
     height: .8em;
 }
 
+#gallery-scroll {
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 0;
+}
+#gallery-scroll img {
+    position: absolute;
+    top: 3%;
+    right: 50%;
+    transform: translateX(50%) rotate(-90deg);
+    z-index: 2;
+    width: 2em;
+}
+#gallery-scroll #scroll-down {
+    top: unset;
+    /* scroll-up is affected by the footer which takes up about 2% of space
+    therefore instead of being equal 5% subtracting 2% to make it look even */
+    bottom: 5%;
+    transform: translateX(50%) rotate(90deg);
+}
 
 /*  making #images relative hides #filter-output for some reason! */
 #gallery {
@@ -459,4 +475,15 @@ footer img {
     width: 100%;
     background: var(--rock);
     opacity: .8;
+}
+.row {
+    display: flex;
+}
+
+.row img {
+    width: 33.33%;
+}
+
+.row .two {
+    width: 66.66%;
 }

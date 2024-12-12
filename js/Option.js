@@ -118,7 +118,7 @@ class Option {
 
         // IMPORTANT: RUN reveal SCROLL after data has been loaded in scrollable content
         // - ex: outputs loaded into filter-output 
-        revealScroll()
+        revealScroll(left, right, filterOutput)
     }
 
     trackHover() {

@@ -55,3 +55,10 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
 })
 
 
+const up = document.querySelector("#scroll-up");
+const down = document.querySelector("#scroll-down");
+// NOT SURE where this should go ? In Option.js ? Output.js? or just here ?
+
+gallery.addEventListener("scroll", e=>{
+    revealScroll(up, down, gallery, false)
+})

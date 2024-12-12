@@ -29,7 +29,7 @@ filterButton.addEventListener("click", () => {
     galleryDimmer.classList.toggle("hidden")
     filter.classList.toggle("hidden")
 
-    revealScroll()
+    revealScroll(left, right, filterOutput)
 })
 let rotateAbortController = new AbortController();
 let rotateSignal = rotateAbortController.signal;
@@ -109,27 +109,35 @@ let startX = null;
 const left = filter.querySelector("#scroll-left");
 const right = filter.querySelector("#scroll-right");
 // NOT SURE where this should go ? In Option.js ? Output.js? or just here ?
-function revealScroll() {
+function revealScroll(first, second, scrollable, useWidth=true) {
     // total possible scroll
-    const scrollWidth = filterOutput.scrollWidth - filterOutput.clientWidth;
+    let scroll = null;
+    let scrolled = null;
+    if (!useWidth){
+        scroll = scrollable.scrollHeight - scrollable.clientHeight;
+        scrolled = scrollable.scrollTop;
+    } else {
+        scroll = scrollable.scrollWidth - scrollable.clientWidth;
+        scrolled = scrollable.scrollLeft;
+    }
     const percent = 10;
-    const leftMax = (percent*scrollWidth) / 100; // 10%
-    const rightMax = scrollWidth - ((percent*scrollWidth) / 100); // 10% 
-    console.log(leftMax, rightMax, scrollWidth)
+    const firstMax = (percent*scroll) / 100; // 10%
+    const secondMax = scroll- ((percent*scroll) / 100); // 10% 
 
-    if (filterOutput.scrollLeft > leftMax) {
+
+    if (scrolled > firstMax) {
         // show left scroll
-        left.classList.remove("hidden")
+        first.classList.remove("hidden")
     } else {
         // hide left scroll
-        left.classList.add("hidden")
+        first.classList.add("hidden")
     }
 
-    if (filterOutput.scrollLeft < rightMax) {
+    if (scrolled < secondMax) {
         // show right scroll
-        right.classList.remove("hidden")
+        second.classList.remove("hidden")
     } else {
-        right.classList.add("hidden")
+        second.classList.add("hidden")
     }
 }
 
@@ -157,7 +165,7 @@ filterOutput.addEventListener("pointermove", e => {
 })
 
 filterOutput.addEventListener("scroll", e=>{
-    revealScroll()
+    revealScroll(left, right, filterOutput)
 })
 
 filterOutput.addEventListener("pointerleave", e => {
