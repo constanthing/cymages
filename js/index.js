@@ -19,13 +19,6 @@ DOCUMENT EVENT LISTENERS
 // document.addEventListener("mousedown", e=>{...)
 document.addEventListener("click", (e) => {
     pupil.blink()
+    console.log(document.elementsFromPoint(e.clientX, e.clientY))
 })
 
-// document.addEventListener("pointerup", e => {
-//     if (Scroll.dragging) {
-//         Scroll.elementEndClicked = document.elementFromPoint(e.clientX, e.clientY);
-//         pupil.setBackground()
-//         // pupil.style.background = "";
-//         Scroll.dragging = false;
-//     }
-// })

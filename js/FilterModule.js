@@ -22,9 +22,11 @@ filterButton.addEventListener("click", () => {
     if (rotating) {
         stopRotateBorderColors();
         rotating = false;
+        galleryScroll.negative.style.zIndex = 0;
     } else {
         rotateBorderColors();
         rotating = true;
+        galleryScroll.negative.style.zIndex = "";
     }
     galleryDimmer.classList.toggle("hidden")
     filter.classList.toggle("hidden")

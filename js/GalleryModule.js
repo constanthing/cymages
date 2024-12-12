@@ -62,3 +62,4 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
 
 
 const galleryScroll = new Scroll(true, gallery, document.querySelector("#gallery-scroll"));
+galleryScroll.revealScroll()

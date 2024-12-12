@@ -14,13 +14,14 @@ class Scroll {
 
         // vertical elements would have negative = up - positive = down
         let imgs = scroll.querySelectorAll("img");
-        console.log(imgs)
+        // console.log(imgs)
         this.negative = imgs[0];
         this.positive = imgs[1];
 
         this.start = null;
 
         this.trackShortcutClicks()
+        this.trackShortcutHover()
         this.trackDrag()
         this.trackLeave()
     }
@@ -33,17 +34,25 @@ class Scroll {
             /*
             * consider making this responsive to the screen resize
             */
-            this.positive.scrollTo(1000, 1000)
+            this.element.scrollTo(1000, 1000)
         })
     }
     trackShortcutHover() {
         this.negative.addEventListener("mouseenter", () => {
+            eye.addClass("hidden")
+            pupil.setBackground("black")
         })
         this.negative.addEventListener("mouseleave", () => {
+            eye.removeClass("hidden")
+            pupil.setBackground("")
         })
         this.positive.addEventListener("mouseenter", () => {
+            eye.addClass("hidden")
+            pupil.setBackground("black")
         })
         this.positive.addEventListener("mouseleave", () => {
+            eye.removeClass("hidden")
+            pupil.setBackground("")
         })
     }
 
@@ -68,7 +77,7 @@ class Scroll {
         })
 
         this.element.addEventListener("pointermove", e => {
-            console.log("POINTER MOVE: ", Scroll.dragging, Scroll.grabbing)
+            // console.log("POINTER MOVE: ", Scroll.dragging, Scroll.grabbing)
             if (Scroll.grabbing) {
                 Scroll.dragging = true;
 

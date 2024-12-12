@@ -7,6 +7,9 @@
     --location: red;
     --gang: orange;
     --time: green;
+
+    --eye-index: 3;
+    --pupil-index: 4;
 }
 
 @font-face {
@@ -77,8 +80,9 @@ header {
 }
 
 #logo h1 {
-    font-family: "LogoFont", Arial, Helvetica, sans-serif;
     z-index: 1001;
+
+    font-family: "LogoFont", Arial, Helvetica, sans-serif;
 }
 
 #logo small {
@@ -107,6 +111,7 @@ header {
 
 
 #filter {
+    /* important to appear above #gallery (2 has no meaning)*/
     z-index: 2;
 
     width: 100%;
@@ -236,11 +241,12 @@ header {
 
 /* scroll-left, scroll-right are img elements */
 #filter-scroll img {
+    z-index: var(--pupil-index);
+
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 99%;
-    z-index: 4;
     width: 1.5em;
     filter: drop-shadow(0 0 1em black);
 }
@@ -351,7 +357,7 @@ header {
 }
 
 #eye {
-    z-index: 3;
+    z-index: var(--eye-index);
 
     height: 2em;
     width: 2em;
@@ -368,7 +374,7 @@ header {
 }
 
 #pupil {
-    z-index: 4;
+    z-index: var(--pupil-index);
 
     height: 1em;
     width: 1em;
@@ -432,14 +438,14 @@ header {
 }
 
 #image-actions {
+    z-index: var(--eye-index);
+
     text-align: right;
     position: absolute;
     top: 0;
     left: 0;
     background: black;
     padding: .4em .9em;
-    /* same as eye; one less than pupil */
-    z-index: 3;
 }
 
 #image-actions button {
@@ -450,7 +456,7 @@ header {
 
 
 footer {
-    z-index: 1;
+    /* z-index: 1; */
     background: black;
     width: 100%;
     position: absolute;
@@ -479,12 +485,13 @@ footer img {
 }
 
 #gallery-scroll img {
+    z-index: var(--pupil-index);
+
     position: absolute;
     top: 3%;
     right: 50%;
     transform: translateX(50%) rotate(-90deg);
     filter: drop-shadow(0 0 1em rgba(255, 255, 255, 0.704));
-    z-index: 4;
     width: 1.5em;
 
 }
