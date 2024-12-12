@@ -20,10 +20,12 @@ DOCUMENT EVENT LISTENERS
 document.addEventListener("click", (e) => {
     pupil.blink()
 })
-document.addEventListener("pointerup", e => {
-    if (dragging) {
-        pupil.setBackground()
-        // pupil.style.background = "";
-        dragging = false;
-    }
-})
+
+// document.addEventListener("pointerup", e => {
+//     if (Scroll.dragging) {
+//         Scroll.elementEndClicked = document.elementFromPoint(e.clientX, e.clientY);
+//         pupil.setBackground()
+//         // pupil.style.background = "";
+//         Scroll.dragging = false;
+//     }
+// })

@@ -17,16 +17,18 @@ class Output {
 
     trackClick() {
         this.output.addEventListener("click", e=>{
-            if (!this.selected) {
-                this.select()
-                this.selectStyle()
-            } else {
-                this.deselect()
-                this.deselectStyle()
-            }
+            if (Scroll.elementEndClicked != this.dimmer) {
+                if (!this.selected) {
+                    this.select()
+                    this.selectStyle()
+                } else {
+                    this.deselect()
+                    this.deselectStyle()
+                }
 
-            // update local storage 
-            localStorage.setItem(`${Option.selected.type}Filters`, JSON.stringify(Option.selected.filters))
+                // update local storage 
+                localStorage.setItem(`${Option.selected.type}Filters`, JSON.stringify(Option.selected.filters))
+            }
         })
     }
     select() {

@@ -10,23 +10,28 @@ galleryDimmer.style.height = gallery.scrollHeight + "px";
 gallery.querySelectorAll("img").forEach(image => {
     let clicked = false;
     image.addEventListener("click", e => {
-        clicked = !clicked;
-        currentImage = image;
+        // console.log(Scroll.dragging, Scroll.grabbing, Scroll.elementEndClicked)
+        if (Scroll.elementEndClicked != image) {
+            clicked = !clicked;
+            currentImage = image;
 
-        // setting border to make it clear what image was clicked 
-        image.style.border = "1px solid white";
+            // setting border to make it clear what image was clicked 
+            image.style.border = "1px solid white";
 
 
-        // revealing imageActions
-        imageActions.classList.remove("hidden")
-        imageActionsOpen = true;
-        imageActions.style.top = (e.clientY - (eye.height / 2)) + "px";
-        imageActions.style.left = (e.clientX - (imageActions.clientWidth / 2)) + "px";
+            // revealing imageActions
+            imageActions.classList.remove("hidden")
+            imageActionsOpen = true;
+            imageActions.style.top = (e.clientY - (eye.height / 2)) + "px";
+            imageActions.style.left = (e.clientX - (imageActions.clientWidth / 2)) + "px";
 
-        pupil.setBackground("none")
-        eye.setOpacity(0)
-        pupil.blink()
+            pupil.setBackground("none")
+            eye.element.classList.add("hidden")
+            // eye.setOpacity(0)
+            pupil.blink()
+        }
     })
+    Scroll.elementEndClicked = null;
 })
 /* IMAGE ACTIONS */
 imageActions.addEventListener("mouseleave", e => {
@@ -37,7 +42,8 @@ imageActions.addEventListener("mouseleave", e => {
     imageActionsOpen = false;
     imageActions.classList.add("hidden")
 
-    eye.setOpacity()
+    eye.element.classList.remove("hidden")
+    // eye.setOpacity()
     pupil.setBackground()
 })
 imageActions.querySelectorAll(".image-action").forEach(action => {
@@ -55,10 +61,4 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
 })
 
 
-const up = document.querySelector("#scroll-up");
-const down = document.querySelector("#scroll-down");
-// NOT SURE where this should go ? In Option.js ? Output.js? or just here ?
-
-gallery.addEventListener("scroll", e=>{
-    revealScroll(up, down, gallery, false)
-})
+const galleryScroll = new Scroll(true, gallery, document.querySelector("#gallery-scroll"));

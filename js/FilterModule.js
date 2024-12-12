@@ -29,7 +29,8 @@ filterButton.addEventListener("click", () => {
     galleryDimmer.classList.toggle("hidden")
     filter.classList.toggle("hidden")
 
-    revealScroll(left, right, filterOutput)
+    filterOutputScroll.revealScroll()
+    // revealScroll(left, right, filterOutput)
 })
 let rotateAbortController = new AbortController();
 let rotateSignal = rotateAbortController.signal;
@@ -103,80 +104,11 @@ const filterOutput = body.querySelector("#filter-output");
 mousemove, click for mouse only interaction
 pointer events for touch and mouse interaction!
 */
-let dragging = false;
-let startX = null;
-
-const left = filter.querySelector("#scroll-left");
-const right = filter.querySelector("#scroll-right");
-// NOT SURE where this should go ? In Option.js ? Output.js? or just here ?
-function revealScroll(first, second, scrollable, useWidth=true) {
-    // total possible scroll
-    let scroll = null;
-    let scrolled = null;
-    if (!useWidth){
-        scroll = scrollable.scrollHeight - scrollable.clientHeight;
-        scrolled = scrollable.scrollTop;
-    } else {
-        scroll = scrollable.scrollWidth - scrollable.clientWidth;
-        scrolled = scrollable.scrollLeft;
-    }
-    const percent = 10;
-    const firstMax = (percent*scroll) / 100; // 10%
-    const secondMax = scroll- ((percent*scroll) / 100); // 10% 
 
 
-    if (scrolled > firstMax) {
-        // show left scroll
-        first.classList.remove("hidden")
-    } else {
-        // hide left scroll
-        first.classList.add("hidden")
-    }
 
-    if (scrolled < secondMax) {
-        // show right scroll
-        second.classList.remove("hidden")
-    } else {
-        second.classList.add("hidden")
-    }
-}
-
-
-filterOutput.addEventListener("pointerdown", e => {
-    if (!dragging) {
-        pupil.setBackground("var(--white)")
-        // pupil.style.background = "white";
-        dragging = true;
-        startX = e.clientX;
-    }
-})
-filterOutput.addEventListener("pointermove", e => {
-    if (dragging) {
-        let move = (e.clientX - startX);
-        let scroll = filterOutput.scrollLeft - move;
-
-        // scroll = Math.max(0, Math.min(scroll, filterOutput.scrollWidth - filterOutput.clientWidth));
-
-        filterOutput.scrollTo(scroll, 0)
-
-        // for smoother scrolling 
-        startX = e.clientX;
-    }
-})
-
-filterOutput.addEventListener("scroll", e=>{
-    revealScroll(left, right, filterOutput)
-})
-
-filterOutput.addEventListener("pointerleave", e => {
-    console.log("left")
-    if (dragging) {
-        pupil.setBackground()
-        // pupil.style.background = "";
-        dragging = false;
-    }
-})
-
+// SCROLL 
+const filterOutputScroll = new Scroll(false, filterOutput, document.querySelector("#filter-scroll"));
 
 
 /*
@@ -216,3 +148,10 @@ filterReset.addEventListener("click", e => {
 const click = new MouseEvent("click");
 options.gang.option.dispatchEvent(click)
 // options.gang.select()
+
+
+
+
+
+
+// revealScroll(up, down, gallery, false)

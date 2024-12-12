@@ -52,6 +52,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
 }
 
 h1 {
@@ -131,20 +132,24 @@ header {
     flex-direction: column;
     justify-content: space-between;
 }
+
 #filter-options ul {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
+
 #filter-options ul li {
     width: fit-content;
     position: relative;
     list-style-type: none;
 }
+
 .filter-option {
     position: relative;
     display: flex;
 }
+
 .filter-option .background {
     position: absolute;
     top: 0;
@@ -152,32 +157,40 @@ header {
     height: 100%;
     width: 100%;
 }
+
 #feeling-option .before,
 #feeling-option .after {
     color: var(--feeling);
 }
+
 #feeling-option .background {
     background: var(--feeling);
 
 }
+
 #location-option .before,
 #location-option .after {
     color: var(--location);
 }
+
 #location-option .background {
     background: var(--location);
 }
+
 #gang-option .before,
 #gang-option .after {
     color: var(--gang);
 }
+
 #gang-option .background {
     background: var(--gang);
 }
+
 #time-option .before,
 #time-option .after {
     color: var(--time);
 }
+
 #time-option .background {
     background: var(--time);
 }
@@ -187,6 +200,7 @@ header {
     background: none;
     color: var(--white);
 }
+
 #filter-actions button:hover {
     cursor: none;
 }
@@ -200,34 +214,41 @@ header {
     overflow-y: scroll;
     /* overflow: hidden; */
     position: relative;
-    scrollbar-width: none; /* firefox */
-    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none;
+    /* firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
 }
+
 /* for webkit browsers such as chrome, safari, etc. */
 #filter-output::-webkit-scrollbar {
     display: none;
 }
 
 #filter-scroll {
-    width: 80%; /* same as filter-output */
+    width: 80%;
+    /* same as filter-output */
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
+
 /* scroll-left, scroll-right are img elements */
 #filter-scroll img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 99%;
-    z-index: 2;
+    z-index: 4;
     width: 1.5em;
     filter: drop-shadow(0 0 1em black);
 }
+
 #filter-scroll #scroll-left {
     transform: rotate(180deg) translateY(50%);
 }
+
 #filter-scroll #scroll-right {
     right: unset;
     left: 99%;
@@ -235,13 +256,13 @@ header {
 
 #filter-output section {
     /* 
-    align #filter-output and #filter-options 
-     */
+        align #filter-output and #filter-options 
+        */
 }
 
 
 /* #filter-output-gang */
-#filter-output > section {
+#filter-output>section {
     display: flex;
     justify-content: space-between;
     width: fit-content;
@@ -250,8 +271,9 @@ header {
     top: 0;
     left: 0;
 }
+
 /* .gang */
-#filter-output > section > div {
+#filter-output>section>div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -262,11 +284,13 @@ header {
     /* hide background image */
     overflow: hidden;
 }
-#filter-output > section > div:nth-child(even) {
+
+#filter-output>section>div:nth-child(even) {
     border: 2px solid black;
     border-top: none;
     border-bottom: none;
 }
+
 #filter-output .logo {
     width: 3em;
     filter: grayscale(1);
@@ -274,38 +298,48 @@ header {
     /*  */
     pointer-events: none;
 }
+
 #maelstrom .logo {
     width: 4em;
 }
+
 #filter-output .dimmer {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     background: black;
     opacity: .8;
 }
+
 #filter-output .background {
     position: absolute;
     height: 100%;
-    top: 50%; right: 50%;
+    top: 50%;
+    right: 50%;
     filter: grayscale(1);
     transform: translate(50%, -50%);
     transition: filter .3s ease;
 }
 
 /* logos are white grascale() does nothing */
-#filter-output .time .logo, #filter-output .location .logo {
+#filter-output .time .logo,
+#filter-output .location .logo,
+#filter-output .feeling .logo {
     filter: invert(.4);
 }
+
 .description {
     position: absolute;
     bottom: 1em;
     margin: 0 auto;
 }
+
 .location .logo {
     text-align: center;
 }
+
 .time {
     width: 15em !important;
 }
@@ -332,6 +366,7 @@ header {
     transition: top .1s steps(2, jump-start), left .1s steps(2, jump-start), opacity .2s linear;
     pointer-events: none;
 }
+
 #pupil {
     z-index: 4;
 
@@ -378,6 +413,7 @@ header {
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: .5;
         background: white;
@@ -405,6 +441,7 @@ header {
     /* same as eye; one less than pupil */
     z-index: 3;
 }
+
 #image-actions button {
     background: none;
     border: none;
@@ -422,10 +459,12 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
+
 footer div {
     display: flex;
     align-items: center;
 }
+
 footer img {
     height: .8em;
 }
@@ -436,15 +475,20 @@ footer img {
     position: absolute;
     top: 10%;
     left: 0;
+    display: flex;
 }
+
 #gallery-scroll img {
     position: absolute;
     top: 3%;
     right: 50%;
     transform: translateX(50%) rotate(-90deg);
-    z-index: 2;
-    width: 2em;
+    filter: drop-shadow(0 0 1em rgba(255, 255, 255, 0.704));
+    z-index: 4;
+    width: 1.5em;
+
 }
+
 #gallery-scroll #scroll-down {
     top: unset;
     /* scroll-up is affected by the footer which takes up about 2% of space
@@ -462,6 +506,7 @@ footer img {
 
     scrollbar-width: none;
 }
+
 ::-webkit-scrollbar {
     width: none;
     display: none;
@@ -476,6 +521,7 @@ footer img {
     background: var(--rock);
     opacity: .8;
 }
+
 .row {
     display: flex;
 }
