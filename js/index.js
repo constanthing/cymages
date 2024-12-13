@@ -46,4 +46,16 @@ positionThumb()
 slider.addEventListener("input", e => {
     positionThumb()
     value.innerText = slider.value;
+    document.querySelector("#export-image").style.filter = `contrast(${slider.value}%)`;
+})
+
+const sliderImages = document.querySelectorAll(".slider-images img");
+
+let incrementation = (slider.max-slider.min) / sliderImages.length;
+console.log(incrementation)
+let start = 0;
+// 0, 100, 200
+sliderImages.forEach(image => {
+    image.style.filter = `contrast(${start}%)`;
+    start += incrementation;
 })

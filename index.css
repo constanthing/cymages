@@ -632,7 +632,7 @@ footer img {
 #export-actions li:nth-of-type(even) {
     margin: 0 .5em;
 }
-#export-actions img {
+#export-actions ul img {
     height: 1em;
 }
 #export-output  {
@@ -682,8 +682,10 @@ footer img {
     top: 0;
     left: 0;
     /* opacity: .5; */
-    border: 1px solid var(--white);
+    /* border: 1px solid var(--white); */
     border-left: none;
+    /* background: url("./p/green.png"); */
+    background-size: contain;
 }
 .bar {
     position: absolute;
@@ -693,5 +695,20 @@ footer img {
     min-width: .5%;
     background: red;
     /* opacity: .5; */
-    padding: 0 .5em;
+    padding: 0 .2em;
+}
+
+
+
+
+.slider-images {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    display: flex;
+}
+.slider-images img {
+    width: 20%;
+    margin: 0;
 }

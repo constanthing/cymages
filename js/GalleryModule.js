@@ -62,6 +62,9 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
         // setting image 
         exportContainer.querySelector("#export-image").setAttribute("src", currentImage.src)
         exportContainer.classList.remove("hidden")
+        document.querySelectorAll(".slider-images img").forEach(image=>{
+            image.setAttribute("src", currentImage.src)
+        })
 
         const mouseleave = new MouseEvent("mouseleave");
         imageActions.dispatchEvent(mouseleave)

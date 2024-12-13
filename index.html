@@ -240,6 +240,7 @@
         make image zoom-able 
         -->
         <section id="export" class="hidden">
+        <!-- <section id="export" class=""> -->
             <div id="export-body">
                 <img id="export-image" src="./p/green.png" alt="" draggable="false" />
                 <!-- <div id="export-image-actions">
@@ -323,12 +324,23 @@
                          -->
                         <div id="export-contrast">
                             <div class="value">
-                                <h3 class="">50</h3>
+                                <h3 class="">100</h3>
                             </div>
                             <div class="slider">
-                                <input id="contrast-slider" type="range" value="0" min="-50" max="50" />
+                                <input id="contrast-slider" type="range" value="100" min="0" max="200" list="marker"/>
+
+                                <datalist id="marker">
+                                    <option value="100"></option>
+                                </datalist>
 
                                 <div class="custom-slider">
+                                    <div class="slider-images">
+                                        <img src="./p/green.png" alt="">
+                                        <img src="./p/green.png" alt="">
+                                        <img src="./p/green.png" alt="">
+                                        <img src="./p/green.png" alt="">
+                                        <img src="./p/green.png" alt="">
+                                    </div>
                                     <div class="bar">
                                         <!-- <div class="something"></div> -->
                                     </div>
