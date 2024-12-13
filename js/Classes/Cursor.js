@@ -1,18 +1,3 @@
-class Cursor {
-    constructor() {
-        // eye & pupil 
-        this.eye = {};
-        this.pupil = {};
-
-        this.x = null;
-        this.y = null;
-    }
-    follow() {
-        this.eye.follow()
-        this.pupil.follow()
-    }
-}
-
 class CursorElement {
     constructor(element) {
         this.element = element;
@@ -82,4 +67,3 @@ class CursorElement {
         this.element.style.background = value;
     }
 }
-

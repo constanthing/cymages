@@ -54,9 +54,9 @@ class Output {
         // so we make it bigger than the rest
         if (Option.selected.type != "location") {
             if (!this.id) {
-                this.logo.style.width = "4em";
-            } else {
                 this.logo.style.width = "5em";
+            } else {
+                this.logo.style.width = "6em";
             }
         } else {
             this.logo.style.scale = "1.1";

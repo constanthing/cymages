@@ -18,11 +18,11 @@
             <div id="filter-button"> </div>
 
             <section id="filter" class="hidden">
-            <!-- <section id="filter" class=""> -->
+                <!-- <section id="filter" class=""> -->
                 <div id="filter-scroll">
-                        <img src="./vectors/arrow-right.svg" alt="" id="scroll-left" class="hidden"/>
-                        <img src="./vectors/arrow-right.svg" alt="" id="scroll-right" class="hidden"/>
-                    </div>
+                    <img src="./vectors/arrow-right.svg" alt="" id="scroll-left" class="hidden" />
+                    <img src="./vectors/arrow-right.svg" alt="" id="scroll-right" class="hidden" />
+                </div>
                 </div>
 
                 <section id="filter-output">
@@ -204,8 +204,8 @@
         </header>
 
         <div id="gallery-scroll">
-            <img src="./vectors/arrow-right.svg" alt="" id="scroll-up" class="hidden"/>
-            <img src="./vectors/arrow-right.svg" alt="" id="scroll-down" class="hidden"/>
+            <img src="./vectors/arrow-right.svg" alt="" id="scroll-up" class="hidden" />
+            <img src="./vectors/arrow-right.svg" alt="" id="scroll-down" class="hidden" />
         </div>
 
         <section id="gallery">
@@ -221,11 +221,10 @@
                 <img src="./p/mox.png" alt="" draggable="false" />
             </div>
             <div class="row">
-                <img src="./p/edge.png" alt="" draggable="false"/>
-                <img src="./p/stop.png" alt="" draggable="false"/>
-                <img src="./p/still.png" alt="" draggable="false"/>
+                <img src="./p/edge.png" alt="" draggable="false" />
+                <img src="./p/stop.png" alt="" draggable="false" />
+                <img src="./p/still.png" alt="" draggable="false" />
             </div>
-
         </section>
 
         <footer>
@@ -236,6 +235,111 @@
                 <small>pending: 0</small>
             </div>
         </footer>
+
+        <!-- 
+        make image zoom-able 
+        -->
+        <section id="export" class="hidden">
+            <div id="export-body">
+                <img id="export-image" src="./p/green.png" alt="" draggable="false" />
+                <!-- <div id="export-image-actions">
+                    <ul>
+                        <li><img src="./vectors/export-now.svg" alt=""></li>
+                        <li><img src="./vectors/export-later.svg" alt=""></li>
+                        <li><img src="./vectors/arrow-right.svg" alt=""></li>
+                    </ul>
+                </div> -->
+            </div>
+            <!-- 
+            
+            make description clickable 
+            metadata you can retype certain data
+
+            image modifications open up a side thing:
+            - example: filters opens up scrollable filters like canva
+
+
+            MOVE text to the right
+            and images to the left
+            -->
+            <div id="export-footer">
+                <section id="export-metadata">
+                    <ul>
+                        <label for="#" style="color: var(--rock)">METADATA</label>
+                        <!-- 
+                        consider adding ... to fill in empty space between title and description
+                         -->
+                        <li><span class="metadata-title">file-type</span> <span
+                                class="metadata-description">.jpeg</span>
+                        </li>
+                        <li><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                        </li>
+                        <li><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                        </li>
+                        <li><span class="metadata-title">gang</span> <span
+                                class="metadata-description">valentinos</span>
+                        </li>
+                        <li><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                    </ul>
+                    <ul>
+                        <label for="#" style="color: var(--rock)">IMAGE MODIFICATIONS</label>
+                        <!-- 
+                        consider adding ... to fill in empty space between title and description
+                         -->
+                        <li><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                        </li>
+                        <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                        <li><span class="metadata-title">contrast</span> <span class="metadata-description">0</span>
+                        </li>
+                        <li><span class="metadata-title">exposure</span> <span class="metadata-description">0</span>
+                        </li>
+                        <li><span class="metadata-title">vignette</span> <span class="metadata-description">0</span>
+                        </li>
+                        <li><span class="metadata-title">aspect ratio</span> <span
+                                class="metadata-description">default</span> </li>
+                        <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                    </ul>
+                </section>
+                <section id="export-actions">
+                    <!-- filter, export button -->
+                    <ul>
+                        <li class="export-action selected-export-action"><img src="./vectors/contrast.svg" alt=""
+                                draggable="false" title="contrast">contrast</li>
+                        <!-- <li><img src="./vectors/crop.svg" alt="" draggable="false" title="crop">crop</li> -->
+                        <li class="export-action"><img src="./vectors/filter.svg" alt="" draggable="false"
+                                title="filter">filter</li>
+                        <!-- <li><img src="./vectors/location.svg" alt="" draggable="false" title="location">location</li> -->
+                        <li class="export-action"><img src="./vectors/exposure.svg" alt="" draggable="false"
+                                title="exposure">exposure</li>
+                        <li class="export-action"><img src="./vectors/vignette.svg" alt="" draggable="false"
+                                title="vignette">vignette</li>
+                        <li class="export-action"><img src="./vectors/aspect-ratio.svg" alt="" draggable="false"
+                                title="aspect ratio">aspect ratio</li>
+                        <!-- <li><img src="./vectors/rotate-orientation.svg" alt="" draggable="false" title="rotate orientation">rotate orientation</li> -->
+                    </ul>
+                    <section id="export-output">
+                        <!-- 
+                        can grab anywhere on the value container to move value
+                         -->
+                        <div id="export-contrast">
+                            <div class="value">
+                                <h3 class="">50</h3>
+                            </div>
+                            <div class="slider">
+                                <input id="contrast-slider" type="range" value="0" min="-50" max="50" />
+
+                                <div class="custom-slider">
+                                    <div class="bar">
+                                        <!-- <div class="something"></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- <p>&gt;&gt;export&lt;&lt;</p> -->
+                </section>
+            </div>
+        </section>
     </main>
 
 
@@ -252,10 +356,10 @@
     </div>
 
 
-    <script src="./js/Cursor.js"></script>
-    <script src="./js/Output.js"></script>
-    <script src="./js/Option.js"></script>
-    <script src="./js/Scroll.js"></script>
+    <script src="./js/Classes/Cursor.js"></script>
+    <script src="./js/Classes/Output.js"></script>
+    <script src="./js/Classes/Option.js"></script>
+    <script src="./js/Classes/Scroll.js"></script>
     <script src="./js/index.js"></script>
     <script src="./js/GalleryModule.js"></script>
     <script src="./js/FilterModule.js"></script>

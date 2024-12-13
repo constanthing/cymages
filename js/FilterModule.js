@@ -109,7 +109,9 @@ pointer events for touch and mouse interaction!
 
 
 
-// SCROLL 
+/*
+* SCROLL
+*/
 const filterOutputScroll = new Scroll(false, filterOutput, document.querySelector("#filter-scroll"));
 
 

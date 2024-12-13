@@ -46,6 +46,9 @@ imageActions.addEventListener("mouseleave", e => {
     // eye.setOpacity()
     pupil.setBackground()
 })
+let imageActionClicked = false;
+const exportContainer = document.querySelector("#export");
+
 imageActions.querySelectorAll(".image-action").forEach(action => {
     action.addEventListener("mouseenter", e => {
         action.innerText = "[" + action.innerText + "]";
@@ -55,11 +58,23 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
     })
 
     action.addEventListener("click", e => {
-        // TODO RESET BACKGROUND COLOR UPON LEAVING #IMAGE-ACTIONS
         action.style.background = "var(--white)";
+        // setting image 
+        exportContainer.querySelector("#export-image").setAttribute("src", currentImage.src)
+        exportContainer.classList.remove("hidden")
+
+        const mouseleave = new MouseEvent("mouseleave");
+        imageActions.dispatchEvent(mouseleave)
+        // hide gallery scroller indicators
+        // temporarily: add click to logo to exit export window
     })
 })
 
 
 const galleryScroll = new Scroll(true, gallery, document.querySelector("#gallery-scroll"));
 galleryScroll.revealScroll()
+
+
+gallery.addEventListener("scroll", () => {
+    galleryScroll.revealScroll()
+})

@@ -248,7 +248,7 @@ header {
     transform: translateY(-50%);
     right: 99%;
     width: 1.5em;
-    filter: drop-shadow(0 0 1em black);
+    filter: drop-shadow(0 0 1em white) invert(.5);
 }
 
 #filter-scroll #scroll-left {
@@ -491,7 +491,7 @@ footer img {
     top: 3%;
     right: 50%;
     transform: translateX(50%) rotate(-90deg);
-    filter: drop-shadow(0 0 1em rgba(255, 255, 255, 0.704));
+    filter: drop-shadow(0 0 1em rgba(255, 255, 255, 0.704)) invert(.5);
     width: 1.5em;
 
 }
@@ -539,4 +539,159 @@ footer img {
 
 .row .two {
     width: 66.66%;
+}
+
+#export {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    /* header is 10% height */
+    top: 10%;
+    left: 0;
+}
+#export-body {
+    height: 80%;
+    width: 100%;
+    background: #201f1f;
+    border-top: 1px solid var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+#export-image {
+    height: 100%;
+}
+#export-image-actions {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+/* consider chaning this to li { ...!important } */
+#export-image-actions li {
+    list-style-type: none;
+}
+#export-image-actions img {
+    height: 1em;
+}
+#export-footer {
+    height: 20%;
+    width: 100%;
+    background: black;
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 1em 0;
+}
+#export-metadata {
+    min-width: 50%;
+    width: fit-content;
+    height: 100%;
+
+    display: flex;
+    justify-content: end;
+    text-align: right;
+}
+#export-metadata li {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#export-metadata ul:nth-of-type(even) {
+    margin: 0 1em;
+}
+#export-metadata ul:last-child {
+    margin-right: 0;
+}
+.metadata-title {
+    color: var(--rock);
+    margin-right: 2em;
+}
+
+#export-actions {
+    width: fit-content;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#export-actions ul {
+    display: flex;
+}
+#export-actions ul li {
+    list-style-type: none;
+}
+#export-actions li {
+    display: flex;
+    align-items: center;
+}
+#export-actions li:nth-of-type(even) {
+    margin: 0 .5em;
+}
+#export-actions img {
+    height: 1em;
+}
+#export-output  {
+    width: 100%;
+    height: 100%;
+    background: #201f1f;
+}
+.export-action {
+    filter: invert(.5);
+}
+.selected-export-action {
+    filter: unset;
+}
+
+
+#export-contrast {
+    display: flex;
+    justify-content: start;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.slider {
+    position: relative;
+    width: 100%;
+}
+.value {
+    width: 10%;
+    height: 100%;
+    padding: 0 1em;
+    background: var(--rock);
+    display: flex;
+    align-items: center;
+}
+#contrast-slider {
+    width: 100%;
+    height: 100%;
+
+    /* appearance: none; */
+}
+.custom-slider {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* opacity: .5; */
+    border: 1px solid var(--white);
+    border-left: none;
+}
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-width: .5%;
+    background: red;
+    /* opacity: .5; */
+    padding: 0 .5em;
 }

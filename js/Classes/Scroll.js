@@ -166,10 +166,4 @@ class Scroll {
             this.positive.classList.add("hidden")
         }
     }
-
 }
-
-
-gallery.addEventListener("scroll", () => {
-    galleryScroll.revealScroll()
-})
