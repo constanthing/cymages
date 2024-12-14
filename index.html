@@ -240,7 +240,7 @@
         make image zoom-able 
         -->
         <section id="export" class="hidden">
-        <!-- <section id="export" class=""> -->
+            <!-- <section id="export" class=""> -->
             <div id="export-body">
                 <img id="export-image" src="./p/green.png" alt="" draggable="false" />
                 <!-- <div id="export-image-actions">
@@ -290,9 +290,9 @@
                         <li><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
                         </li>
                         <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
-                        <li><span class="metadata-title">contrast</span> <span class="metadata-description">0</span>
+                        <li><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">0</span>
                         </li>
-                        <li><span class="metadata-title">exposure</span> <span class="metadata-description">0</span>
+                        <li><span class="metadata-title">exposure</span> <span class="metadata-description" id="metadata-exposure">0</span>
                         </li>
                         <li><span class="metadata-title">vignette</span> <span class="metadata-description">0</span>
                         </li>
@@ -301,10 +301,10 @@
                         <!-- <sup> causes margin that i don't like... aka uneven lines -->
                     </ul>
                 </section>
-                <section id="export-actions">
+                <div id="export-something">
                     <!-- filter, export button -->
-                    <ul>
-                        <li class="export-action selected-export-action"><img src="./vectors/contrast.svg" alt=""
+                    <ul id="export-actions">
+                        <li class="export-action"><img src="./vectors/contrast.svg" alt=""
                                 draggable="false" title="contrast">contrast</li>
                         <!-- <li><img src="./vectors/crop.svg" alt="" draggable="false" title="crop">crop</li> -->
                         <li class="export-action"><img src="./vectors/filter.svg" alt="" draggable="false"
@@ -322,12 +322,18 @@
                         <!-- 
                         can grab anywhere on the value container to move value
                          -->
-                        <div id="export-contrast">
+                        <div id="export-filters" class="hidden">
+                            <h3>filters</h3>
+                        </div>
+                        <div id="export-aspect-ratio" class="hidden">
+                            <h3>aspect ratio</h3>
+                        </div>
+                        <div id="export-slider">
                             <div class="value">
                                 <h3 class="">100</h3>
                             </div>
-                            <div class="slider">
-                                <input id="contrast-slider" type="range" value="100" min="0" max="200" list="marker"/>
+                            <div id="slider-container">
+                                <input id="" type="range" value="100" min="0" max="200" list="marker" />
 
                                 <datalist id="marker">
                                     <option value="100"></option>
@@ -348,8 +354,8 @@
                             </div>
                         </div>
                     </section>
-                    <!-- <p>&gt;&gt;export&lt;&lt;</p> -->
-                </section>
+                </div> <!-- export something -->
+                <!-- <p>&gt;&gt;export&lt;&lt;</p> -->
             </div>
         </section>
     </main>

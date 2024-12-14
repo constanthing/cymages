@@ -62,6 +62,7 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
         // setting image 
         exportContainer.querySelector("#export-image").setAttribute("src", currentImage.src)
         exportContainer.classList.remove("hidden")
+        positionThumb()
         document.querySelectorAll(".slider-images img").forEach(image=>{
             image.setAttribute("src", currentImage.src)
         })
@@ -81,3 +82,5 @@ galleryScroll.revealScroll()
 gallery.addEventListener("scroll", () => {
     galleryScroll.revealScroll()
 })
+
+
