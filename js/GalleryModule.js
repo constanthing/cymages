@@ -62,10 +62,14 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
         // setting image 
         exportContainer.querySelector("#export-image").setAttribute("src", currentImage.src)
         exportContainer.classList.remove("hidden")
+        galleryScroll.negative.classList.add("hidden")
+        galleryScroll.positive.classList.add("hidden")
         positionThumb()
         document.querySelectorAll(".slider-images img").forEach(image=>{
             image.setAttribute("src", currentImage.src)
         })
+
+        action.style.background = "";
 
         const mouseleave = new MouseEvent("mouseleave");
         imageActions.dispatchEvent(mouseleave)

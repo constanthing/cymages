@@ -47,7 +47,7 @@ class Output {
         // add cool properties
         pupil.removeClass("indicate")
 
-        this.description.classList.add("hidden");
+        // this.description.classList.add("hidden");
 
         // maelstrom gang only one with an id
         // maelstrom gang logo is a bit smaller than the rest
@@ -78,7 +78,7 @@ class Output {
                 break;
         }
 
-        this.description.classList.remove("hidden");
+        // this.description.classList.remove("hidden");
 
         // remove properties from select
         this.dimmer.style.opacity = "";

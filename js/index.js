@@ -159,3 +159,18 @@ exportActions.forEach(action => {
 
 const clickEvent = new MouseEvent("click");
 exportActions[1].dispatchEvent(clickEvent)
+
+
+const logo = document.querySelector("#logo");
+logo.addEventListener("click", ()=>{
+    exportContainer.classList.add("hidden")
+    contrast = 100;
+    contrastMetadata.innerText = 0;
+    vignette = 100;
+    exposure = 100;
+    exposureMetadata.innerText = 0;
+    slider.value = 100;
+    positionThumb()
+    // reset filter
+    exportImage.style.filter = "";
+})
