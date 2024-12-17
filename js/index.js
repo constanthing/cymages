@@ -158,7 +158,7 @@ exportActions.forEach(action => {
 })
 
 const clickEvent = new MouseEvent("click");
-exportActions[1].dispatchEvent(clickEvent)
+exportActions[0].dispatchEvent(clickEvent)
 
 
 const logo = document.querySelector("#logo");

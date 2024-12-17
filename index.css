@@ -593,7 +593,7 @@ footer img {
 
     display: flex;
     justify-content: end;
-    text-align: right;
+    /* text-align: right; */
 }
 #export-metadata li {
     list-style-type: none;

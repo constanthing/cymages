@@ -5,7 +5,7 @@
 - prevent blink from firing when dragging #filter-output-gang it looks odd
 - clicking out of #filter-output close it 
 - Add cool image altering,shaping,molding, etc. effect when hovering over them that follows the cursor? (maybe too much idk just an idea)
-- add dragging functionality too #images 
+- add dragging functionality to #images 
 # BUGS
 - dragging #filter-output-gang when returning to drag area and its on a element that element is selected... don't want that!
     - does it on safari not google chrome
