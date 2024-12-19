@@ -84,6 +84,9 @@ header {
 
     font-family: "LogoFont", Arial, Helvetica, sans-serif;
 }
+#logo h1:hover {
+    text-decoration: underline;
+}
 
 #logo small {
     color: var(--rock);
@@ -643,6 +646,9 @@ footer img {
 }
 .export-action {
     filter: invert(.5);
+}
+.export-action:hover {
+    text-decoration: underline;
 }
 .selected-export-action {
     filter: unset;
