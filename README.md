@@ -1,6 +1,7 @@
 [figma](https://www.figma.com/design/nAWYIJ7vJY6fdy7NY5DPu5/Untitled?node-id=0-1&node-type=canvas&t=cVSFgWb9ldfmmbnC-0)
 
 # TODO
+- FIX MOBILE 
 - instead of making #eye display: none; when in #filter maybe just make #filter z-index: 100; same as #eye?
 - prevent blink from firing when dragging #filter-output-gang it looks odd
 - clicking out of #filter-output close it 

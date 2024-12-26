@@ -428,18 +428,6 @@ header {
         background: white;
     }
 }
-
-
-@media screen and (max-width: 1000px) {
-    main {
-        width: 80%;
-    }
-
-    #eye {
-        transition: top .1s steps(5, jump-start), left .1s steps(5, jump-start);
-    }
-}
-
 #image-actions {
     z-index: var(--eye-index);
 
@@ -732,6 +720,32 @@ footer img {
         width: 80%;
     }
 }
+@media screen and (max-width: 1000px) {
+    header {
+        padding: 0 2em;
+    }
+    #filter-options {
+        padding-right: 2em;
+    }
+    .row {
+        flex-wrap: wrap;
+    }
+    #eye, #pupil{
+        display: none;
+    }
+    .row img {
+        width: 100%;
+    }
+    main {
+        width: 100%;
+    }
+
+    #eye {
+        transition: top .1s steps(5, jump-start), left .1s steps(5, jump-start);
+    }
+}
+
+
 @media screen and (max-width: 900px) {
     main {
         width: 100%;

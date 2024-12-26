@@ -34,7 +34,7 @@ gallery.querySelectorAll("img").forEach(image => {
     Scroll.elementEndClicked = null;
 })
 /* IMAGE ACTIONS */
-imageActions.addEventListener("mouseleave", e => {
+imageActions.addEventListener("pointerleave", e => {
     clicked = false;
 
     currentImage.style.border = "";
@@ -50,14 +50,14 @@ let imageActionClicked = false;
 const exportContainer = document.querySelector("#export");
 
 imageActions.querySelectorAll(".image-action").forEach(action => {
-    action.addEventListener("mouseenter", e => {
+    action.addEventListener("pointerenter", e => {
         action.innerText = "[" + action.innerText + "]";
     })
-    action.addEventListener("mouseleave", e => {
+    action.addEventListener("pointerleave", e => {
         action.innerText = action.innerText.slice(1, action.innerText.length - 1);
     })
 
-    action.addEventListener("click", e => {
+    action.addEventListener("pointerdown", e => {
         action.style.background = "var(--white)";
         // setting image 
         exportContainer.querySelector("#export-image").setAttribute("src", currentImage.src)
@@ -71,8 +71,8 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
 
         action.style.background = "";
 
-        const mouseleave = new MouseEvent("mouseleave");
-        imageActions.dispatchEvent(mouseleave)
+        const pointerleave = new PointerEvent("pointerleave");
+        imageActions.dispatchEvent(pointerleave)
         // hide gallery scroller indicators
         // temporarily: add click to logo to exit export window
     })
