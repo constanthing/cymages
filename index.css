@@ -119,7 +119,7 @@ header {
 
     width: 100%;
     /* child of header -> header has 10% height relative to body -> 100% = 10% -> 300% = 30% of body */
-    height: 350%;
+    height: 40vh;
     position: absolute;
     top: 100%;
     left: 0;
@@ -482,7 +482,7 @@ footer img {
     top: 3%;
     right: 50%;
     transform: translateX(50%) rotate(-90deg);
-    filter: drop-shadow(0 0 1em rgba(255, 255, 255, 0.704)) invert(.5);
+    filter: drop-shadow(-5px 0px 8px black);
     width: 1.5em;
 
 }

@@ -24,6 +24,8 @@ class Scroll {
         this.trackShortcutHover()
         this.trackDrag()
         this.trackLeave()
+
+        let movingEventListener = undefined;
     }
 
     trackShortcutClicks() {
@@ -58,6 +60,34 @@ class Scroll {
 
     trackDrag() {
         this.element.addEventListener("pointerdown", e => {
+            if (this.movingEventListener == undefined) {
+                console.log("not moving")
+                this.movingEventListener = e => {
+                    console.log("moving")
+                    // console.log("POINTER MOVE: ", Scroll.dragging, Scroll.grabbing)
+                    if (Scroll.grabbing) {
+                        Scroll.dragging = true;
+
+                        let move = null;
+                        let scroll = null;
+                        // scroll = Math.max(0, Math.min(scroll, filterOutput.scrollWidth - filterOutput.clientWidth));
+                        if (this.isVertical) {
+                            move = (e.clientY - this.start);
+                            scroll = this.element.scrollTop - move;
+                            this.element.scrollTo(0, scroll)
+                            // for smoother scrolling 
+                            this.start = e.clientY;
+                        } else {
+                            move = (e.clientX - this.start);
+                            scroll = this.element.scrollLeft - move;
+                            this.element.scrollTo(scroll, 0)
+                            this.start = e.clientX;
+                        }
+                    }
+                };
+                this.element.addEventListener("pointermove", this.movingEventListener)
+            }
+
             Scroll.elementStartClicked = document.elementFromPoint(e.clientX, e.clientY);
 
             // do you need this if?
@@ -76,28 +106,7 @@ class Scroll {
             this.revealScroll(this.negative, this.positive, this.element, this.isVertical)
         })
 
-        this.element.addEventListener("pointermove", e => {
-            // console.log("POINTER MOVE: ", Scroll.dragging, Scroll.grabbing)
-            if (Scroll.grabbing) {
-                Scroll.dragging = true;
 
-                let move = null;
-                let scroll = null;
-                // scroll = Math.max(0, Math.min(scroll, filterOutput.scrollWidth - filterOutput.clientWidth));
-                if (this.isVertical) {
-                    move = (e.clientY - this.start);
-                    scroll = this.element.scrollTop - move;
-                    this.element.scrollTo(0, scroll)
-                    // for smoother scrolling 
-                    this.start = e.clientY;
-                } else {
-                    move = (e.clientX - this.start);
-                    scroll = this.element.scrollLeft - move;
-                    this.element.scrollTo(scroll, 0)
-                    this.start = e.clientX;
-                }
-            }
-        })
     }
 
     /*
@@ -123,12 +132,14 @@ class Scroll {
     }
     trackLeave() {
         this.element.addEventListener("pointerleave", (e) => {
-            // console.log("LEFT: ", Scroll.dragging, Scroll.grabbing)
             this.#recordDraggingStopped(e)
+            this.element.removeEventListener("pointermove", this.movingEventListener)
+            this.movingEventListener = undefined;
         })
         this.element.addEventListener("pointerup", (e) => {
-            // console.log("pointer up")
             this.#recordDraggingStopped(e)
+            this.element.removeEventListener("pointermove", this.movingEventListener)
+            this.movingEventListener = undefined;
         })
     }
 
