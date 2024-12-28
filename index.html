@@ -9,8 +9,8 @@
 
 <body>
     <main>
-        <header>
-            <div id="logo">
+        <header class="flex ai-c jc-sb">
+            <div id="logo" class="flex fd-c">
                 <!-- clicking logo should take to github page -->
                 <h1>CYMAGES</h1>
                 <small>no mods - sfw - exportable</small>
@@ -18,7 +18,7 @@
 
             <div id="filter-button"> </div>
 
-            <section id="filter" class="hidden">
+            <section id="filter" class="hidden flex jc-sb ai-c">
                 <!-- <section id="filter" class=""> -->
                 <div id="filter-scroll">
                     <img src="./vectors/arrow-right.svg" alt="" id="scroll-left" class="hidden" />
@@ -28,22 +28,22 @@
 
                 <section id="filter-output">
 
-                    <section id="filter-output-feeling" class="hidden">
-                        <div class="feeling" data-index="0">
+                    <section id="filter-output-feeling" class="hidden  flex jc-sb">
+                        <div class="feeling center" data-index="0">
                             <img src="./p/train.png" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./vectors/sad.svg" alt="" class="logo" />
                             <!-- <h3 class="logo">GLOOMY</h3> -->
                             <small class="description">sad</small>
                         </div>
-                        <div class="feeling" data-index="1">
+                        <div class="feeling center" data-index="1">
                             <img src="./p/train.png" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./vectors/happy.svg" alt="" class="logo" />
                             <!-- <h3 class="logo">GLOOMY</h3> -->
                             <small class="description">happy</small>
                         </div>
-                        <div class="feeling" data-index="2">
+                        <div class="feeling center" data-index="2">
                             <img src="./p/train.png" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./vectors/alone.svg" alt="" class="logo" />
@@ -51,44 +51,44 @@
                             <small class="description">alone</small>
                         </div>
                     </section>
-                    <section id="filter-output-location" class="hidden">
+                    <section id="filter-output-location" class="hidden flex jc-sb">
                         <!-- https://cyberpunk.fandom.com/wiki/Category:Cyberpunk_2077_Districts -->
-                        <div class="location" data-index="0">
+                        <div class="location center" data-index="0">
                             <img src="./p/6th-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <!-- <img src="./logos/6thColored.png" alt="" class="logo" /> -->
                             <h3 class="logo">HEYWOOD</h3>
                             <small class="description hidden"></small>
                         </div>
-                        <div class="location" data-index="1">
+                        <div class="location center" data-index="1">
                             <img src="./p/6th-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <!-- <img src="./logos/6thColored.png" alt="" class="logo" /> -->
                             <h3 class="logo">CITY CENTER</h3>
                             <small class="description hidden"></small>
                         </div>
-                        <div class="location" data-index="2">
+                        <div class="location center" data-index="2">
                             <img src="./p/6th-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <!-- <img src="./logos/6thColored.png" alt="" class="logo" /> -->
                             <h3 class="logo">PACIFICA</h3>
                             <small class="description hidden"></small>
                         </div>
-                        <div class="location" data-index="3">
+                        <div class="location center" data-index="3">
                             <img src="./p/6th-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <!-- <img src="./logos/6thColored.png" alt="" class="logo" /> -->
                             <h3 class="logo">SANTO DOMINGO</h3>
                             <small class="description hidden"></small>
                         </div>
-                        <div class="location" data-index="4">
+                        <div class="location center" data-index="4">
                             <img src="./p/6th-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <!-- <img src="./logos/6thColored.png" alt="" class="logo" /> -->
                             <h3 class="logo">WATSON</h3>
                             <small class="description hidden"></small>
                         </div>
-                        <div class="location" data-index="5">
+                        <div class="location center" data-index="5">
                             <img src="./p/6th-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <!-- <img src="./logos/6thColored.png" alt="" class="logo" /> -->
@@ -97,64 +97,64 @@
                         </div>
 
                     </section>
-                    <section id="filter-output-gang" class="hidden">
-                        <div class="gang" data-index="0">
+                    <section id="filter-output-gang" class="hidden flex jc-sb">
+                        <div class="gang center" data-index="0">
                             <img src="./p/6th-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./logos/6thColored.png" alt="" class="logo" />
                             <small class="description">6th street</small>
                         </div>
-                        <div class="gang" data-index="1">
+                        <div class="gang center" data-index="1">
                             <img src="./p/animals-image.jpg" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./logos/AnimalsColored.webp" alt="" class="logo" />
                             <small class="description">animals</small>
                         </div>
-                        <div class="gang" data-index="2">
+                        <div class="gang center" data-index="2">
                             <img src="./p/valentinos-image.png" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./logos/ValentinosColored.webp" alt="" class="logo" />
                             <small class="description">valentinos</small>
                         </div>
-                        <div class="gang" id="maelstrom" data-index="3">
+                        <div class="gang center" id="maelstrom" data-index="3">
                             <img src="./p/maelstrom-image.png" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./logos/MaelstromColored.png" alt="" class="logo" />
                             <small class="description">maelstrom</small>
                         </div>
-                        <div class="gang" data-index="4">
+                        <div class="gang center" data-index="4">
                             <img src="./p/the-mox-image.png" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./logos/TheMoxColored.png" alt="" class="logo" />
                             <small class="description">the mox</small>
                         </div>
-                        <div class="gang" data-index="5">
+                        <div class="gang center" data-index="5">
                             <img src="./p/aldecados-image.png" alt="" class="background">
                             <div class="dimmer"></div>
                             <img src="./logos/AlbecadosColored.webp" alt="" class="logo" />
                             <small class="description">aldecados</small>
                         </div>
                     </section>
-                    <section id="filter-output-time" class="hidden">
-                        <div class="time" data-index="0">
+                    <section id="filter-output-time" class="hidden flex jc-sb">
+                        <div class="time center" data-index="0">
                             <img src="./p/train.png" alt="" class="background" />
                             <div class="dimmer"></div>
                             <img src="./vectors/night.svg" alt="" class="logo" />
                             <small class="description">night</small>
                         </div>
-                        <div class="time" data-index="1">
+                        <div class="time center" data-index="1">
                             <img src="./p/dead.png" alt="" class="background" />
                             <div class="dimmer"></div>
                             <img src="./vectors/sunrise.svg" alt="" class="logo" />
                             <small class="description">sunrise</small>
                         </div>
-                        <div class="time" data-index="2">
+                        <div class="time center" data-index="2">
                             <img src="./p/still.png" alt="" class="background" />
                             <div class="dimmer"></div>
                             <img src="./vectors/sun.svg" alt="" class="logo" />
                             <small class="description">noon</small>
                         </div>
-                        <div class="time" data-index="3">
+                        <div class="time center" data-index="3">
                             <img src="./p/stop.png" alt="" class="background" />
                             <div class="dimmer"></div>
                             <img src="./vectors/sunset.svg" alt="" class="logo" />
@@ -164,29 +164,29 @@
                 </section>
 
 
-                <section id="filter-options">
-                    <ul>
+                <section id="filter-options" class="flex fd-c jc-sb">
+                    <ul class="flex fd-c ai-fe">
                         <label for="" style="color: var(--rock);">FILTERS</label>
 
-                        <div id="location-option" class="filter-option">
+                        <div id="location-option" class="filter-option flex">
                             <div class="background hidden"></div>
                             <p class="before hidden">[</p>
                             <li>location</li>
                             <p class="after hidden">]</p>
                         </div>
-                        <div id="gang-option" class="filter-option">
+                        <div id="gang-option" class="filter-option flex">
                             <div class="background hidden"></div>
                             <p class="before hidden">[</p>
                             <li>gang</li>
                             <p class="after hidden">]</p>
                         </div>
-                        <div id="time-option" class="filter-option">
+                        <div id="time-option" class="filter-option flex">
                             <div class="background hidden"></div>
                             <p class="before hidden">[</p>
                             <li>time</li>
                             <p class="after hidden">]</p>
                         </div>
-                        <div id="feeling-option" class="filter-option">
+                        <div id="feeling-option" class="filter-option flex">
                             <div class="background hidden"></div>
                             <p class="before hidden">[</p>
                             <li>feeling</li>
@@ -204,7 +204,7 @@
             </section>
         </header>
 
-        <div id="gallery-scroll">
+        <div id="gallery-scroll" class="">
             <img src="./vectors/arrow-right.svg" alt="" id="scroll-up" class="hidden" />
             <img src="./vectors/arrow-right.svg" alt="" id="scroll-down" class="hidden" />
         </div>
@@ -233,10 +233,10 @@
             </div>
         </section>
 
-        <footer>
+        <footer class="flex jc-sb ai-c">
             <small id="possible-action">[POSSIBLE ACTION]</small>
             <!-- <small id="status">[STATUS PENDING]</small> -->
-            <div>
+            <div class="flex ai-c">
                 <img src="./vectors/images.svg" alt="">
                 <small>pending: 0</small>
             </div>
@@ -247,7 +247,7 @@
         -->
         <section id="export" class="hidden">
             <!-- <section id="export" class=""> -->
-            <div id="export-body">
+            <div id="export-body" class="center">
                 <img id="export-image" src="./p/green.png" alt="" draggable="false" />
                 <!-- <div id="export-image-actions">
                     <ul>
@@ -269,58 +269,58 @@
             MOVE text to the right
             and images to the left
             -->
-            <div id="export-footer">
-                <section id="export-metadata">
+            <div id="export-footer" class="flex fd-rr jc-sb">
+                <section id="export-metadata" class="flex jc-e">
                     <ul>
                         <label for="#" style="color: var(--rock)">METADATA</label>
                         <!-- 
                         consider adding ... to fill in empty space between title and description
                          -->
-                        <li><span class="metadata-title">file-type</span> <span
+                        <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span
                                 class="metadata-description">.jpeg</span>
                         </li>
-                        <li><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                        <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
                         </li>
-                        <li><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                        <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
                         </li>
-                        <li><span class="metadata-title">gang</span> <span
+                        <li class="flex jc-sb"><span class="metadata-title">gang</span> <span
                                 class="metadata-description">valentinos</span>
                         </li>
-                        <li><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                        <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
                     </ul>
                     <ul>
                         <label for="#" style="color: var(--rock)">IMAGE MODIFICATIONS</label>
                         <!-- 
                         consider adding ... to fill in empty space between title and description
                          -->
-                        <li><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                        <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
                         </li>
                         <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
-                        <li><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">0</span>
+                        <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">0</span>
                         </li>
-                        <li><span class="metadata-title">exposure</span> <span class="metadata-description" id="metadata-exposure">0</span>
+                        <li class="flex jc-sb"><span class="metadata-title">exposure</span> <span class="metadata-description" id="metadata-exposure">0</span>
                         </li>
-                        <li><span class="metadata-title">vignette</span> <span class="metadata-description">0</span>
+                        <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">0</span>
                         </li>
-                        <li><span class="metadata-title">aspect ratio</span> <span
+                        <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span
                                 class="metadata-description">default</span> </li>
                         <!-- <sup> causes margin that i don't like... aka uneven lines -->
                     </ul>
                 </section>
-                <div id="export-something">
+                <div id="export-something" class="flex fd-c">
                     <!-- filter, export button -->
-                    <ul id="export-actions">
-                        <li class="export-action"><img src="./vectors/contrast.svg" alt=""
+                    <ul id="export-actions" class="flex">
+                        <li class="export-action flex ai-c"><img src="./vectors/contrast.svg" alt=""
                                 draggable="false" title="contrast">contrast</li>
                         <!-- <li><img src="./vectors/crop.svg" alt="" draggable="false" title="crop">crop</li> -->
-                        <li class="export-action"><img src="./vectors/filter.svg" alt="" draggable="false"
+                        <li class="export-action flex ai-c"><img src="./vectors/filter.svg" alt="" draggable="false"
                                 title="filter">filter</li>
                         <!-- <li><img src="./vectors/location.svg" alt="" draggable="false" title="location">location</li> -->
-                        <li class="export-action"><img src="./vectors/exposure.svg" alt="" draggable="false"
+                        <li class="export-action flex ai-c"><img src="./vectors/exposure.svg" alt="" draggable="false"
                                 title="exposure">exposure</li>
-                        <li class="export-action"><img src="./vectors/vignette.svg" alt="" draggable="false"
+                        <li class="export-action flex ai-c"><img src="./vectors/vignette.svg" alt="" draggable="false"
                                 title="vignette">vignette</li>
-                        <li class="export-action"><img src="./vectors/aspect-ratio.svg" alt="" draggable="false"
+                        <li class="export-action flex ai-c"><img src="./vectors/aspect-ratio.svg" alt="" draggable="false"
                                 title="aspect ratio">aspect ratio</li>
                         <!-- <li><img src="./vectors/rotate-orientation.svg" alt="" draggable="false" title="rotate orientation">rotate orientation</li> -->
                     </ul>
@@ -334,8 +334,8 @@
                         <div id="export-aspect-ratio" class="hidden">
                             <h3>aspect ratio</h3>
                         </div>
-                        <div id="export-slider">
-                            <div class="value">
+                        <div id="export-slider" class="flex jc-s">
+                            <div class="value flex ai-c">
                                 <h3 class="">100</h3>
                             </div>
                             <div id="slider-container">
@@ -346,7 +346,7 @@
                                 </datalist>
 
                                 <div class="custom-slider">
-                                    <div class="slider-images">
+                                    <div class="slider-images flex">
                                         <img src="./p/green.png" alt="">
                                         <img src="./p/green.png" alt="">
                                         <img src="./p/green.png" alt="">
