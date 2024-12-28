@@ -752,4 +752,22 @@ footer img {
     }
     header {
         padding: 0 2em;
+    }
+    #filter {
+        height: 80vh;
+        flex-direction: column;
+    }
+    #filter-scroll {
+        display: none;
+    }
+    #filter-output {
+        height: 100%;
+        width: 100%;
+    }
+    #filter-options {
+        padding: 1em;
+        height: unset;
+        width: 100%;
+        text-align: left;
+    }
 }
