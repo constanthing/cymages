@@ -164,7 +164,7 @@ function selectOutputOption(element) {
 
 
 // on document load ... load the local storage filters
-document.querySelectorAll("#filter-list > label").forEach(option => {
+document.querySelectorAll("#filter-list label").forEach(option => {
     let type = option.getAttribute("for");
     try {
         for (const item of JSON.parse(window.localStorage.getItem(`${type}Filters`))) {
