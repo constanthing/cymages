@@ -22,8 +22,15 @@ class Scroll {
 
         this.trackShortcutClicks()
         this.trackShortcutHover()
-        this.trackDrag()
-        this.trackLeave()
+
+        // do not want tro track drag on mobile devices since they
+        // inherently support drag 
+        if (window.innerWidth > 1000) {
+            this.trackDrag()
+            this.trackLeave()
+        } else {
+            console.log("not tracking")
+        }
 
         let movingEventListener = undefined;
     }
@@ -36,7 +43,7 @@ class Scroll {
             /*
             * consider making this responsive to the screen resize
             */
-            this.element.scrollTo(1000, 1000)
+            this.element.scrollTo(1000, this.element.scrollHeight)
         })
     }
     trackShortcutHover() {
@@ -61,9 +68,9 @@ class Scroll {
     trackDrag() {
         this.element.addEventListener("pointerdown", e => {
             if (this.movingEventListener == undefined) {
-                console.log("not moving")
+                // console.log("not moving")
                 this.movingEventListener = e => {
-                    console.log("moving")
+                    // console.log("moving")
                     // console.log("POINTER MOVE: ", Scroll.dragging, Scroll.grabbing)
                     if (Scroll.grabbing) {
                         Scroll.dragging = true;

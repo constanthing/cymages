@@ -1,0 +1,69 @@
+#eye {
+    z-index: var(--eye-index);
+
+    height: 2em;
+    width: 2em;
+    background: var(--white);
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid black;
+
+    /* 
+    smaller screen = increase steps
+     */
+    transition: top .1s steps(2, jump-start), left .1s steps(2, jump-start), opacity .2s linear;
+    pointer-events: none;
+}
+
+#pupil {
+    z-index: var(--pupil-index);
+
+    height: 1em;
+    width: 1em;
+    background: black;
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid white;
+    pointer-events: none;
+}
+
+.blink {
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.indicate {
+    animation-name: indicate;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+
+@keyframes indicate {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+        background: white;
+    }
+}

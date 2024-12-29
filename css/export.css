@@ -1,0 +1,151 @@
+#export {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    /* header is 10% height */
+    top: 10%;
+    left: 0;
+}
+#export-body {
+    height: 80%;
+    width: 100%;
+    background: #201f1f;
+    border-top: 1px solid var(--white);
+
+    position: relative;
+}
+#export-image {
+    height: 100%;
+}
+#export-image-actions {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+/* consider chaning this to li { ...!important } */
+#export-image-actions li {
+    list-style-type: none;
+}
+#export-image-actions img {
+    height: 1em;
+}
+#export-footer {
+    height: 20%;
+    width: 100%;
+    background: black;
+    padding: 1em 0;
+}
+#export-metadata {
+    min-width: 40%;
+    width: fit-content;
+    height: 100%;
+
+    /* text-align: right; */
+}
+#export-metadata li {
+    list-style-type: none;
+    width: 100%;
+}
+#export-metadata ul:nth-of-type(even) {
+    margin: 0 1em;
+}
+#export-metadata ul:last-child {
+    margin-right: 0;
+}
+.metadata-title {
+    color: var(--rock);
+    margin-right: 2em;
+}
+
+#export-something {
+    width: 100%;
+    height: 100%;
+}
+#export-actions {
+    width: fit-content;
+    width: 100%;
+}
+#export-actions li {
+    list-style-type: none;
+}
+#export-actions li:nth-of-type(even) {
+    margin: 0 .5em;
+}
+#export-actions img {
+    height: 1em;
+}
+#export-output  {
+    width: 100%;
+    height: 100%;
+    background: #201f1f;
+}
+.export-action {
+    filter: invert(.5);
+}
+.export-action:hover {
+    text-decoration: underline;
+}
+.selected-export-action {
+    filter: unset;
+}
+
+
+#export-slider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#slider-container {
+    position: relative;
+    width: 100%;
+}
+.value {
+    width: 10%;
+    height: 100%;
+    padding: 0 1em;
+    background: var(--rock);
+}
+#slider-container input {
+    width: 100%;
+    height: 100%;
+
+    /* appearance: none; */
+}
+.custom-slider {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* opacity: .5; */
+    /* border: 1px solid var(--white); */
+    border-left: none;
+    /* background: url("./p/green.png"); */
+    background-size: contain;
+}
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-width: .5%;
+    background: red;
+    /* opacity: .5; */
+    padding: 0 .2em;
+}
+
+
+
+
+.slider-images {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+}
+.slider-images img {
+    width: 20%;
+    margin: 0;
+}

@@ -4,7 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cymages</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./css/index.css"/>
+    <link rel="stylesheet" href="./css/gallery.css"/>
+    <link rel="stylesheet" href="./css/filter.css"/>
+    <link rel="stylesheet" href="./css/export.css">
+    <link rel="stylesheet" href="./css/cursor.css"/>
+    <link rel="stylesheet" href="./css/media.css"/>
 </head>
 
 <body>
@@ -23,7 +28,6 @@
                 <div id="filter-scroll">
                     <img src="./vectors/arrow-right.svg" alt="" id="scroll-left" class="hidden" />
                     <img src="./vectors/arrow-right.svg" alt="" id="scroll-right" class="hidden" />
-                </div>
                 </div>
 
                 <section id="filter-output">
@@ -164,35 +168,18 @@
                 </section>
 
 
-                <section id="filter-options" class="flex fd-c jc-sb">
-                    <ul class="flex fd-c ai-fe">
-                        <label for="" style="color: var(--rock);">FILTERS</label>
-
-                        <div id="location-option" class="filter-option flex">
-                            <div class="background hidden"></div>
-                            <p class="before hidden">[</p>
-                            <li>location</li>
-                            <p class="after hidden">]</p>
-                        </div>
-                        <div id="gang-option" class="filter-option flex">
-                            <div class="background hidden"></div>
-                            <p class="before hidden">[</p>
-                            <li>gang</li>
-                            <p class="after hidden">]</p>
-                        </div>
-                        <div id="time-option" class="filter-option flex">
-                            <div class="background hidden"></div>
-                            <p class="before hidden">[</p>
-                            <li>time</li>
-                            <p class="after hidden">]</p>
-                        </div>
-                        <div id="feeling-option" class="filter-option flex">
-                            <div class="background hidden"></div>
-                            <p class="before hidden">[</p>
-                            <li>feeling</li>
-                            <p class="after hidden">]</p>
-                        </div>
-                        <!-- <li id="weather-option">weather</li> -->
+                <section id="filter-options" class="flex fd-c jc-sb ai-e">
+                    <form id="filter-list" class="flex ai-e fd-c">
+                        <h3>FILTERS</h3>
+                        <input type="radio" name="filter-list" id="location">
+                        <label for="location" class="clickable f-l">location</label>
+                        <input type="radio" name="filter-list" id="gang">
+                        <label for="gang" class="clickable f-g">gang</label>
+                        <input type="radio" name="filter-list" id="time">
+                        <label for="time" class="clickable f-t">time</label>
+                        <input type="radio" name="filter-list" id="feeling">
+                        <label for="feeling" class="clickable f-f">feeling</label>
+                    </form>
                     </ul>
                     <div id="filter-actions">
                         <button id="filter-reset">&gt;&gt;reset&lt;&lt;</button>
@@ -387,6 +374,7 @@
     <script src="./js/index.js"></script>
     <script src="./js/GalleryModule.js"></script>
     <script src="./js/FilterModule.js"></script>
+    <script src="./js/ExportModule.js"></script>
 </body>
 
 </html>

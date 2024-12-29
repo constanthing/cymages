@@ -1,0 +1,311 @@
+#filter-button {
+    height: var(--filter-size);
+    width: var(--filter-size);
+    background: var(--white);
+    border-radius: 100%;
+
+    border-width: .2em;
+    border-style: solid;
+    border-top-color: var(--feeling);
+    border-right-color: var(--location);
+    border-bottom-color: var(--gang);
+    border-bottom-width: .3em;
+    border-left-color: var(--time);
+}
+
+
+#filter {
+    /* important to appear above #gallery (2 has no meaning)*/
+    z-index: 2;
+
+    width: 100%;
+    /* child of header -> header has 10% height relative to body -> 100% = 10% -> 300% = 30% of body */
+    height: 40vh;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: black;
+    /* padding: 2em 0; */
+    border-top: 1px solid var(--white);
+}
+
+/* 
+NEW FILTER LIST
+ */
+#filter-list {
+    width: fit-content;
+}
+#filter-list h3 {
+    color: var(--rock);
+}
+
+#filter-list input {
+    display: none;
+}
+
+#filter-list label {
+    padding: .1em .3em;
+}
+
+.clickable {
+    width: fit-content;
+    position: relative;
+}
+
+.clicked {
+    width: fit-content;
+}
+
+.clickable:hover::before {
+    content: "[";
+    position: absolute;
+    left: 0;
+}
+
+.clickable:hover::after {
+    content: "]";
+    position: absolute;
+    right: 0;
+}
+
+.f-l::after,
+.f-l::before {
+    color: var(--location);
+}
+.clicked.f-l {
+    background: var(--location);
+}
+
+.f-g::after,
+.f-g::before {
+    color: var(--gang);
+}
+.clicked.f-g {
+    background: var(--gang);
+}
+
+.f-t::after,
+.f-t::before {
+    color: var(--time);
+}
+.clicked.f-t {
+    background: var(--time);
+}
+
+.f-f::after,
+.f-f::before {
+    color: var(--feeling);
+}
+.clicked.f-f {
+    background: var(--feeling);
+}
+/* END OF NEW FILTER LIST */
+
+
+
+#filter-options {
+    text-align: right;
+    height: 100%;
+    width: 20%;
+    padding: 1em 0;
+}
+
+#filter-options ul li {
+    width: fit-content;
+    position: relative;
+    list-style-type: none;
+}
+
+.filter-option {
+    position: relative;
+}
+
+.filter-option .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#feeling-option .before,
+#feeling-option .after {
+    color: var(--feeling);
+}
+
+#feeling-option .background {
+    background: var(--feeling);
+
+}
+
+#location-option .before,
+#location-option .after {
+    color: var(--location);
+}
+
+#location-option .background {
+    background: var(--location);
+}
+
+#gang-option .before,
+#gang-option .after {
+    color: var(--gang);
+}
+
+#gang-option .background {
+    background: var(--gang);
+}
+
+#time-option .before,
+#time-option .after {
+    color: var(--time);
+}
+
+#time-option .background {
+    background: var(--time);
+}
+
+#filter-actions button {
+    border: none;
+    background: none;
+    color: var(--white);
+}
+
+#filter-actions button:hover {
+    cursor: none;
+}
+
+#filter-output {
+    /* background: rgb(38, 38, 38);
+    background: linear-gradient(102deg, rgba(38, 38, 38, 1) 0%, rgba(25, 25, 25, 1) 100%); */
+
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
+    /* overflow: hidden; */
+    position: relative;
+    scrollbar-width: none;
+    /* firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+/* for webkit browsers such as chrome, safari, etc. */
+#filter-output::-webkit-scrollbar {
+    display: none;
+}
+
+#filter-scroll {
+    width: 80%;
+    /* same as filter-output */
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* scroll-left, scroll-right are img elements */
+#filter-scroll img {
+    z-index: var(--pupil-index);
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 99%;
+    width: 1.5em;
+    filter: drop-shadow(0 0 1em white) invert(.5);
+}
+
+#filter-scroll #scroll-left {
+    transform: rotate(180deg) translateY(50%);
+}
+
+#filter-scroll #scroll-right {
+    right: unset;
+    left: 99%;
+}
+
+#filter-output section {
+    /* 
+        align #filter-output and #filter-options 
+        */
+}
+
+
+/* #filter-output-gang */
+#filter-output>section {
+    width: fit-content;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* .gang */
+#filter-output>section>div {
+    position: relative;
+    height: 100%;
+    width: 10em;
+    padding: 0 2em;
+    /* hide background image */
+    overflow: hidden;
+}
+
+#filter-output>section>div:nth-child(even) {
+    border: 2px solid black;
+    border-top: none;
+    border-bottom: none;
+}
+
+#filter-output .logo {
+    width: 3em;
+    filter: grayscale(1);
+    transition: filter .3s ease, width .3s ease, scale .3s ease;
+    /*  */
+    pointer-events: none;
+}
+
+#maelstrom .logo {
+    width: 4em;
+}
+
+#filter-output .dimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    opacity: .8;
+}
+
+#filter-output .background {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    right: 50%;
+    filter: grayscale(1);
+    transform: translate(50%, -50%);
+    transition: filter .3s ease;
+}
+
+/* logos are white grascale() does nothing */
+#filter-output .time .logo,
+#filter-output .location .logo,
+#filter-output .feeling .logo {
+    filter: invert(.4);
+}
+
+.description {
+    position: absolute;
+    bottom: 1em;
+    margin: 0 auto;
+}
+
+.location .logo {
+    text-align: center;
+}
+
+.time {
+    width: 15em !important;
+}

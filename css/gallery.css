@@ -1,0 +1,77 @@
+/*  making #images relative hides #filter-output for some reason! */
+#gallery {
+    /* z-index: 1; */
+    height: 90%;
+    overflow-y: scroll;
+    position: relative;
+
+    scrollbar-width: none;
+}
+
+#gallery-scroll {
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    left: 0;
+}
+
+#gallery-scroll img {
+    z-index: var(--pupil-index);
+
+    position: absolute;
+    top: 3%;
+    right: 50%;
+    transform: translateX(50%) rotate(-90deg);
+    filter: drop-shadow(-5px 0px 8px black);
+    width: 1.5em;
+
+}
+
+#gallery-scroll #scroll-down {
+    top: unset;
+    /* scroll-up is affected by the footer which takes up about 2% of space
+    therefore instead of being equal 5% subtracting 2% to make it look even */
+    bottom: 5%;
+    transform: translateX(50%) rotate(90deg);
+}
+
+#gallery-dimmer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--rock);
+    opacity: .8;
+}
+
+.row {
+    display: flex;
+}
+
+.row img {
+    width: 33.33%;
+}
+
+.row .two {
+    width: 66.66%;
+}
+
+
+#image-actions {
+    z-index: var(--eye-index);
+
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    padding: .4em .9em;
+}
+
+#image-actions button {
+    background: none;
+    border: none;
+    color: var(--white);
+}

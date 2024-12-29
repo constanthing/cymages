@@ -118,13 +118,32 @@ const filterOutputScroll = new Scroll(false, filterOutput, document.querySelecto
 /*
 FILTER OPTIONS
 */
-let options = { "feeling": null, "location": null, "gang": null, "time": null };
 // 1. creating an object out of each filter option
 // 2. assigning object to relative key in options dict.
-filter.querySelectorAll(".filter-option").forEach((option) => {
-    let optionObj = new Option(option);
-    options[optionObj.type] = optionObj;
+const filterList = document.querySelector("#filter-list");
+let previousFilterLabel = undefined;
+let previousFilterOutput = undefined; 
+filterList.addEventListener("input", (e)=>{
+    const output = document.querySelector(`#filter-output-${e.target.id}`);
+    output.classList.remove("hidden")
+
+    // hide previous output/unclick label (style)
+    if (previousFilterLabel) {
+        previousFilterLabel.classList.remove("clicked")
+        previousFilterLabel.classList.add("clickable")
+        previousFilterOutput.classList.add("hidden")
+        // document.querySelector(`#filter-output-${previousFilterLabel.getAttribute("for")}`).classList.add("hidden")
+    }
+
+    // click (style) selected label
+    const label = e.target.nextElementSibling;
+    label.classList.remove("clickable")
+    label.classList.add("clicked")
+
+    previousFilterLabel = label;
+    previousFilterOutput = output;
 })
+
 
 /*
 FILTER GANGS
@@ -145,14 +164,6 @@ let resetting = false;
 filterReset.addEventListener("click", e => {
     Option.selected.reset()
 })
-
-
-
-
-const click = new MouseEvent("click");
-options.gang.option.dispatchEvent(click)
-// options.gang.select()
-
 
 
 
