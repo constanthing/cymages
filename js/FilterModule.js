@@ -101,18 +101,11 @@ rotateBorderColors()
 /*
 FILTER OUTPUT
 */
-const filterOutput = body.querySelector("#filter-output");
-/*
-mousemove, click for mouse only interaction
-pointer events for touch and mouse interaction!
-*/
-
-
 
 /*
 * SCROLL
 */
-const filterOutputScroll = new Scroll(false, filterOutput, document.querySelector("#filter-scroll"));
+const filterOutputScroll = new Scroll(false, body.querySelector("#filter-output"), body.querySelector("#filter-scroll"));
 
 
 /*
@@ -143,6 +136,7 @@ filterList.addEventListener("input", (e)=>{
     previousFilterLabel = label;
     previousFilterOutput = output;
 })
+document.querySelector("#gang").dispatchEvent(new MouseEvent("click"))
 
 
 /*
@@ -152,21 +146,9 @@ FILTER GANGS
 FILTER ACTION/RESET BUTTONS
 */
 // const filterApply = filter.querySelector("#filter-apply");
-const filterReset = filter.querySelector("#filter-reset");
-
-// filterApply.addEventListener("click", e=>{
-//     // add filters of currently selected option to localStorage
-//     // empty = null
-//     // let optionFilters = JSON.parse(localStorage.getItem(`${Option.type}Filters`));
-//     localStorage.setItem(`${Option.selected.type}Filters`, JSON.stringify(Option.selected.filters))
-// })
-let resetting = false;
-filterReset.addEventListener("click", e => {
-    Option.selected.reset()
-})
 
 
-
-
-
-// revealScroll(up, down, gallery, false)
+// for filter output option css
+function selectOutputOption(element) {
+    element.classList.toggle("output-option-selected")
+}
