@@ -112,10 +112,12 @@ FILTER OPTIONS
 const filterList = document.querySelector("#filter-list");
 
 let previousFilterOutput = undefined;
+let filterCategory = undefined;
 
 radioGroupFunctionality(filterList)
 filterList.addEventListener("input", e=>{
-    const output = document.querySelector(`#filter-output-${e.target.id}`);
+    filterCategory = e.target.id;
+    const output = document.querySelector(`#filter-output-${filterCategory}`);
     output.classList.remove("hidden")
     if (previousFilterOutput) {
         previousFilterOutput.classList.add("hidden")
@@ -138,7 +140,6 @@ FILTER ACTION/RESET BUTTONS
 
 // for filter output option css
 function selectOutputOption(element) {
-    const filterCategory = previousFilterLabel.getAttribute("for");
     // if selected deselect it
     let currentStorage = JSON.parse(window.localStorage.getItem(`${filterCategory}Filters`));
     if (element.classList.contains("output-option-selected")) {

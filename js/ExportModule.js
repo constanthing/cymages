@@ -98,65 +98,6 @@ let selectedAction = null;
 const contrastMetadata = document.querySelector("#metadata-contrast");
 const brightnessMetadata = document.querySelector("#metadata-brightness");
 
-// exportActions.forEach(action => {
-//     action.addEventListener("click", () => {
-//         if (selectedAction && selectedAction != action) {
-//             // remove that action
-//             selectedAction.classList.remove("selected-export-action")
-//         }
-//         selectedAction = action;
-//         action.classList.add("selected-export-action")
-
-
-//         if (["contrast", "vignette", "exposure"].indexOf(action.innerText) != -1) {
-//             // clicked one of those ^
-
-//             sliderContainer.classList.remove("hidden")
-//             exportFilters.classList.add("hidden")
-//             exportAspectRatio.classList.add("hidden")
-//             switch (action.innerText) {
-//                 case "contrast":
-//                     value.innerText = contrast;
-//                     contrastMetadata.innerText = contrast;
-//                     positionThumb(contrast)
-//                     imageFilter = "contrast";
-//                     applyFiltersToImages("contrast")
-//                     break;
-//                 case "exposure":
-//                     value.innerText = exposure;
-//                     exposureMetadata.innerText = contrast;
-//                     positionThumb(exposure)
-//                     imageFilter = "brightness";
-//                     applyFiltersToImages("brightness")
-//                     break;
-//                 default:
-//                     console.log("defaulted switch line 90 index.js")
-//                     break;
-//             }
-//         } else {
-//             sliderContainer.classList.add("hidden")
-//         }
-
-//         if (action.innerText == "filter") {
-//             exportFilters.classList.remove("hidden")
-//             sliderContainer.classList.add("hidden")
-//             exportAspectRatio.classList.add("hidden")
-//         } else {
-//             exportFilters.classList.add("hidden")
-//         }
-
-//         if (action.innerText == "aspect ratio") {
-//             exportAspectRatio.classList.remove("hidden")
-//             sliderContainer.classList.add("hidden")
-//             exportFilters.classList.add("hidden")
-
-//         } else {
-//             exportAspectRatio.classList.add("hidden")
-//         }
-//     })
-
-// })
-
 const clickEvent = new MouseEvent("click");
 // exportActions[0].dispatchEvent(clickEvent)
 
