@@ -31,17 +31,25 @@
     #eye {
         transition: top .1s steps(5, jump-start), left .1s steps(5, jump-start);
     }
+
+    #filter {
+        height: 70vh;
+        flex-direction: column;
+    }
+
+    #filter-options {
+        align-items: start;
+    }
+    #filter-list {
+        flex-direction: unset;
+    }
+    #filter-options-heading {
+        padding-right: 1em;
+    }
 }
 
 
 @media screen and (max-width: 900px) {
-    main {
-        width: 100%;
-    }
-    #filter {
-        height: 80vh;
-        flex-direction: column;
-    }
     #filter-scroll {
         display: none;
     }

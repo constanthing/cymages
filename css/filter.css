@@ -35,7 +35,7 @@ NEW FILTER LIST
 #filter-list {
     width: fit-content;
 }
-#filter-list h3 {
+#filter-options-heading {
     color: var(--rock);
 }
 
