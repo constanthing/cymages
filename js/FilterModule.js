@@ -3,13 +3,9 @@ FILTER EVENT LISTENERS
 */
 filter.addEventListener("mouseenter", e => {
     // hides eye makes pupil background see through
-    eye.setOpacity(0)
-    pupil.setBackground("none")
 })
 filter.addEventListener("mouseleave", e => {
     // removes modifications to style done in mouseenter event 
-    eye.setOpacity()
-    pupil.setBackground()
 })
 
 /*
@@ -150,5 +146,28 @@ FILTER ACTION/RESET BUTTONS
 
 // for filter output option css
 function selectOutputOption(element) {
+    const filterCategory = previousFilterLabel.getAttribute("for");
+    // if selected deselect it
+    let currentStorage = JSON.parse(window.localStorage.getItem(`${filterCategory}Filters`));
+    if (element.classList.contains("output-option-selected")) {
+        // remove it from local storage
+        currentStorage.splice(currentStorage.findIndex(e=>e==element.dataset.index), 1)
+    } else {
+        // add it to local storage
+        currentStorage.push(element.dataset.index)
+    }
+
+    window.localStorage.setItem(`${filterCategory}Filters`, JSON.stringify(currentStorage))
+
     element.classList.toggle("output-option-selected")
 }
+
+
+// on document load ... load the local storage filters
+document.querySelectorAll("#filter-list > label").forEach(option => {
+    let type = option.getAttribute("for");
+    for (const item of JSON.parse(window.localStorage.getItem(`${type}Filters`))) {
+        let el = document.querySelector(`.${type}[data-index="${item}"]`);
+        el.classList.add("output-option-selected")
+    }
+})

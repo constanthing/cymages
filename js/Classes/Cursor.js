@@ -1,4 +1,4 @@
-class CursorElement {
+class Cursor {
     constructor(element) {
         this.element = element;
         this.x = null;

@@ -100,7 +100,7 @@ class Scroll {
             // do you need this if?
             if (!Scroll.grabbing) {
                 Scroll.grabbing = true;
-                pupil.setBackground("var(--white)")
+                // pupil.setBackground("var(--white)")
                 if (this.isVertical) {
                     this.start = e.clientY;
                 } else {
