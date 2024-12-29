@@ -36,23 +36,15 @@
         height: 70vh;
         flex-direction: column;
     }
-
     #filter-options {
-        width: fit-content;
+        flex-direction: unset;
         align-items: start;
     }
-    #filter-actions, #filter-list {
-        justify-content: space-between;
-        align-items: center;
+    #filter-actions {
+        text-align: right;
     }
-    .filter-metadata {
-        flex-direction: unset;
-    }
-    .filter-metadata-heading {
-        padding-right: .5em;
-    }
-    #filter-actions button {
-        padding: 0 .5em;
+    .filter-metadata div {
+        align-items: start;
     }
 }
 

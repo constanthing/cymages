@@ -176,22 +176,33 @@ document.querySelectorAll("#filter-list label").forEach(option => {
     }
 })
 
-function resetFilters() {
+function resetFilters(all=true) {
     // CAREFUL! Since same host name on 222dof... when user runs resetFilters()
     // it clears any data of the same origin! 
     // localStorage.clear()
 
-    for (let label of document.querySelectorAll(`#filter-list label`)) {
-        label = label.getAttribute("for") + "Filters";
-        let storage = window.localStorage.getItem(label);
-        console.log(storage)
-        if (storage) {
-            window.localStorage.setItem(label, JSON.stringify([]))
-        }
+    let filtersToReset = undefined;
+    if (all) {
+        // every filter
+        filtersToReset = document.querySelectorAll("#filter-list label");
+    } else {
+        // current filter, get clicked radio button label (has filter type (for attr))
+        filtersToReset = [document.querySelector("#filter-list .clicked")];
     }
 
-    // update filter output to show reset storage 
-    for (const el of document.querySelectorAll(".output-option-selected")) {
-        el.classList.remove("output-option-selected")
+    console.log(filtersToReset)
+
+    for (let label of filtersToReset) {
+        const _for = label.getAttribute("for");
+        label = _for + "Filters";
+        let storage = JSON.parse(window.localStorage.getItem(label));
+        console.log(storage)
+        if (storage) {
+            // updating styles on selected option outputs to deselected
+            for (const filter of storage) {
+                document.querySelector(`.${_for}[data-index="${filter}"]`).classList.remove("output-option-selected")
+            }
+            window.localStorage.setItem(label, JSON.stringify([]))
+        }
     }
 }

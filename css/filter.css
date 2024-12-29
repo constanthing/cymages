@@ -43,7 +43,7 @@ NEW FILTER LIST
     display: none;
 }
 
-.filter-metadata > label {
+.filter-metadata label {
     padding: .1em .2em;
 }
 
@@ -110,11 +110,23 @@ NEW FILTER LIST
     padding: 1em 0;
 }
 
+#filter-actions div {
+    /* 
+    * ADD FOUNDATIONAL
+    GAP CLASS TOO
+    STANDARDIZE GAP BETWEEN ITEMS
+     */
+    gap: .7em;
+    align-items: stretch;
+}
 #filter-actions button {
     border: none;
     background: none;
-    color: var(--white);
-    padding: .3em 0;
+    padding: .3em;
+    color: red;
+    border: .1em solid red;
+    background: #5a0808;
+    border-radius: .3em;
 }
 
 #filter-actions button:hover {

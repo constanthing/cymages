@@ -170,9 +170,9 @@
 
 
                 <section id="filter-options" class="flex fd-c jc-sb ai-e">
-                    <form id="filter-list" class="filter-metadata flex ai-e fd-c">
+                    <form id="filter-list" class="filter-metadata">
                         <h3 class="filter-metadata-heading">FILTERS</h3>
-                        <div>
+                        <div class="flex ai-e fd-c">
                             <input type="radio" name="filter-list" id="location">
                             <label for="location" class="clickable f-l">location</label>
                             <input type="radio" name="filter-list" id="gang">
@@ -183,11 +183,11 @@
                             <label for="feeling" class="clickable f-f">feeling</label>
                         </div>
                     </form>
-                    <div id="filter-actions" class="filter-metadata flex flex ai-e fd-c">
+                    <div id="filter-actions" class="filter-metadata ">
                         <h3 class="filter-metadata-heading">RESET</h3>
-                        <div>
-                            <button id="filter-reset" onclick="resetFilters()">&gt;&gt;current&lt;&lt;</button>
-                            <button id="filter-reset" onclick="resetFilters()">&gt;&gt;all&lt;&lt;</button>
+                        <div class="flex ai-e fd-c">
+                            <button id="filter-reset" onclick="resetFilters(all=false)">current</button>
+                            <button id="filter-reset" onclick="resetFilters()">all</button>
                         </div>
                         <!-- <br> -->
                         <!-- <button id="filter-apply">&gt;&gt;apply&lt;&lt;</button> -->
