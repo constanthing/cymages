@@ -111,8 +111,8 @@ FILTER OPTIONS
 // 2. assigning object to relative key in options dict.
 const filterList = document.querySelector("#filter-list");
 let previousFilterLabel = undefined;
-let previousFilterOutput = undefined; 
-filterList.addEventListener("input", (e)=>{
+let previousFilterOutput = undefined;
+filterList.addEventListener("input", (e) => {
     const output = document.querySelector(`#filter-output-${e.target.id}`);
     output.classList.remove("hidden")
 
@@ -151,7 +151,7 @@ function selectOutputOption(element) {
     let currentStorage = JSON.parse(window.localStorage.getItem(`${filterCategory}Filters`));
     if (element.classList.contains("output-option-selected")) {
         // remove it from local storage
-        currentStorage.splice(currentStorage.findIndex(e=>e==element.dataset.index), 1)
+        currentStorage.splice(currentStorage.findIndex(e => e == element.dataset.index), 1)
     } else {
         // add it to local storage
         currentStorage.push(element.dataset.index)
@@ -169,9 +169,29 @@ document.querySelectorAll("#filter-list > label").forEach(option => {
     try {
         for (const item of JSON.parse(window.localStorage.getItem(`${type}Filters`))) {
             let el = document.querySelector(`.${type}[data-index="${item}"]`);
-            el.classList.add("output-option-selected")
+            el.classList.toggle("output-option-selected")
         }
-    } catch(error) {
+    } catch (error) {
         window.localStorage.setItem(`${type}Filters`, JSON.stringify([]))
     }
 })
+
+function resetFilters() {
+    // CAREFUL! Since same host name on 222dof... when user runs resetFilters()
+    // it clears any data of the same origin! 
+    // localStorage.clear()
+
+    for (let label of document.querySelectorAll(`#filter-list label`)) {
+        label = label.getAttribute("for") + "Filters";
+        let storage = window.localStorage.getItem(label);
+        console.log(storage)
+        if (storage) {
+            window.localStorage.setItem(label, JSON.stringify([]))
+        }
+    }
+
+    // update filter output to show reset storage 
+    for (const el of document.querySelectorAll(".output-option-selected")) {
+        el.classList.remove("output-option-selected")
+    }
+}

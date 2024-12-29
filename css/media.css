@@ -38,13 +38,21 @@
     }
 
     #filter-options {
+        width: fit-content;
         align-items: start;
     }
-    #filter-list {
+    #filter-actions, #filter-list {
+        justify-content: space-between;
+        align-items: center;
+    }
+    .filter-metadata {
         flex-direction: unset;
     }
-    #filter-options-heading {
-        padding-right: 1em;
+    .filter-metadata-heading {
+        padding-right: .5em;
+    }
+    #filter-actions button {
+        padding: 0 .5em;
     }
 }
 

@@ -32,10 +32,10 @@
 /* 
 NEW FILTER LIST
  */
-#filter-list {
+.filter-metadata {
     width: fit-content;
 }
-#filter-options-heading {
+.filter-metadata-heading {
     color: var(--rock);
 }
 
@@ -43,8 +43,8 @@ NEW FILTER LIST
     display: none;
 }
 
-#filter-list label {
-    padding: .1em .3em;
+.filter-metadata > label {
+    padding: .1em .2em;
 }
 
 .clickable {
@@ -114,6 +114,7 @@ NEW FILTER LIST
     border: none;
     background: none;
     color: var(--white);
+    padding: .3em 0;
 }
 
 #filter-actions button:hover {
@@ -142,7 +143,7 @@ NEW FILTER LIST
     right: 50%;
     filter: grayscale(1);
     transform: translate(50%, -50%);
-    transition: filter .3s ease;
+    transition: .3s ease;
 }
 
 .filter-oo-l {
@@ -169,6 +170,7 @@ NEW FILTER LIST
 }
 .output-option-selected .filter-oo-bg {
     filter: grayscale(0);
+    transform: translate(50%, -50%) scale(1.1);
 }
 .output-option-selected .filter-oo-l {
     filter: grayscale(0);
