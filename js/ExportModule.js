@@ -1,5 +1,38 @@
+const exportActions = document.querySelector("#export-actions");
+radioGroupFunctionality(exportActions)
+exportActions.addEventListener("input", e => {
+    switch (e.target.id) {
+        case "metadata":
+            document.querySelector("#export-metadata").classList.remove("hidden")
+            document.querySelector("#export-slider").classList.add("hidden")
+            break;
+        case "contrast":
+        case "brightness":
+        case "vignette":
+            // image modification (slider)
+            document.querySelector("#export-metadata").classList.add("hidden")
+            document.querySelector("#export-slider").classList.remove("hidden")
+            selectedAction = e.target.id;
+
+            const metadata = parseInt(document.querySelector(`#metadata-${e.target.id}`).innerText);
+
+            // text indicator of slider
+            value.innerText = metadata;
+
+            // apply thumb to correct location of selected filter
+            positionThumb(metadata)
+
+            applyFiltersToImages()
+            break;
+        default:
+            console.log("not asking for slider")
+            break;
+    }
+})
+radioGroupFunctionality(document.querySelector("#export-actions"))
+
 const sliderContainer = document.querySelector("#export-slider");
-const slider = sliderContainer.querySelector("input");
+const slider = sliderContainer.querySelector("#slider-container input");
 const bar = document.querySelector(".bar");
 const value = document.querySelector(".value");
 let imageFilter = "contrast"; // defualt
@@ -7,9 +40,9 @@ const exportImage = document.querySelector("#export-image");
 // contrast, exposure, vignette 
 let contrast = 100; // 100 = default 
 let vignette = 100;
-let exposure = 100;
+let brightness = 100;
 
-function positionThumb(sliderValue=slider.value) {
+function positionThumb(sliderValue = slider.value) {
     const min = slider.min;
     const max = slider.max;
     const range = max - min;
@@ -29,7 +62,7 @@ function positionThumb(sliderValue=slider.value) {
 slider.addEventListener("input", e => {
     positionThumb()
     value.innerText = slider.value;
-    switch (selectedAction.innerText) {
+    switch (selectedAction) {
         case "contrast":
             contrast = slider.value;
             contrastMetadata.innerText = contrast;
@@ -37,13 +70,13 @@ slider.addEventListener("input", e => {
         case "vignette":
             vignette = slider.value;
             break;
-        case "exposure":
-            exposure = slider.value;
-            exposureMetadata.innerText = exposure;
+        case "brightness":
+            brightness = slider.value;
+            brightnessMetadata.innerText = brightness;
             break;
     }
-    console.log(`contrast(${contrast}%) brightness(${exposure}%)`)
-    exportImage.style.filter = `contrast(${contrast}%) brightness(${exposure}%)`;
+    console.log(`contrast(${contrast}%) brightness(${brightness}%)`)
+    exportImage.style.filter = `contrast(${contrast}%) brightness(${brightness}%)`;
 })
 
 const sliderImages = document.querySelectorAll(".slider-images img");
@@ -53,98 +86,89 @@ function applyFiltersToImages() {
     let start = 0;
     // 0, 100, 200
     sliderImages.forEach(image => {
-        image.style.filter = `${imageFilter}(${start}%)`;
+        console.log(selectedAction)
+        image.style.filter = `${selectedAction}(${start}%)`;
         start += incrementation;
     })
 }
 
-const exportActions = document.querySelectorAll(".export-action");
+// const exportActions = document.querySelectorAll(".export-action");
 let selectedAction = null;
-const exportFilters = document.querySelector("#export-filters");
-const exportAspectRatio = document.querySelector("#export-aspect-ratio");
 
 const contrastMetadata = document.querySelector("#metadata-contrast");
-const exposureMetadata = document.querySelector("#metadata-exposure");
+const brightnessMetadata = document.querySelector("#metadata-brightness");
 
-exportActions.forEach(action => {
-    action.addEventListener("mouseenter", e => {
-        action.classList.add("selected-export-action")
-    })
-    action.addEventListener("mouseleave", e => {
-        if (action != selectedAction) {
-            action.classList.remove("selected-export-action")
-        }
-    })
-    action.addEventListener("click", () => {
-        if (selectedAction && selectedAction != action) {
-            // remove that action
-            selectedAction.classList.remove("selected-export-action")
-        }
-        selectedAction = action;
-        action.classList.add("selected-export-action")
+// exportActions.forEach(action => {
+//     action.addEventListener("click", () => {
+//         if (selectedAction && selectedAction != action) {
+//             // remove that action
+//             selectedAction.classList.remove("selected-export-action")
+//         }
+//         selectedAction = action;
+//         action.classList.add("selected-export-action")
 
 
-        if (["contrast", "vignette", "exposure"].indexOf(action.innerText) != -1) {
-            // clicked one of those ^
+//         if (["contrast", "vignette", "exposure"].indexOf(action.innerText) != -1) {
+//             // clicked one of those ^
 
-            sliderContainer.classList.remove("hidden")
-            exportFilters.classList.add("hidden")
-            exportAspectRatio.classList.add("hidden")
-            switch (action.innerText) {
-                case "contrast":
-                    value.innerText = contrast;
-                    contrastMetadata.innerText = contrast;
-                    positionThumb(contrast)
-                    imageFilter = "contrast";
-                    applyFiltersToImages("contrast")
-                    break;
-                case "exposure":
-                    value.innerText = exposure;
-                    exposureMetadata.innerText = contrast;
-                    positionThumb(exposure)
-                    imageFilter = "brightness";
-                    applyFiltersToImages("brightness")
-                    break;
-                default:
-                    console.log("defaulted switch line 90 index.js")
-                    break;
-            }
-        } else {
-            sliderContainer.classList.add("hidden")
-        }
+//             sliderContainer.classList.remove("hidden")
+//             exportFilters.classList.add("hidden")
+//             exportAspectRatio.classList.add("hidden")
+//             switch (action.innerText) {
+//                 case "contrast":
+//                     value.innerText = contrast;
+//                     contrastMetadata.innerText = contrast;
+//                     positionThumb(contrast)
+//                     imageFilter = "contrast";
+//                     applyFiltersToImages("contrast")
+//                     break;
+//                 case "exposure":
+//                     value.innerText = exposure;
+//                     exposureMetadata.innerText = contrast;
+//                     positionThumb(exposure)
+//                     imageFilter = "brightness";
+//                     applyFiltersToImages("brightness")
+//                     break;
+//                 default:
+//                     console.log("defaulted switch line 90 index.js")
+//                     break;
+//             }
+//         } else {
+//             sliderContainer.classList.add("hidden")
+//         }
 
-        if (action.innerText == "filter") {
-            exportFilters.classList.remove("hidden")
-            sliderContainer.classList.add("hidden")
-            exportAspectRatio.classList.add("hidden")
-        } else {
-            exportFilters.classList.add("hidden")
-        }
+//         if (action.innerText == "filter") {
+//             exportFilters.classList.remove("hidden")
+//             sliderContainer.classList.add("hidden")
+//             exportAspectRatio.classList.add("hidden")
+//         } else {
+//             exportFilters.classList.add("hidden")
+//         }
 
-        if (action.innerText == "aspect ratio") {
-            exportAspectRatio.classList.remove("hidden")
-            sliderContainer.classList.add("hidden")
-            exportFilters.classList.add("hidden")
+//         if (action.innerText == "aspect ratio") {
+//             exportAspectRatio.classList.remove("hidden")
+//             sliderContainer.classList.add("hidden")
+//             exportFilters.classList.add("hidden")
 
-        } else {
-            exportAspectRatio.classList.add("hidden")
-        }
-    })
+//         } else {
+//             exportAspectRatio.classList.add("hidden")
+//         }
+//     })
 
-})
+// })
 
 const clickEvent = new MouseEvent("click");
-exportActions[0].dispatchEvent(clickEvent)
+// exportActions[0].dispatchEvent(clickEvent)
 
 
 const logo = document.querySelector("#logo");
-logo.addEventListener("click", ()=>{
+logo.addEventListener("click", () => {
     exportContainer.classList.add("hidden")
     contrast = 100;
     contrastMetadata.innerText = 0;
     vignette = 100;
-    exposure = 100;
-    exposureMetadata.innerText = 0;
+    brightness = 100;
+    brightnessMetadata.innerText = brightness;
     slider.value = 100;
     positionThumb()
     // reset filter

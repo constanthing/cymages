@@ -10,6 +10,7 @@ galleryDimmer.style.height = gallery.scrollHeight + "px";
 gallery.querySelectorAll("img").forEach(image => {
     let clicked = false;
     image.addEventListener("click", e => {
+        console.log(e)
         // console.log(Scroll.dragging, Scroll.grabbing, Scroll.elementEndClicked)
         if (Scroll.elementEndClicked != image) {
             clicked = !clicked;
@@ -22,13 +23,14 @@ gallery.querySelectorAll("img").forEach(image => {
             // revealing imageActions
             imageActions.classList.remove("hidden")
             imageActionsOpen = true;
-            imageActions.style.top = (e.clientY - (eye.height / 2)) + "px";
+            imageActions.style.top = (e.y-(imageActions.clientHeight/2) + "px");
+            // imageActions.style.top = (e.clientY - (eye.height / 2)) + "px";
             imageActions.style.left = (e.clientX - (imageActions.clientWidth / 2)) + "px";
 
-            pupil.setBackground("none")
-            eye.element.classList.add("hidden")
+            // pupil.setBackground("none")
+            // eye.element.classList.add("hidden")
             // eye.setOpacity(0)
-            pupil.blink()
+            // pupil.blink()
         }
     })
     Scroll.elementEndClicked = null;
@@ -42,9 +44,9 @@ imageActions.addEventListener("pointerleave", e => {
     imageActionsOpen = false;
     imageActions.classList.add("hidden")
 
-    eye.element.classList.remove("hidden")
+    // eye.element.classList.remove("hidden")
     // eye.setOpacity()
-    pupil.setBackground()
+    // pupil.setBackground()
 })
 let imageActionClicked = false;
 const exportContainer = document.querySelector("#export");

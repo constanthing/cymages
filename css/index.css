@@ -36,7 +36,7 @@ html,
 body {
     overflow: hidden;
 
-    cursor: none;
+    /* cursor: none; */
 
     height: 100%;
 
@@ -55,7 +55,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
+    /* cursor: none; */
 }
 
 h1 {
@@ -66,38 +66,102 @@ h1 {
 .flex {
     display: flex;
 }
+
 .ai-c {
     align-items: center;
 }
+
 .jc-sb {
     justify-content: space-between;
 }
+
 .fd-c {
     flex-direction: column;
 }
+
 .ai-fe {
     align-items: flex-end;
 }
+
 .center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .fd-rr {
     flex-direction: row-reverse;
 }
+
 .jc-e {
     justify-content: end;
 }
+
 .ai-s {
     align-items: start;
 }
+
 .ai-e {
     align-items: end;
 }
 
 .hidden {
     display: none !important;
+}
+
+.gap05 {
+    gap: .5em;
+}
+
+
+/* 
+* RADIO GROUP 
+ */
+.radiogroup {
+    width: fit-content;
+}
+.radiogroup label {
+    padding: .1em .2em;
+}
+
+.clickable {
+    width: fit-content;
+    position: relative;
+}
+
+.clicked {
+    width: fit-content;
+}
+
+.clickable:hover::before {
+    content: "[";
+    position: absolute;
+    left: 0;
+}
+
+.clickable:hover::after {
+    content: "]";
+    position: absolute;
+    right: 0;
+}
+
+
+button {
+    border: none;
+    background: none;
+    padding: .3em;
+    border: .1em solid white;
+    border-radius: .3em;
+}
+.red-button {
+    border-color: red;
+    color: red;
+    background: #5a0808;
+}
+.green-button {
+    border-color: rgb(0, 211, 0);
+    color: rgb(0, 211, 0);
+    background: green;
 }
 
 
@@ -118,13 +182,14 @@ main {
 header {
     position: relative;
     /* mobile padding: 1em 2em */
-    padding: 1em 0;
+    height: 10%;
 }
 
 #logo h1 {
     z-index: 1001;
     font-family: "LogoFont", Arial, Helvetica, sans-serif;
 }
+
 #logo h1:hover {
     text-decoration: underline;
 }
@@ -150,4 +215,3 @@ footer {
 footer img {
     height: .8em;
 }
-

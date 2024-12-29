@@ -46,6 +46,14 @@
     .filter-metadata div {
         align-items: start;
     }
+
+    #export-footer {
+        padding: .5em;
+    }
+    /* text of export action */
+    .export-action span {
+        display: none;
+    }
 }
 
 

@@ -32,40 +32,13 @@
 /* 
 NEW FILTER LIST
  */
-.filter-metadata {
-    width: fit-content;
-}
+
 .filter-metadata-heading {
     color: var(--rock);
 }
 
 #filter-list input {
     display: none;
-}
-
-.filter-metadata label {
-    padding: .1em .2em;
-}
-
-.clickable {
-    width: fit-content;
-    position: relative;
-}
-
-.clicked {
-    width: fit-content;
-}
-
-.clickable:hover::before {
-    content: "[";
-    position: absolute;
-    left: 0;
-}
-
-.clickable:hover::after {
-    content: "]";
-    position: absolute;
-    right: 0;
 }
 
 .f-l::after,
@@ -116,19 +89,9 @@ NEW FILTER LIST
     GAP CLASS TOO
     STANDARDIZE GAP BETWEEN ITEMS
      */
-    gap: .7em;
+    gap: .5em;
     align-items: stretch;
 }
-#filter-actions button {
-    border: none;
-    background: none;
-    padding: .3em;
-    color: red;
-    border: .1em solid red;
-    background: #5a0808;
-    border-radius: .3em;
-}
-
 #filter-actions button:hover {
     cursor: none;
 }

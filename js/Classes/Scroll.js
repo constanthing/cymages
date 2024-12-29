@@ -48,20 +48,20 @@ class Scroll {
     }
     trackShortcutHover() {
         this.negative.addEventListener("mouseenter", () => {
-            eye.addClass("hidden")
-            pupil.setBackground("black")
+            // eye.addClass("hidden")
+            // pupil.setBackground("black")
         })
         this.negative.addEventListener("mouseleave", () => {
-            eye.removeClass("hidden")
-            pupil.setBackground("")
+            // eye.removeClass("hidden")
+            // pupil.setBackground("")
         })
         this.positive.addEventListener("mouseenter", () => {
-            eye.addClass("hidden")
-            pupil.setBackground("black")
+            // eye.addClass("hidden")
+            // pupil.setBackground("black")
         })
         this.positive.addEventListener("mouseleave", () => {
-            eye.removeClass("hidden")
-            pupil.setBackground("")
+            // eye.removeClass("hidden")
+            // pupil.setBackground("")
         })
     }
 
@@ -124,7 +124,7 @@ class Scroll {
             // records what element we stopped dragging on
             Scroll.elementEndClicked = document.elementFromPoint(e.clientX, e.clientY);
             // reset style
-            pupil.setBackground()
+            // pupil.setBackground()
             // records dragging status as false
             Scroll.dragging = false;
         } else {

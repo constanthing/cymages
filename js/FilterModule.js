@@ -110,28 +110,20 @@ FILTER OPTIONS
 // 1. creating an object out of each filter option
 // 2. assigning object to relative key in options dict.
 const filterList = document.querySelector("#filter-list");
-let previousFilterLabel = undefined;
+
 let previousFilterOutput = undefined;
-filterList.addEventListener("input", (e) => {
+
+radioGroupFunctionality(filterList)
+filterList.addEventListener("input", e=>{
     const output = document.querySelector(`#filter-output-${e.target.id}`);
     output.classList.remove("hidden")
-
-    // hide previous output/unclick label (style)
-    if (previousFilterLabel) {
-        previousFilterLabel.classList.remove("clicked")
-        previousFilterLabel.classList.add("clickable")
+    if (previousFilterOutput) {
         previousFilterOutput.classList.add("hidden")
-        // document.querySelector(`#filter-output-${previousFilterLabel.getAttribute("for")}`).classList.add("hidden")
     }
-
-    // click (style) selected label
-    const label = e.target.nextElementSibling;
-    label.classList.remove("clickable")
-    label.classList.add("clicked")
-
-    previousFilterLabel = label;
     previousFilterOutput = output;
 })
+
+
 document.querySelector("#gang").dispatchEvent(new MouseEvent("click"))
 
 
@@ -176,7 +168,7 @@ document.querySelectorAll("#filter-list label").forEach(option => {
     }
 })
 
-function resetFilters(all=true) {
+function resetFilters(all = true) {
     // CAREFUL! Since same host name on 222dof... when user runs resetFilters()
     // it clears any data of the same origin! 
     // localStorage.clear()
