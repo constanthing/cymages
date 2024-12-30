@@ -34,7 +34,7 @@ radioGroupFunctionality(document.querySelector("#export-actions"))
 const sliderContainer = document.querySelector("#export-slider");
 const slider = sliderContainer.querySelector("#slider-container input");
 const bar = document.querySelector(".bar");
-const value = document.querySelector(".value");
+const value = document.querySelector(".value h4");
 let imageFilter = "contrast"; // defualt
 const exportImage = document.querySelector("#export-image");
 // contrast, exposure, vignette 

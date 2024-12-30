@@ -60,7 +60,7 @@
 
 
 #image-actions {
-    z-index: var(--eye-index);
+    /* z-index: var(--eye-index); */
 
     text-align: right;
     position: absolute;

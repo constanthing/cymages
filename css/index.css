@@ -34,13 +34,10 @@
 
 html,
 body {
+    /* cursor: none; */
+    height: 100vh;
     overflow: hidden;
 
-    /* cursor: none; */
-
-    height: 100%;
-
-    margin: 0;
     background: black;
     color: var(--white);
     font-family: "MainFont", Arial, Helvetica, sans-serif;
@@ -58,11 +55,99 @@ body {
     /* cursor: none; */
 }
 
+main {
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* 
+* HEADER
+ */
+header {
+    position: relative;
+    /* mobile padding: 1em 2em */
+    height: 10%;
+}
+
+#logo h1 {
+    z-index: 1001;
+    font-family: "LogoFont", Arial, Helvetica, sans-serif;
+}
+
+#logo h1:hover {
+    text-decoration: underline;
+}
+
+#logo small {
+    color: var(--rock);
+}
+
+
+
 h1 {
     font-size: 1.3em;
 }
 
 
+
+
+/* START PRESETS */
+.radiogroup {
+    width: fit-content;
+}
+.radiogroup label {
+    padding: .1em .2em;
+}
+
+.clickable {
+    width: fit-content;
+    position: relative;
+}
+
+.clicked {
+    width: fit-content;
+}
+
+.clickable:hover::before {
+    content: "[";
+    position: absolute;
+    left: 0;
+}
+
+.clickable:hover::after {
+    content: "]";
+    position: absolute;
+    right: 0;
+}
+
+button {
+    border: none;
+    background: none;
+    padding: .3em;
+    border: .1em solid white;
+    border-radius: .3em;
+}
+.red-button {
+    border-color: red;
+    color: red;
+    background: #5a0808;
+}
+.green-button {
+    border-color: rgb(0, 211, 0);
+    color: rgb(0, 211, 0);
+    background: green;
+}
+
+/* END PRESETS */
+
+
+
+
+/* START FRAMEWORK */
 .flex {
     display: flex;
 }
@@ -113,105 +198,8 @@ h1 {
     gap: .5em;
 }
 
-
-/* 
-* RADIO GROUP 
- */
-.radiogroup {
-    width: fit-content;
-}
-.radiogroup label {
-    padding: .1em .2em;
-}
-
-.clickable {
-    width: fit-content;
-    position: relative;
-}
-
-.clicked {
-    width: fit-content;
-}
-
-.clickable:hover::before {
-    content: "[";
-    position: absolute;
-    left: 0;
-}
-
-.clickable:hover::after {
-    content: "]";
-    position: absolute;
-    right: 0;
-}
-
-
-button {
-    border: none;
-    background: none;
-    padding: .3em;
-    border: .1em solid white;
-    border-radius: .3em;
-}
-.red-button {
-    border-color: red;
-    color: red;
-    background: #5a0808;
-}
-.green-button {
-    border-color: rgb(0, 211, 0);
-    color: rgb(0, 211, 0);
-    background: green;
-}
-
-
-
-
-main {
-    width: 60%;
-    height: 100%;
-    margin: 0 auto;
-
-    position: relative;
-}
-
-
-/* 
-* HEADER
- */
-header {
-    position: relative;
-    /* mobile padding: 1em 2em */
-    height: 10%;
-}
-
-#logo h1 {
-    z-index: 1001;
-    font-family: "LogoFont", Arial, Helvetica, sans-serif;
-}
-
-#logo h1:hover {
-    text-decoration: underline;
-}
-
-#logo small {
-    color: var(--rock);
-}
-
-
-
-
-/* 
-* FOOTER
- */
-footer {
-    /* z-index: 1; */
-    background: black;
+.width100 {
     width: 100%;
-    position: absolute;
-    bottom: 0;
 }
 
-footer img {
-    height: .8em;
-}
+/* END FRAMEWORK */

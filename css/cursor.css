@@ -1,5 +1,5 @@
 #eye {
-    z-index: var(--eye-index);
+    /* z-index: var(--eye-index); */
 
     height: 2em;
     width: 2em;
@@ -16,7 +16,7 @@
 }
 
 #pupil {
-    z-index: var(--pupil-index);
+    /* z-index: var(--pupil-index); */
 
     height: 1em;
     width: 1em;

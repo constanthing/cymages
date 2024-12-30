@@ -183,8 +183,6 @@ function resetFilters(all = true) {
         filtersToReset = [document.querySelector("#filter-list .clicked")];
     }
 
-    console.log(filtersToReset)
-
     for (let label of filtersToReset) {
         const _for = label.getAttribute("for");
         label = _for + "Filters";

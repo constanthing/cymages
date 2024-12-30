@@ -265,39 +265,44 @@
             -->
             <div id="export-footer" class="flex fd-c gap05">
                 <!-- filter, export button -->
-                <form id="export-actions" class="radiogroup flex gap05">
-                    <div>
-                        <input type="radio" name="export-menu" id="metadata" />
-                        <label for="metadata" class="clickable export-action flex ai-c"><img src="./vectors/info.svg"
-                                draggable="false" alt=""><span>metadata</span></label>
-                    </div>
-                    <div>
-                        <!-- couldn't id = filter because section#filter already exists -->
-                        <input type="radio" name="export-menu" id="filters">
-                        <label for="filters" class="clickable export-action flex ai-c"><img src="./vectors/filter.svg"
-                                draggable="false" alt=""><span>filters</span></label>
-                    </div>
-                    <div>
-                        <input type="radio" name="export-menu" id="contrast">
-                        <label for="contrast" class="clickable export-action flex ai-c"><img
-                                src="./vectors/contrast.svg" draggable="false" alt=""><span>contrast</span></label>
-                    </div>
+                <form id="export-actions" class="radiogroup flex jc-sb width100">
+                    <div class="flex gap05">
 
-                    <div>
-                        <input type="radio" name="export-menu" id="brightness">
-                        <label for="brightness" class="clickable export-action flex ai-c"><img
-                                src="./vectors/exposure.svg" draggable="false" alt=""><span>brightness</span></label>
-                    </div>
-                    <div>
-                        <input type="radio" name="export-menu" id="vignette">
-                        <label for="vignette" class="clickable export-action flex ai-c"><img
-                                src="./vectors/vignette.svg" draggable="false" alt=""><span>vignette</span></label>
-                    </div>
-                    <div>
-                        <input type="radio" name="export-menu" id="aspect-ratio">
-                        <label for="aspect-ratio" class="clickable export-action flex ai-c"><img
-                                src="./vectors/aspect-ratio.svg" draggable="false" alt=""><span>aspect
-                                ratio</span></label>
+                        <div>
+                            <input type="radio" name="export-menu" id="metadata" />
+                            <label for="metadata" class="clickable export-action flex ai-c"><img
+                                    src="./vectors/info.svg" draggable="false" alt=""><span>metadata</span></label>
+                        </div>
+                        <div>
+                            <!-- couldn't id = filter because section#filter already exists -->
+                            <input type="radio" name="export-menu" id="filters">
+                            <label for="filters" class="clickable export-action flex ai-c"><img
+                                    src="./vectors/filter.svg" draggable="false" alt=""><span>filters</span></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="export-menu" id="contrast">
+                            <label for="contrast" class="clickable export-action flex ai-c"><img
+                                    src="./vectors/contrast.svg" draggable="false" alt=""><span>contrast</span></label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name="export-menu" id="brightness">
+                            <label for="brightness" class="clickable export-action flex ai-c"><img
+                                    src="./vectors/exposure.svg" draggable="false"
+                                    alt=""><span>brightness</span></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="export-menu" id="vignette">
+                            <label for="vignette" class="clickable export-action flex ai-c"><img
+                                    src="./vectors/vignette.svg" draggable="false" alt=""><span>vignette</span></label>
+                        </div>
+                        <div>
+                            <input type="radio" name="export-menu" id="aspect-ratio">
+                            <label for="aspect-ratio" class="clickable export-action flex ai-c"><img
+                                    src="./vectors/aspect-ratio.svg" draggable="false" alt=""><span>aspect
+                                    ratio</span></label>
+                        </div>
+
                     </div>
                     <button class="green-button">download</button>
                     <!-- <li><img src="./vectors/crop.svg" alt="" draggable="false" title="crop">crop</li> -->
@@ -352,29 +357,27 @@
                 <!-- 
                         can grab anywhere on the value container to move value
                          -->
-                <div id="export-slider" class="hidden flex jc-s">
+                <div id="export-slider" class="hidden flex width100">
                     <div class="value flex center">
-                        <h3 class="">100</h3>
+                        <h4>100</h4>
                     </div>
                     <div id="slider-container">
-                        <input id="" type="range" value="100" min="0" max="200" list="marker" />
 
-                        <datalist id="marker">
+                        <!-- <datalist id="marker">
                             <option value="100"></option>
                         </datalist>
-
-                        <div class="custom-slider">
-                            <div class="slider-images flex">
-                                <img src="./p/green.png" alt="">
-                                <img src="./p/green.png" alt="">
-                                <img src="./p/green.png" alt="">
-                                <img src="./p/green.png" alt="">
-                                <img src="./p/green.png" alt="">
-                            </div>
-                            <div class="bar">
-                                <!-- <div class="something"></div> -->
-                            </div>
+ -->
+                        <div class="slider-images flex">
+                            <img src="./p/green.png" alt="" draggable="false">
+                            <img src="./p/green.png" alt="" draggable="false">
+                            <img src="./p/green.png" alt="" draggable="false">
+                            <img src="./p/green.png" alt="" draggable="false">
+                            <img src="./p/green.png" alt="" draggable="false">
                         </div>
+                        <div class="bar">
+                            <!-- <div class="something"></div> -->
+                        </div>
+                        <input id="export-input-slider" class="width100" id="" type="range" value="100" min="0" max="200" list="marker" />
                     </div>
                 </div>
                 <!-- <p>&gt;&gt;export&lt;&lt;</p> -->
