@@ -19,10 +19,12 @@ filterButton.addEventListener("click", () => {
         stopRotateBorderColors();
         rotating = false;
         galleryScroll.negative.style.zIndex = 0;
+        document.querySelector("header").style.paddingBottom = "0";
     } else {
         rotateBorderColors();
         rotating = true;
         galleryScroll.negative.style.zIndex = "";
+        document.querySelector("header").style.paddingBottom = "";
     }
     galleryDimmer.classList.toggle("hidden")
     filter.classList.toggle("hidden")

@@ -15,14 +15,17 @@
 
 <body>
     <main>
-        <header class="flex ai-c jc-sb">
-            <div id="logo" class="flex fd-c">
-                <!-- clicking logo should take to github page -->
-                <h1>CYMAGES</h1>
-                <small>no mods - sfw - exportable</small>
-            </div>
+        <header class="flex fd-c">
 
-            <div id="filter-button"> </div>
+            <div class="flex width100 jc-sb ai-c">
+                <div id="logo" class="flex fd-c">
+                    <!-- clicking logo should take to github page -->
+                    <h1>CYMAGES</h1>
+                    <small>no mods - sfw - exportable</small>
+                </div>
+
+                <div id="filter-button"> </div>
+            </div>
 
             <!-- <section id="filter" class="flex jc-sb ai-c"> -->
             <section id="filter" class="hidden flex jc-sb ai-c">
@@ -31,9 +34,7 @@
                     <img src="./vectors/arrow-right.svg" alt="" id="scroll-left" class="hidden" />
                     <img src="./vectors/arrow-right.svg" alt="" id="scroll-right" class="hidden" />
                 </div>
-
                 <section id="filter-output">
-
                     <section id="filter-output-feeling" class="hidden  flex jc-sb">
                         <div class="feeling center" data-index="0" onclick="selectOutputOption(this)">
                             <img src="./p/train.png" alt="" class="filter-oo-bg">
@@ -194,7 +195,6 @@
                         <!-- <button id="filter-apply">&gt;&gt;apply&lt;&lt;</button> -->
                     </div>
                 </section>
-
             </section>
         </header>
 
@@ -376,7 +376,8 @@
                         <div class="bar">
                             <!-- <div class="something"></div> -->
                         </div>
-                        <input id="export-input-slider" class="width100" id="" type="range" value="100" min="0" max="200" list="marker" />
+                        <input id="export-input-slider" class="width100" id="" type="range" value="100" min="0"
+                            max="200" list="marker" />
                     </div>
                 </div>
                 <!-- <p>&gt;&gt;export&lt;&lt;</p> -->

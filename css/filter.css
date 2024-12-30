@@ -21,12 +21,10 @@
     width: 100%;
     /* child of header -> header has 10% height relative to body -> 100% = 10% -> 300% = 30% of body */
     height: 40vh;
-    position: absolute;
-    top: 100%;
-    left: 0;
     background: black;
     /* padding: 2em 0; */
     border-top: 1px solid var(--white);
+    margin-top: 2em;
 }
 
 /* 

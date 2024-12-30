@@ -1,9 +1,10 @@
 /*  making #images relative hides #filter-output for some reason! */
 #gallery {
     /* z-index: 1; */
-    height: 90%;
-    overflow-y: scroll;
-    position: relative;
+    height: fit-content;
+    /* height: 90%; */
+    /* overflow-y: scroll; */
+    /* position: relative; */
 
     scrollbar-width: none;
 }
@@ -11,9 +12,9 @@
 #gallery-scroll {
     height: 90%;
     width: 100%;
-    position: absolute;
     top: 10%;
     left: 0;
+    display: none;
 }
 
 #gallery-scroll img {
@@ -44,6 +45,9 @@
     width: 100%;
     background: var(--rock);
     opacity: .8;
+
+
+    display: none;
 }
 
 .row {

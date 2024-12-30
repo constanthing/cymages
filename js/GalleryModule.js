@@ -23,9 +23,10 @@ gallery.querySelectorAll("img").forEach(image => {
             // revealing imageActions
             imageActions.classList.remove("hidden")
             imageActionsOpen = true;
-            imageActions.style.top = (e.y-(imageActions.clientHeight/2) + "px");
+            console.log(e)
+            imageActions.style.top = (e.pageY -(imageActions.clientHeight/2) + "px");
             // imageActions.style.top = (e.clientY - (eye.height / 2)) + "px";
-            imageActions.style.left = (e.clientX - (imageActions.clientWidth / 2)) + "px";
+            imageActions.style.left = (e.pageX - (imageActions.clientWidth / 2)) + "px";
 
             // pupil.setBackground("none")
             // eye.element.classList.add("hidden")
