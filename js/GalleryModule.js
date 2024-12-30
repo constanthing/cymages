@@ -62,6 +62,7 @@ imageActions.querySelectorAll(".image-action").forEach(action => {
     action.addEventListener("pointerdown", e => {
         action.style.background = "var(--white)";
         // setting image 
+        gallery.classList.add("hidden")
         exportContainer.querySelector("#export-image").setAttribute("src", currentImage.src)
         exportContainer.classList.remove("hidden")
         galleryScroll.negative.classList.add("hidden")
