@@ -14,7 +14,7 @@ exportActions.addEventListener("input", e => {
             const metadata = parseInt(document.querySelector(`#metadata-${e.target.id}`).innerText);
 
             // text indicator of slider
-            value.innerText = metadata;
+            value.value = metadata;
 
             // apply thumb to correct location of selected filter
             positionThumb(metadata)
@@ -31,13 +31,27 @@ radioGroupFunctionality(document.querySelector("#export-actions"))
 const sliderContainer = document.querySelector("#export-slider");
 const slider = sliderContainer.querySelector("#slider-container input");
 const bar = document.querySelector(".bar");
-const value = document.querySelector(".value h4");
+const value = document.querySelector(".value");
 let imageFilter = "contrast"; // defualt
 const exportImage = document.querySelector("#export-image");
 // contrast, exposure, vignette 
 let contrast = 100; // 100 = default 
 let vignette = 100;
 let brightness = 100;
+
+value.addEventListener("keydown", e=>{
+    // returns NaN if cannot parse
+    let number = parseInt(e.key);
+    if (!Number.isNaN(number) && value.value.length < 3) {
+        console.log(number)
+    } else {
+        if (e.key == "Backspace" || e.metaKey || e.shiftKey || e.key.indexOf("Arrow") > -1) {
+            return;
+        }
+        console.log("ERROR")
+        e.preventDefault()
+    }
+})
 
 function positionThumb(sliderValue = slider.value) {
     const min = slider.min;
@@ -58,7 +72,7 @@ function positionThumb(sliderValue = slider.value) {
 }
 slider.addEventListener("input", e => {
     positionThumb()
-    value.innerText = slider.value;
+    value.value = slider.value;
     switch (selectedAction) {
         case "contrast":
             contrast = slider.value;
