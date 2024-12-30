@@ -1,4 +1,7 @@
 const loading = document.querySelector("#loading");
+loading.addEventListener("animationend", ()=>{
+    document.querySelector("main").classList.remove("hidden")
+})
 
 const loadingFilter = loading.querySelector("#loading-filter");
 loadingFilter.addEventListener("animationend", () => {
