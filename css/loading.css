@@ -1,0 +1,46 @@
+#loading {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: 100;
+}
+#loading-filter {
+    margin-top: 1em;
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    border: .5em solid white;
+}
+
+
+@keyframes disappear {
+    100% {
+        opacity: 0;
+    }
+}
+.animate-disappear {
+    animation-name: disappear;
+    animation-play-state: running;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes borderr {
+    100% {
+        border-top-color: var(--feeling);
+        border-right-color: var(--location);
+        border-bottom-color: var(--gang);
+        border-left-color: var(--time);
+        background: white;
+    }
+}
+.animate-borderr {
+    animation-name: borderr;
+    animation-play-state: running;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}

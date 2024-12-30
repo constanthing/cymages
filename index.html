@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cymages</title>
+    <link rel="stylesheet" href="./css/loading.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/gallery.css" />
     <link rel="stylesheet" href="./css/filter.css" />
@@ -14,6 +15,12 @@
 </head>
 
 <body>
+    <div id="loading" class="flex fd-c center width100">
+        <h1>CYMAGES</h1>
+        <small>getting things ready</small>
+        <div id="loading-filter"></div>
+    </div>
+
     <main>
         <header class="flex fd-c">
 
@@ -397,6 +404,7 @@
     </div>
 
 
+    <script src="./js/loading.js"></script>
     <script src="./js/Classes/Cursor.js"></script>
     <script src="./js/Classes/Scroll.js"></script>
     <script src="./js/index.js"></script>
