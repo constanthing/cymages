@@ -39,6 +39,9 @@ let contrast = 100; // 100 = default
 let vignette = 100;
 let brightness = 100;
 
+
+// Lets user change value of filter slider by using keyboard
+// numbers on the .value input element
 value.addEventListener("keydown", e=>{
     // returns NaN if cannot parse
     let number = parseInt(e.key);
@@ -114,15 +117,20 @@ const clickEvent = new MouseEvent("click");
 document.querySelector("#brightness").dispatchEvent(clickEvent)
 
 
+// 
+// EACH IMAGE HAS ITS OWN STATE ? 
+// 
+
 const logo = document.querySelector("#logo");
 logo.addEventListener("click", () => {
     exportContainer.classList.add("hidden")
     contrast = 100;
-    contrastMetadata.innerText = 0;
+    contrastMetadata.innerText = contrast;
     vignette = 100;
     brightness = 100;
     brightnessMetadata.innerText = brightness;
     slider.value = 100;
+    value.value = 100;
     positionThumb()
     // reset filter
     exportImage.style.filter = "";

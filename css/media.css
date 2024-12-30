@@ -9,6 +9,9 @@
     }
 }
 @media screen and (max-width: 1000px) {
+    #export-image {
+        width: 60%;
+    }
     #export-actions-output {
         flex-direction: column-reverse;
         gap: .5em;
