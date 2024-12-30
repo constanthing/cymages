@@ -4,15 +4,10 @@ radioGroupFunctionality(exportActions)
 
 exportActions.addEventListener("input", e => {
     switch (e.target.id) {
-        case "metadata":
-            document.querySelector("#export-metadata").classList.remove("hidden")
-            document.querySelector("#export-slider").classList.add("hidden")
-            break;
         case "contrast":
         case "brightness":
         case "vignette":
             // image modification (slider)
-            document.querySelector("#export-metadata").classList.add("hidden")
             document.querySelector("#export-slider").classList.remove("hidden")
             selectedAction = e.target.id;
 
@@ -101,7 +96,8 @@ const contrastMetadata = document.querySelector("#metadata-contrast");
 const brightnessMetadata = document.querySelector("#metadata-brightness");
 
 const clickEvent = new MouseEvent("click");
-// exportActions[0].dispatchEvent(clickEvent)
+// [0].dispatchEvent(clickEvent)
+document.querySelector("#brightness").dispatchEvent(clickEvent)
 
 
 const logo = document.querySelector("#logo");

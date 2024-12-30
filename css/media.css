@@ -9,8 +9,16 @@
     }
 }
 @media screen and (max-width: 1000px) {
-    header {
-        padding: 1em 2em;
+    #export-actions-output {
+        flex-direction: column-reverse;
+        gap: .5em;
+    }
+    #export-metadata {
+        width: 100%;
+        justify-content: space-between;
+    }
+    #header-visible {
+        padding: 1em;
     }
     #filter-options {
         padding-right: 2em;

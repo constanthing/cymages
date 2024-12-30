@@ -68,8 +68,10 @@ header {
     left: 0;
     position: sticky;
     /* mobile padding: 1em 2em */
-    padding: 2em 0;
     background: black;
+}
+#header-visible {
+    padding: 1em 0;
 }
 
 #logo h1 {

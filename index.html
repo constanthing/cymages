@@ -17,7 +17,7 @@
     <main>
         <header class="flex fd-c">
 
-            <div class="flex width100 jc-sb ai-c">
+            <div class="flex width100 jc-sb ai-c" id="header-visible" style="">
                 <div id="logo" class="flex fd-c">
                     <!-- clicking logo should take to github page -->
                     <h1>CYMAGES</h1>
@@ -266,12 +266,6 @@
                 <!-- filter, export button -->
                 <form id="export-actions" class="radiogroup flex jc-sb width100">
                     <div class="flex gap05">
-
-                        <div>
-                            <input type="radio" name="export-menu" id="metadata" />
-                            <label for="metadata" class="clickable export-action flex ai-c"><img
-                                    src="./vectors/info.svg" draggable="false" alt=""><span>metadata</span></label>
-                        </div>
                         <div>
                             <!-- couldn't id = filter because section#filter already exists -->
                             <input type="radio" name="export-menu" id="filters">
@@ -309,78 +303,81 @@
                     <!-- <li><img src="./vectors/rotate-orientation.svg" alt="" draggable="false" title="rotate orientation">rotate orientation</li> -->
                 </form>
 
-                <section id="export-metadata" class="flex hidden">
-                    <ul>
-                        <!-- 
+                <div id="export-actions-output" class="flex jc-sb width100">
+
+                    <section id="export-metadata" class="flex">
+                        <ul>
+                            <!-- 
                         consider adding ... to fill in empty space between title and description
                          -->
-                        <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span
-                                class="metadata-description">.jpeg</span>
-                        </li>
-                        <li class="flex jc-sb"><span class="metadata-title">location</span> <span
-                                class="metadata-description">N/A</span>
-                        </li>
-                        <li class="flex jc-sb"><span class="metadata-title">mood</span> <span
-                                class="metadata-description">neutral</span>
-                        </li>
-                        <li class="flex jc-sb"><span class="metadata-title">gang</span> <span
-                                class="metadata-description">valentinos</span>
-                        </li>
-                        <li class="flex jc-sb"><span class="metadata-title">time</span> <span
-                                class="metadata-description">noon</span></li>
-                    </ul>
-                    <ul>
-                        <!-- 
+                            <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span
+                                    class="metadata-description">.jpeg</span>
+                            </li>
+                            <li class="flex jc-sb"><span class="metadata-title">location</span> <span
+                                    class="metadata-description">N/A</span>
+                            </li>
+                            <li class="flex jc-sb"><span class="metadata-title">mood</span> <span
+                                    class="metadata-description">neutral</span>
+                            </li>
+                            <li class="flex jc-sb"><span class="metadata-title">gang</span> <span
+                                    class="metadata-description">valentinos</span>
+                            </li>
+                            <li class="flex jc-sb"><span class="metadata-title">time</span> <span
+                                    class="metadata-description">noon</span></li>
+                        </ul>
+                        <ul>
+                            <!-- 
                         consider adding ... to fill in empty space between title and description
                          -->
-                        <li class="flex jc-sb"><span class="metadata-title">filter</span> <span
-                                class="metadata-description">none</span>
-                        </li>
-                        <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
-                        <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span
-                                class="metadata-description" id="metadata-contrast">100</span>
-                        </li>
-                        <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span
-                                class="metadata-description" id="metadata-brightness">100</span>
-                        </li>
-                        <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span
-                                class="metadata-description">100</span>
-                        </li>
-                        <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span
-                                class="metadata-description">default</span> </li>
-                        <!-- <sup> causes margin that i don't like... aka uneven lines -->
-                    </ul>
+                            <li class="flex jc-sb"><span class="metadata-title">filter</span> <span
+                                    class="metadata-description">none</span>
+                            </li>
+                            <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                            <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span
+                                    class="metadata-description" id="metadata-contrast">100</span>
+                            </li>
+                            <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span
+                                    class="metadata-description" id="metadata-brightness">100</span>
+                            </li>
+                            <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span
+                                    class="metadata-description">100</span>
+                            </li>
+                            <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span
+                                    class="metadata-description">default</span> </li>
+                            <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                        </ul>
 
 
-                </section>
-                <!-- 
+                    </section>
+                    <!-- 
                         can grab anywhere on the value container to move value
                          -->
-                <div id="export-slider" class="hidden flex width100">
-                    <div class="value flex center">
-                        <h4>100</h4>
-                    </div>
-                    <div id="slider-container">
+                    <div id="export-slider" class="hidden flex width100">
+                        <div class="value flex center">
+                            <h4>100</h4>
+                        </div>
+                        <div id="slider-container">
 
-                        <!-- <datalist id="marker">
+                            <!-- <datalist id="marker">
                             <option value="100"></option>
                         </datalist>
  -->
-                        <div class="slider-images flex">
-                            <img src="./p/green.png" alt="" draggable="false">
-                            <img src="./p/green.png" alt="" draggable="false">
-                            <img src="./p/green.png" alt="" draggable="false">
-                            <img src="./p/green.png" alt="" draggable="false">
-                            <img src="./p/green.png" alt="" draggable="false">
+                            <div class="slider-images flex">
+                                <img src="./p/green.png" alt="" draggable="false">
+                                <img src="./p/green.png" alt="" draggable="false">
+                                <img src="./p/green.png" alt="" draggable="false">
+                                <img src="./p/green.png" alt="" draggable="false">
+                                <img src="./p/green.png" alt="" draggable="false">
+                            </div>
+                            <div class="bar">
+                                <!-- <div class="something"></div> -->
+                            </div>
+                            <input id="export-input-slider" class="width100" id="" type="range" value="100" min="0"
+                                max="200" list="marker" />
                         </div>
-                        <div class="bar">
-                            <!-- <div class="something"></div> -->
-                        </div>
-                        <input id="export-input-slider" class="width100" id="" type="range" value="100" min="0"
-                            max="200" list="marker" />
                     </div>
+                    <!-- <p>&gt;&gt;export&lt;&lt;</p> -->
                 </div>
-                <!-- <p>&gt;&gt;export&lt;&lt;</p> -->
             </div>
         </section>
     </main>
