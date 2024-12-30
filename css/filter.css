@@ -217,9 +217,6 @@ NEW FILTER LIST
 
 /* logos are white grascale() does nothing */
 #filter-output div:not(.gang) .logo {
-/* #filter-output .time .logo, */
-/* #filter-output .location .logo, */
-/* #filter-output .feeling .logo { */
     filter: invert(.4);
 }
 

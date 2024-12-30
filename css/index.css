@@ -36,7 +36,6 @@ html,
 body {
     /* cursor: none; */
     height: 100vh;
-    overflow: hidden;
 
     background: black;
     color: var(--white);

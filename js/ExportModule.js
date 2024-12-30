@@ -1,5 +1,7 @@
 const exportActions = document.querySelector("#export-actions");
+
 radioGroupFunctionality(exportActions)
+
 exportActions.addEventListener("input", e => {
     switch (e.target.id) {
         case "metadata":
@@ -114,4 +116,5 @@ logo.addEventListener("click", () => {
     positionThumb()
     // reset filter
     exportImage.style.filter = "";
+    gallery.classList.remove("hidden")
 })
