@@ -60,8 +60,6 @@ main {
     margin: 0 auto;
 
     position: relative;
-    overflow: scroll;
-    scrollbar-width: none;
 }
 
 /* 
