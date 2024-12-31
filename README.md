@@ -17,10 +17,10 @@
 - Display what is being downloaded/completed in loading screen
 - Vignette to images
 - Filters
-- Aspec ratio
+- Aspect ratio
 - Add cool image altering,shaping,molding, etc. effect when hovering over them that follows the cursor? (maybe too much idk just an idea)
 ## Optimization
-- 
+- Indicate need to click on red-bar in #export slider 
 # BUGS
 - pending
 # Purpose
