@@ -1,11 +1,11 @@
 const body = document.querySelector("body");
-const galleryDimmer = body.querySelector("#gallery-dimmer");
-const filter = body.querySelector("#filter");
+const galleryDimmer = document.querySelector("#gallery-dimmer");
+const filter = document.querySelector("#filter");
 
 
 // getting html elements
-let eye = body.querySelector("#eye");
-let pupil = body.querySelector("#pupil");
+let eye = document.querySelector("#eye");
+let pupil = document.querySelector("#pupil");
 // creating objects out of html elements
 // pupil = new Cursor(pupil);
 // eye = new Cursor(eye);

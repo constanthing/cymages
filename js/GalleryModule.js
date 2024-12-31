@@ -1,8 +1,8 @@
 /*
 GALLERY / IMAGEACTIONS
 */
-const gallery = body.querySelector("#gallery");
-const imageActions = body.querySelector("#image-actions");
+const gallery = document.querySelector("#gallery");
+const imageActions = document.querySelector("#image-actions");
 let imageActionsOpen = false;
 let currentImage = null;
 galleryDimmer.style.height = gallery.scrollHeight + "px";

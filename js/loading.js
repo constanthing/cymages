@@ -102,3 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 })
+
+window.onload = () => {
+    
+};
