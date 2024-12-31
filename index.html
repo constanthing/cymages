@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cymages</title>
     <link rel="stylesheet" href="./css/loading.css" />
-    <link rel="stylesheet" href="./css/index.css" />
+    <!-- <link rel="stylesheet" href="./css/index.css" /> -->
     <link rel="stylesheet" href="./css/gallery.css" />
     <link rel="stylesheet" href="./css/filter.css" />
     <link rel="stylesheet" href="./css/export.css">
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div id="loading" class="flex fd-c center width100">
+    <div id="loading" class="">
         <h1>CYMAGES</h1>
         <small>getting things ready</small>
         <div id="loading-filter"></div>
@@ -213,24 +213,24 @@
         <section id="gallery">
             <div id="gallery-dimmer" class="hidden"></div>
             <div class="row">
-                <img src="./p/black.png" alt="" draggable="false" />
-                <img src="./p/pink.png" alt="" draggable="false" />
-                <img src="./p/green.png" alt="" draggable="false" />
+                <img src="./p/black.png" alt="" loading="eager" fetchpriority="high" draggable="false" />
+                <img src="./p/pink.png" alt="" loading="eager" fetchpriority="high" draggable="false" />
+                <img src="./p/green.png" alt="" loading="eager" fetchpriority="high" draggable="false" />
             </div>
             <div class="row">
-                <img src="./p/dead.png" alt="" draggable="false" />
-                <img src="./p/train.png" alt="" draggable="false" />
-                <img src="./p/mox.png" alt="" draggable="false" />
+                <img src="./p/dead.png" alt="" loading="eager" fetchpriority="high" draggable="false" />
+                <img src="./p/train.png" alt="" loading="eager" fetchpriority="high" draggable="false" />
+                <img src="./p/mox.png" alt="" loading="eager" fetchpriority="high" draggable="false" />
             </div>
             <div class="row">
-                <img src="./p/edge.png" alt="" draggable="false" />
-                <img src="./p/shortsmoke.png" alt="" draggable="false" />
-                <img src="./p/still.png" alt="" draggable="false" />
+                <img src="./p/edge.png" alt="" loading="lazy" fetchpriority="low" draggable="false" />
+                <img src="./p/shortsmoke.png" alt="" loading="lazy" fetchpriority="low" draggable="false" />
+                <img src="./p/still.png" alt=""  loading="lazy" fetchpriority="low"draggable="false" />
             </div>
             <div class="row">
-                <img src="./p/carmox.png" decoding="async" fetchpriority="low" alt="" draggable="false" />
-                <img src="./p/grid.png" decoding="async" fetchpriority="low" alt="" draggable="false" />
-                <img src="./p/redladder.png" decoding="async" fetchpriority="low" alt="" draggable="false" />
+                <img src="./p/carmox.png" decoding="async" loading="lazy" fetchpriority="low" alt="" draggable="false" />
+                <img src="./p/grid.png" decoding="async" loading="lazy" fetchpriority="low" alt="" draggable="false" />
+                <img src="./p/redladder.png" decoding="async" loading="lazy" fetchpriority="low" alt="" draggable="false" />
             </div>
         </section>
 
@@ -404,13 +404,21 @@
     </div>
 
 
-    <script src="./js/loading.js"></script>
-    <script src="./js/Classes/Cursor.js"></script>
-    <script src="./js/Classes/Scroll.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/GalleryModule.js"></script>
-    <script src="./js/FilterModule.js"></script>
-    <script src="./js/ExportModule.js"></script>
+    <!-- defer
+     script downloaded in parallel but executed only when DOM fully loaded
+      -->
+    <script src="./js/loading.js" defer></script>
+
+    <!-- 
+    async true
+    downloaded and executed as soon as its ready independent of html dom parsing
+     -->
+    <script src="./js/Classes/Cursor.js" defer></script>
+    <script src="./js/Classes/Scroll.js" async="true"></script>
+    <script src="./js/index.js" async="true"></script>
+    <script src="./js/GalleryModule.js" async="true"></script>
+    <script src="./js/FilterModule.js" async="true"></script>
+    <script src="./js/ExportModule.js" async="true"></script>
 </body>
 
 </html>
