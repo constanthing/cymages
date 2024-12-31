@@ -1,4 +1,4 @@
-window.addEventListener("load", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     const loading = document.querySelector("#loading");
     loading.addEventListener("animationend", () => {
