@@ -15,9 +15,6 @@
 
 
 #filter {
-    /* important to appear above #gallery (2 has no meaning)*/
-    z-index: 2;
-
     width: 100%;
     /* child of header -> header has 10% height relative to body -> 100% = 10% -> 300% = 30% of body */
     height: 40vh;

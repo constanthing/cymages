@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.querySelector("body").style.height = "unset";
         document.querySelector("body").style.width = "unset";
         document.querySelector("body").style.overflow = "unset";
-
+        document.querySelector("header").style.zIndex = "1000";
     })
 
     const loadingFilter = loading.querySelector("#loading-filter");
@@ -130,16 +130,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // start hide loading filter 
     loadingFilter.classList.add("animate-borderr");
-
-    // const imgs = document.querySelectorAll("#gallery img");
-    // for (const img of imgs) {
-    //     img.onload = () => {
-    //         console.log(img + " loaded")
-    //     };
-    // }
-    // console.log(imgs)
-
-
 })
 
 window.onload = () => {

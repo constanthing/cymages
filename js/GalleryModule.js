@@ -10,7 +10,9 @@ galleryDimmer.style.height = gallery.scrollHeight + "px";
 gallery.querySelectorAll("img").forEach(image => {
     let clicked = false;
     image.addEventListener("click", e => {
-        console.log(e)
+        if (currentImage) {
+            removeSelectedImageStyle()
+        }
         // console.log(Scroll.dragging, Scroll.grabbing, Scroll.elementEndClicked)
         if (Scroll.elementEndClicked != image) {
             clicked = !clicked;
@@ -23,7 +25,6 @@ gallery.querySelectorAll("img").forEach(image => {
             // revealing imageActions
             imageActions.classList.remove("hidden")
             imageActionsOpen = true;
-            console.log(e)
             imageActions.style.top = (e.pageY -(imageActions.clientHeight/2) + "px");
             // imageActions.style.top = (e.clientY - (eye.height / 2)) + "px";
             imageActions.style.left = (e.pageX - (imageActions.clientWidth / 2)) + "px";
@@ -36,14 +37,20 @@ gallery.querySelectorAll("img").forEach(image => {
     })
     Scroll.elementEndClicked = null;
 })
-/* IMAGE ACTIONS */
-imageActions.addEventListener("pointerleave", e => {
-    clicked = false;
 
-    currentImage.style.border = "";
+function removeSelectedImageStyle() {
+    if (currentImage) {
+        currentImage.style.border = "";
+        currentImage = undefined;
+    }
 
     imageActionsOpen = false;
     imageActions.classList.add("hidden")
+}
+
+/* IMAGE ACTIONS */
+imageActions.addEventListener("pointerleave", e => {
+    removeSelectedImageStyle()
 
     // eye.element.classList.remove("hidden")
     // eye.setOpacity()
@@ -90,5 +97,3 @@ galleryScroll.revealScroll()
 gallery.addEventListener("scroll", () => {
     galleryScroll.revealScroll()
 })
-
-

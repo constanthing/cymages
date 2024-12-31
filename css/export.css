@@ -4,7 +4,12 @@
     /* header is 10% height */
     top: 10%;
     left: 0;
-    position: sticky;
+    /* position absolute in #export-footer
+    need relative position on export so 
+    it doesn't act on #header position sticky
+     */
+    position: relative;
+    background: black;
 }
 
 
@@ -48,12 +53,6 @@
 .export-action {
     filter: invert(.5);
 }
-
-
-
-
-
-
 
 /* consider chaning this to li { ...!important } */
 #export-image-actions li {
@@ -124,8 +123,9 @@
 }
 
 .value {
+    appearance: none;
+    border: none;
     width: 10%;
-    padding: 0 1em;
     background: var(--rock);
     text-align: center;
 }
