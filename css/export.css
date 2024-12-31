@@ -119,6 +119,12 @@
     height: 100%;
     opacity: 0;
 }
+#export-input-slider:hover {
+    cursor: grab;
+}
+#export-input-slider:active {
+    cursor: grabbing;
+}
 
 .value {
     appearance: none;

@@ -126,12 +126,17 @@ h1 {
     right: 0;
 }
 
+
+/* BUTTONS */
 button {
     border: none;
     background: none;
     padding: .3em;
     border: .1em solid white;
     border-radius: .3em;
+}
+button:hover {
+    cursor: pointer;
 }
 .red-button {
     border-color: red;
@@ -142,6 +147,11 @@ button {
     border-color: rgb(0, 211, 0);
     color: rgb(0, 211, 0);
     background: green;
+}
+.blue-button {
+    color: rgb(0, 153, 255);
+    border-color: rgb(0, 153, 255);
+    background: rgb(0, 0, 122);
 }
 
 /* END PRESETS */

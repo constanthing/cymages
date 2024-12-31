@@ -17,7 +17,7 @@
 <body>
     <div id="loading" class="">
         <h1>CYMAGES</h1>
-        <small>getting things ready</small>
+        <small id="loading-message">getting things ready</small>
         <div id="loading-filter"></div>
     </div>
 
@@ -395,12 +395,12 @@
 
     <div id="eye" class="hidden"></div>
     <div id="pupil" class="hidden"></div>
-    <div id="image-actions" class="hidden">
+    <div id="image-actions" class="flex fd-c gap05 hidden">
         <small style="color: var(--rock);">EXPORT</small>
-        <br>
-        <small class="image-action">now</small>
-        <br>
-        <small class="image-action">later</small>
+        <button class="image-action green-button">now</button>
+        <!-- <small class="image-action">now</small> -->
+        <button class="image-action blue-button">later</button>
+        <!-- <small class="image-action">later</small> -->
     </div>
 
 

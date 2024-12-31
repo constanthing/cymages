@@ -88,7 +88,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.querySelector("head").appendChild(link)
         return link;
     }
+    const loadingMessage = document.querySelector("#loading-message");
+
     const styles = ["index", "gallery", "filter", "export", "cursor", "media"];
+
+    loadingMessage.innerText = "making it look nice";
     await loadFiles(styles, styleDom)
     console.log("STYLES LOADED")
 
@@ -100,6 +104,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         return script;
     }
     const scripts = ["Classes/Cursor", "Classes/Scroll", "index", "GalleryModule", "FilterModule", "ExportModule"];
+
+    loadingMessage.innerText = "making it interactive";
     await loadFiles(scripts, scriptDom)
     console.log("SCRIPTS LOADED")
 
@@ -122,12 +128,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         })
     }
 
+
+    loadingMessage.innerText = "loading essential images";
     await loadImage()
 
     // hide the loadingFilter reveal the CONTENT
     // stop loading filter from rotating colors 
     stopRotating = true;
 
+    loadingMessage.innerText = "experience ready"
     // start hide loading filter 
     loadingFilter.classList.add("animate-borderr");
 })

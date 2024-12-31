@@ -4,7 +4,13 @@
 body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    /* otherwise on desktops
+    window resize occurs which moves changes dimensions
+    of width since #loading has no scroll and #main does
+    this way scroll appears on loading and main and no
+    resize occurs 
+     */
+    overflow-y: scroll;
 }
 #loading {
     display: flex;

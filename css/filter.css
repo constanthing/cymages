@@ -91,7 +91,7 @@ NEW FILTER LIST
     align-items: stretch;
 }
 #filter-actions button:hover {
-    cursor: none;
+    /* cursor: none; */
 }
 
 #filter-output {

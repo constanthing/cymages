@@ -60,13 +60,6 @@ let imageActionClicked = false;
 const exportContainer = document.querySelector("#export");
 
 imageActions.querySelectorAll(".image-action").forEach(action => {
-    action.addEventListener("pointerenter", e => {
-        action.innerText = "[" + action.innerText + "]";
-    })
-    action.addEventListener("pointerleave", e => {
-        action.innerText = action.innerText.slice(1, action.innerText.length - 1);
-    })
-
     action.addEventListener("pointerdown", e => {
         action.style.background = "var(--white)";
         // setting image 
