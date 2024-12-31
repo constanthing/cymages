@@ -1,28 +1,31 @@
 [figma](https://www.figma.com/design/nAWYIJ7vJY6fdy7NY5DPu5/Untitled?node-id=0-1&node-type=canvas&t=cVSFgWb9ldfmmbnC-0)
 
 # TODO
-- FIX MOBILE 
-- instead of making #eye display: none; when in #filter maybe just make #filter z-index: 100; same as #eye?
-- prevent blink from firing when dragging #filter-output-gang it looks odd
-- clicking out of #filter-output close it 
-- Add cool image altering,shaping,molding, etc. effect when hovering over them that follows the cursor? (maybe too much idk just an idea)
-- add dragging functionality to #images 
-- Add "Pinpoint in game"
+## Features
+- Photo set option
+- Pinpoint in game
     - Shows a map and gif of how to get to to the location of where the photo was shot
+- Footer with actions
+	- Saved for later
+	- Slideshow
+	- etc.
+- #Gallery view options
+	- List view (small image with metadata)
+	- Medium Icon view (masonry grid)
+	- Fill View (fill screen)
+## Functions 
+- Display what is being downloaded/completed in loading screen
+- Vignette to images
+- Filters
+- Aspec ratio
+- Add cool image altering,shaping,molding, etc. effect when hovering over them that follows the cursor? (maybe too much idk just an idea)
+## Optimization
+- 
 # BUGS
-- dragging #filter-output-gang when returning to drag area and its on a element that element is selected... don't want that!
-    - does it on safari not google chrome
-- dragging to the end of the #filter-output area causes scroll to go in that direction instead of the intended opposite direction! 
-
-# Warnings
-- Filter button click may cause dealy in filter-output reveal after moving filter code to FilterModule.js
-# Future
-- appropriate solution to adjusting #gallery-dimmer height to gallery height including scroll height not just visible height (implementation in js but doesn't resize)
+- pending
 # Purpose
 Help me understand how to deal with images/videos better... and I also like to take pictures in cyberpunk. 
 # Learned
-[optimization](FUTURE LINK)
-
-
+[future 222dof blog post on optimization](#)
 
 [very useful resource](https://cyberpunk.fandom.com/wiki/Cyberpunk_Wiki)
