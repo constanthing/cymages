@@ -2,7 +2,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const loading = document.querySelector("#loading");
     loading.addEventListener("animationend", () => {
-        document.querySelector("main").classList.remove("hidden")
+        // document.querySelector("main").classList.remove("hidden")
+        document.querySelector("body").style.height = "unset";
+        document.querySelector("body").style.width = "unset";
+        document.querySelector("body").style.overflow = "unset";
+
     })
 
     const loadingFilter = loading.querySelector("#loading-filter");
@@ -16,9 +20,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     function getRandomColor() {
         return [getRandomNumber(255), getRandomNumber(255), getRandomNumber(255)];
     }
+
+    let stopRotating = false;
     async function randomBorder() {
         let index = 0;
-        while (index < 10) {
+        while (!stopRotating) {
             let r = getRandomColor()
             loadingFilter.style.borderTopColor = `rgb(${r[0]}, ${r[1]}, ${r[2]})`;
 
@@ -41,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // default files: loading.js, loading.css -> loaded
 
-    async function loadFiles(files, domManipulation) {
+    function loadFiles(files, domManipulation) {
         return new Promise(async (resolve, reject) => {
             for (const index in files) {
                 // saving name of file
@@ -49,9 +55,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // false = not loaded
                 files[index] = false;
 
+                /*
+                could remove Promise and have them all download at the same time
+                but some javascript files rely on others
+                */
+
                 elem = domManipulation(name);
-                //  fires when stylesheet downloaded and applied
                 await new Promise((re) => {
+                    //  fires when stylesheet downloaded and applied
                     elem.onload = () => {
                         // loaded
                         console.log(`${name} finished downloading`)
@@ -92,7 +103,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadFiles(scripts, scriptDom)
     console.log("SCRIPTS LOADED")
 
+
+    function loadImage() {
+        return new Promise((resolve, reject) => {
+            const img = document.querySelector(".row img");
+            console.log(img)
+            console.log(img.complete)
+            // img cannot be hidden via display: none on itself or ancestor
+            if (img.complete) {
+                console.log("already cached")
+                resolve()
+            } else {
+                console.log("not cached")
+                img.onload = () => {
+                    resolve()
+                }
+            }
+        })
+    }
+
+    await loadImage()
+
     // hide the loadingFilter reveal the CONTENT
+    // stop loading filter from rotating colors 
+    stopRotating = true;
+
+    // start hide loading filter 
     loadingFilter.classList.add("animate-borderr");
 
     // const imgs = document.querySelectorAll("#gallery img");
