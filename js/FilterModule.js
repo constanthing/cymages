@@ -109,14 +109,13 @@ const filterOutputScroll = new Scroll(false, document.querySelector("#filter-out
 /*
 FILTER OPTIONS
 */
-// 1. creating an object out of each filter option
-// 2. assigning object to relative key in options dict.
 const filterList = document.querySelector("#filter-list");
 
 let previousFilterOutput = undefined;
 let filterCategory = undefined;
 
 radioGroupFunctionality(filterList)
+// filterList is a form... selecting radio button fires input eventListener 
 filterList.addEventListener("input", e=>{
     filterCategory = e.target.id;
     const output = document.querySelector(`#filter-output-${filterCategory}`);

@@ -71,7 +71,7 @@ header {
     background: black;
 }
 #header-visible {
-    padding: 1em 0;
+    height: 10vh;
 }
 
 #logo h1 {

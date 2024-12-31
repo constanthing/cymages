@@ -24,6 +24,10 @@
     background: black;
     /* padding: 2em 0; */
     border-top: 1px solid var(--white);
+
+    position: absolute;
+    /* visible header is 10vh height */
+    top: 10vh;
 }
 
 /* 
@@ -108,6 +112,15 @@ NEW FILTER LIST
     /* IE 10+ */
 }
 
+/* hover effect on filter outputs */
+:is(.time, .location, .gang, .mood):not(.output-option-selected):hover .dimmer {
+    opacity: .6;
+    /* transform: translate(50%, -50%) scale(1.1); */
+}
+:is(.time, .location, .gang, .mood):is(.output-option-selected):hover .dimmer {
+    opacity: .5;
+}
+
 .filter-oo-bg {
     position: absolute;
     height: 100%;
@@ -127,6 +140,7 @@ NEW FILTER LIST
     pointer-events: none;
 }
 
+/* filter output output option dimmer */
 .dimmer {
     position: absolute;
     top: 0;
@@ -137,6 +151,7 @@ NEW FILTER LIST
     opacity: .8;
 }
 
+/* SELETED filter output options */
 .output-option-selected .dimmer {
     opacity: .4;
 }
