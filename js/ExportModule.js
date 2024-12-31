@@ -89,7 +89,7 @@ slider.addEventListener("input", e => {
             brightnessMetadata.innerText = brightness;
             break;
     }
-    console.log(`contrast(${contrast}%) brightness(${brightness}%)`)
+    // console.log(`contrast(${contrast}%) brightness(${brightness}%)`)
     exportImage.style.filter = `contrast(${contrast}%) brightness(${brightness}%)`;
 })
 

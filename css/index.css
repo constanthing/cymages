@@ -69,6 +69,7 @@ header {
     position: sticky;
     /* mobile padding: 1em 2em */
     background: black;
+    border-bottom: .1em solid var(--white);
 }
 #header-visible {
     height: 10vh;
