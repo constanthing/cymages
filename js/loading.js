@@ -35,9 +35,6 @@ window.addEventListener("load", async () => {
             })
             index += 1;
         }
-        return new Promise((resolve, reject) => {
-            resolve()
-        })
     }
 
     randomBorder()
@@ -78,10 +75,8 @@ window.addEventListener("load", async () => {
         return link;
     }
     const styles = ["index", "gallery", "filter", "export", "cursor", "media"];
-    console.log('00000-------')
     await loadFiles(styles, styleDom)
     console.log("STYLES LOADED")
-    console.log('11111-------')
 
     let scriptDom = (scriptName) => {
         // dynamically adding styles to load site faster 
@@ -91,21 +86,19 @@ window.addEventListener("load", async () => {
         return script;
     }
     const scripts = ["Classes/Cursor", "Classes/Scroll", "index", "GalleryModule", "FilterModule", "ExportModule"];
-    console.log('00000-------')
     await loadFiles(scripts, scriptDom)
-    console.log('11111-------')
     console.log("SCRIPTS LOADED")
 
     // hide the loadingFilter reveal the CONTENT
     loadingFilter.classList.add("animate-borderr");
 
-    const imgs = document.querySelectorAll("#gallery img");
-    for (const img of imgs) {
-        img.onload = () => {
-            console.log(img + " loaded")
-        };
-    }
-    console.log(imgs)
+    // const imgs = document.querySelectorAll("#gallery img");
+    // for (const img of imgs) {
+    //     img.onload = () => {
+    //         console.log(img + " loaded")
+    //     };
+    // }
+    // console.log(imgs)
 
 
 })

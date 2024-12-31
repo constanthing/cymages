@@ -26,7 +26,7 @@
 @keyframes disappear {
     100% {
         opacity: 0;
-        z-index: unset;
+        z-index: initial;
     }
 }
 .animate-disappear {
