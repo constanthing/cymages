@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // default files: loading.js, loading.css -> loaded
 
     async function loadFiles(files, domManipulation) {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             for (const index in files) {
                 // saving name of file
                 let name = files[index];
@@ -51,17 +51,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 elem = domManipulation(name);
                 //  fires when stylesheet downloaded and applied
-                elem.onload = () => {
-                    // loaded
-                    console.log(`${name} finished downloading`)
-                    files[index] = true;
-
-                    // all styles loaded so only true booleans in array
-                    if (files.find(e => e == false) == undefined) {
+                await new Promise((re) => {
+                    elem.onload = () => {
                         // loaded
-                        resolve()
+                        console.log(`${name} finished downloading`)
+                        files[index] = true;
+
+                        // all styles loaded so only true booleans in array
+                        if (files.find(e => e == false) == undefined) {
+                            // loaded
+                            resolve()
+                        }
+                        re()
                     }
-                }
+                })
             }
         })
     }
@@ -104,5 +107,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 })
 
 window.onload = () => {
-    
+
 };

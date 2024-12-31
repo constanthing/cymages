@@ -11,7 +11,7 @@ filter.addEventListener("mouseleave", e => {
 /*
 FILTER BUTTON
 */
-const filterButton = body.querySelector("#filter-button");
+const filterButton = document.querySelector("#filter-button");
 // TEMPORARY solution to adjusting dimmer height
 let rotating = true;
 filterButton.addEventListener("click", () => {
@@ -103,7 +103,7 @@ FILTER OUTPUT
 /*
 * SCROLL
 */
-const filterOutputScroll = new Scroll(false, body.querySelector("#filter-output"), body.querySelector("#filter-scroll"));
+const filterOutputScroll = new Scroll(false, document.querySelector("#filter-output"), document.querySelector("#filter-scroll"));
 
 
 /*
