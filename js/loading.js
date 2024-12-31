@@ -1,24 +1,61 @@
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
     // default files: loading.js, loading.css -> loaded
 
-    console.log("loaded")
-    const styles = ["index", "gallery", "filter", "export", "cursor", "media"];
-    for (const style of styles) {
-        // dynamically adding styles to load site faster 
+    async function loadFiles(files, domManipulation) {
+        return new Promise((resolve, reject) => {
+            for (const index in files) {
+                // saving name of file
+                let name = files[index];
+                // false = not loaded
+                files[index] = false;
+
+                elem = domManipulation(name);
+                //  fires when stylesheet downloaded and applied
+                elem.onload = () => {
+                    // loaded
+                    console.log(`${name} finished downloading`)
+                    files[index] = true;
+
+                    // all styles loaded so only true booleans in array
+                    if (files.find(e => e == false) == undefined) {
+                        // loaded
+                        resolve()
+                    }
+                }
+            }
+        })
+    }
+
+    let styleDom = (fileName) => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = `./css/${style}.css`;
+        // link.href = `${path}${files[file]}.${extension}`;
+        link.href = `./css/${fileName}.css`;
         document.querySelector("head").appendChild(link)
-
-        //  fires when stylesheet downloaded and applied
-        link.onload = ()=>{
-            console.log(`${style}.css finished downloading`)
-        }
+        return link;
     }
+    const styles = ["index", "gallery", "filter", "export", "cursor", "media"];
+    console.log('00000-------')
+    await loadFiles(styles, styleDom)
+    console.log("STYLES LOADED")
+    console.log('11111-------')
+
+    let scriptDom = (scriptName) => {
+        // dynamically adding styles to load site faster 
+        const script = document.createElement("script");
+        script.src = `./js/${scriptName}.js`;
+        document.querySelector("body").appendChild(script)
+        return script;
+    }
+    const scripts = ["Classes/Cursor", "Classes/Scroll", "index", "GalleryModule", "FilterModule", "ExportModule"];
+    console.log('00000-------')
+    await loadFiles(scripts, scriptDom)
+    console.log('11111-------')
+    console.log("SCRIPTS LOADED")
 
     const imgs = document.querySelectorAll("#gallery img");
     for (const img of imgs) {
-        img.onload = ()=> {
+        img.onload = () => {
             console.log(img + " loaded")
         };
     }
