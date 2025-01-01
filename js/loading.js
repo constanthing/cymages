@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     function wait(time=1000) {
         return new Promise((resolve, reject) => {
-            setTimeout(()=>resolve(), time)
+            setTimeout(()=>resolve(), getRandomNumber(time, 700))
         })
     }
 
-    function getRandomNumber(max) {
-        return parseInt(Math.random() * max) + 1;
+    function getRandomNumber(max, min=0) {
+        return min + (parseInt(Math.random() * (max-min) + 1));
     }
     function getRandomColor() {
         return [getRandomNumber(255), getRandomNumber(255), getRandomNumber(255)];
@@ -137,6 +137,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     loadingMessage.innerText = "loading essential images";
+    await wait()
     await loadImage()
 
     // hide the loadingFilter reveal the CONTENT
