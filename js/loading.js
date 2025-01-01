@@ -3,9 +3,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const loading = document.querySelector("#loading");
     loading.addEventListener("animationend", () => {
         // document.querySelector("main").classList.remove("hidden")
-        document.querySelector("body").style.height = "unset";
-        document.querySelector("body").style.width = "unset";
-        document.querySelector("body").style.overflow = "unset";
         document.querySelector("header").style.zIndex = "1000";
     })
 
@@ -13,6 +10,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadingFilter.addEventListener("animationend", () => {
         loading.classList.add("animate-disappear")
     })
+
+    function wait(time=1000) {
+        return new Promise((resolve, reject) => {
+            setTimeout(()=>resolve(), time)
+        })
+    }
 
     function getRandomNumber(max) {
         return parseInt(Math.random() * max) + 1;
@@ -93,7 +96,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const styles = ["index", "gallery", "filter", "export", "cursor", "media"];
 
     loadingMessage.innerText = "making it look nice";
+    // allow "making it look nice" readable for 1 second
     await loadFiles(styles, styleDom)
+    await wait(1300)
     console.log("STYLES LOADED")
 
     let scriptDom = (scriptName) => {
@@ -106,6 +111,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const scripts = ["Classes/Cursor", "Classes/Scroll", "index", "GalleryModule", "FilterModule", "ExportModule"];
 
     loadingMessage.innerText = "making it interactive";
+    // allow "making it interactive" readable for 1 second
+    await wait()
     await loadFiles(scripts, scriptDom)
     console.log("SCRIPTS LOADED")
 

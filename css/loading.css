@@ -10,7 +10,7 @@ body {
     this way scroll appears on loading and main and no
     resize occurs 
      */
-    overflow-y: scroll;
+     overflow-y: scroll !important;
 }
 #loading {
     display: flex;
