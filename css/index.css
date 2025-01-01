@@ -15,21 +15,26 @@
 @font-face {
     font-family: "LogoFont";
     src: url("../fonts/BrunoAce-Regular.ttf") format("truetype");
+    /* use systems font until custom font is ready to use */
+    font-display: swap;
 }
 
 @font-face {
     font-family: "MainFont";
     src: url("../fonts/Akshar-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Maelstrom";
     src: url("../fonts/MetalMania-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "66th street";
     src: url("../fonts/LeagueGothic-Regular-VariableFont_wdth.ttf") format("truetype");
+    font-display: swap;
 }
 
 html,
