@@ -1,4 +1,3 @@
-const body = document.querySelector("body");
 const galleryDimmer = document.querySelector("#gallery-dimmer");
 const filter = document.querySelector("#filter");
 
