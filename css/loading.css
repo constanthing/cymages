@@ -22,7 +22,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: black;
+    background: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(5px);
     z-index: 100;
 }
 #loading-filter {
