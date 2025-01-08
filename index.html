@@ -6,15 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cymages</title>
     <link rel="stylesheet" href="/cymages/css/loading.css">
-    <!-- <link rel="stylesheet" href="./css/index.css" /> -->
-    <!-- <link rel="stylesheet" href="./css/gallery.css" />
-    <link rel="stylesheet" href="./css/filter.css" />
-    <link rel="stylesheet" href="./css/export.css">
-    <link rel="stylesheet" href="./css/cursor.css" />
-    <link rel="stylesheet" href="./css/media.css" /> -->
 </head>
 
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden; background: black;">
     <div id="loading" class="">
         <h1>CYMAGES</h1>
         <small id="loading-message">getting things ready</small>
@@ -215,24 +209,40 @@
         <section id="gallery">
             <div id="gallery-dimmer" class="hidden"></div>
             <div class="row">
-                <img src="/cymages/p/black.webp" alt="" loading="lazy" fetchpriority="high" draggable="false">
-                <img src="/cymages/p/pink.webp" alt="" loading="lazy" fetchpriority="high" draggable="false">
-                <img src="/cymages/p/green.webp" alt="" loading="lazy" fetchpriority="high" draggable="false">
+                <img src="/cymages/p/black.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                <img src="/cymages/p/pink.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                <img src="/cymages/p/green.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
             </div>
             <div class="row">
-                <img src="/cymages/p/dead.webp" alt="" loading="lazy" draggable="false">
-                <img src="/cymages/p/train.webp" alt="" loading="lazy" draggable="false">
-                <img src="/cymages/p/mox.webp" alt="" loading="lazy" draggable="false">
+                <div class="photo-set">
+                    <img src="/cymages/p/dead.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                    <img src="/cymages/p/dead-2.webp" class="hidden" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                    <div class="photo-set-actions">
+                        <img src="/cymages/vectors/play-hollow.svg" alt="" data-state="0" data-fill="0" class="photo-set-state">
+                        <form class="photo-set-links"></form>
+                    </div>
+                </div>
+                <img src="/cymages/p/train.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                <div class="photo-set">
+                    <img src="/cymages/p/mox.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                    <img src="/cymages/p/carmox.webp" class="hidden" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                    <div class="photo-set-actions">
+                        <img src="/cymages/vectors/play-hollow.svg" alt="" data-state="0" data-fill="0" class="photo-set-state">
+                        <form class="photo-set-links">
+                            <!-- links added using javascript -->
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <img src="/cymages/p/shortsmoke.webp" alt="" loading="lazy" draggable="false">
-                <img src="/cymages/p/vr.webp" alt="" loading="lazy" draggable="false">
-                <img src="/cymages/p/still.webp" alt="" loading="lazy" draggable="false">
+                <img src="/cymages/p/shortsmoke.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                <img src="/cymages/p/vr.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                <img src="/cymages/p/still.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
             </div>
             <div class="row">
-                <img src="/cymages/p/edge.webp" alt="" loading="lazy" draggable="false">
-                <img src="/cymages/p/carmox.webp" loading="lazy" alt="" draggable="false">
-                <img src="/cymages/p/grid.webp" loading="lazy" alt="" draggable="false">
+                <img src="/cymages/p/edge.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                <img src="/cymages/p/carmox.webp" loading="lazy" alt="" draggable="false" height="400px" width="400px">
+                <img src="/cymages/p/grid.webp" loading="lazy" alt="" draggable="false" height="400px" width="400px">
             </div>
         </section>
 
