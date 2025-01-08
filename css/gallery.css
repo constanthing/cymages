@@ -93,7 +93,7 @@
 
 .photo-set-link {
     width: 1.3em;
-    height: 1.3em;
+    height: 1em;
     border-radius: 100%;
     background: #D9D9D9;
     transition: width .5s ease, border-radius .5s ease;
@@ -112,7 +112,7 @@
 }
 
 .photo-set-state {
-    width: 1.5em;
+    width: 1em;
     cursor: pointer;
 }
 
