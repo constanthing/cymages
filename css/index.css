@@ -211,8 +211,14 @@ button:hover {
     display: none !important;
 }
 
-.gap05 {
+.gap_5 {
     gap: .5em;
+}
+.gap1 {
+    gap: 1em;
+}
+.gap1_5 {
+    gap: 1.5em;
 }
 
 .width100 {

@@ -26,7 +26,13 @@
                     <small>no mods - sfw - exportable</small>
                 </div>
 
-                <div id="filter-button"> </div>
+                <div class="flex ai-c gap1_5">
+                    <img src="/cymages/vectors/history.svg" alt="" height="20px">
+                    <img src="/cymages/vectors/star.svg" alt="" height="20px">
+                    <img src="/cymages/vectors/grid.svg" alt="" height="20px">
+                    <img src="/cymages/vectors/masonry.svg" alt="" height="20px">
+                    <div id="filter-button"> </div>
+                </div>
             </div>
 
             <!-- <section id="filter" class="flex jc-sb ai-c"> -->
@@ -208,42 +214,521 @@
 
         <section id="gallery">
             <div id="gallery-dimmer" class="hidden"></div>
+            
             <div class="row">
-                <img src="/cymages/p/black.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
-                <img src="/cymages/p/pink.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
-                <img src="/cymages/p/green.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/black.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/pink.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/green.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
             </div>
+            
             <div class="row">
-                <div class="photo-set">
-                    <img src="/cymages/p/dead.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
-                    <img src="/cymages/p/dead-2.webp" class="hidden" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                
+                
+                <div class="photo-set flex ai-e">
+                    
+                    <img src="/cymages/p/dead.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px" class="">
+                    
+                    <img src="/cymages/p/dead-2.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px" class="hidden">
+                    
                     <div class="photo-set-actions">
                         <img src="/cymages/vectors/play-hollow.svg" alt="" data-state="0" data-fill="0" class="photo-set-state">
-                        <form class="photo-set-links"></form>
+                        <form action="." class="photo-set-links"></form>
                     </div>
                 </div>
-                <img src="/cymages/p/train.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
-                <div class="photo-set">
-                    <img src="/cymages/p/mox.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
-                    <img src="/cymages/p/carmox.webp" class="hidden" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/train.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
+                
+                <div class="photo-set flex ai-e">
+                    
+                    <img src="/cymages/p/mox.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px" class="">
+                    
+                    <img src="/cymages/p/carmox.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px" class="hidden">
+                    
                     <div class="photo-set-actions">
                         <img src="/cymages/vectors/play-hollow.svg" alt="" data-state="0" data-fill="0" class="photo-set-state">
-                        <form class="photo-set-links">
-                            <!-- links added using javascript -->
-                        </form>
+                        <form action="." class="photo-set-links"></form>
                     </div>
                 </div>
+                
+                
             </div>
+            
             <div class="row">
-                <img src="/cymages/p/shortsmoke.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
-                <img src="/cymages/p/vr.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
-                <img src="/cymages/p/still.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/shortsmoke.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/vr.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/still.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
             </div>
+            
             <div class="row">
-                <img src="/cymages/p/edge.webp" alt="" loading="lazy" draggable="false" height="400px" width="400px">
-                <img src="/cymages/p/carmox.webp" loading="lazy" alt="" draggable="false" height="400px" width="400px">
-                <img src="/cymages/p/grid.webp" loading="lazy" alt="" draggable="false" height="400px" width="400px">
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/edge.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/grid.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
+                
+                <figure class="image-container flex fd-c">
+                    <img src="/cymages/p/pinkchair.webp" alt="" loading="lazy" fetchpriority="high" draggable="false" height="400px" width="400px">
+                    <div class="ic-metadata flex fd-c gap_5">
+                        <p>""</p>
+                        <div class="flex jc-sb">
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">file-type</span> <span class="metadata-description">.jpeg</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description">neutral</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description">noon</span></li>
+                            </ul>
+                            <ul>
+                                <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                                </li>
+                                <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
+                                <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                                </li>
+                                <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                                <!-- <sup> causes margin that i don't like... aka uneven lines -->
+                            </ul>
+
+                        </div>
+                        <hr>
+                        <div class="flex jc-sb ai-e">
+                            <img src="/cymages/vectors/star.svg" alt="">
+                            <div class="flex fd-c">
+                                <small>export</small>
+                                <div>
+                                    <button class="green-button">now</button>
+                                    <button class="blue-button">later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </figure>
+                
+                
             </div>
+            
         </section>
 
         <!-- <footer class="flex jc-sb ai-c">
@@ -281,10 +766,10 @@
             MOVE text to the right
             and images to the left
             -->
-            <div id="export-footer" class="flex fd-c gap05">
+            <div id="export-footer" class="flex fd-c gap_5">
                 <!-- filter, export button -->
                 <form id="export-actions" class="radiogroup flex jc-sb width100">
-                    <div class="flex ai-c gap05">
+                    <div class="flex ai-c gap_5">
                         <div>
                             <!-- couldn't id = filter because section#filter already exists -->
                             <input type="radio" name="export-menu" id="filters">
@@ -390,7 +875,7 @@
 
     <div id="eye" class="hidden"></div>
     <div id="pupil" class="hidden"></div>
-    <div id="image-actions" class="flex fd-c gap05 hidden">
+    <div id="image-actions" class="flex fd-c gap_5 hidden">
         <small style="color: var(--rock);">EXPORT</small>
         <button class="image-action green-button">now</button>
         <!-- <small class="image-action">now</small> -->
