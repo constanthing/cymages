@@ -53,7 +53,7 @@
     display: flex;
 }
 
-.row .image-container, .row > img, .row .photo-set {
+.row .image-container, .row .photo-set {
     width: 33.33%;
     height: 100%;
 }
@@ -68,7 +68,7 @@
     justify-content: center;
 }
 
-.photo-set>img {
+.photo-set .image-container {
     width: 100%;
     height: unset;
 }
@@ -147,6 +147,7 @@
  
  .clicked-gallery-image .ic-metadata {
     display: flex;
+    z-index: 1;
  }
 
 #image-actions {

@@ -37,7 +37,7 @@
     #eye, #pupil{
         display: none;
     }
-    .row > img, .row .photo-set {
+    .row .image-container, .row .photo-set {
         width: 100%;
     }
     main {
