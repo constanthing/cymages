@@ -186,6 +186,9 @@ button:hover {
 .flex {
     display: flex;
 }
+.fw {
+    flex-wrap: wrap;
+}
 
 .ai-c {
     align-items: center;
