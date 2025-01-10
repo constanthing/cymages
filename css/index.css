@@ -10,6 +10,8 @@
 
     --eye-index: 3;
     --pupil-index: 4;
+
+    --main-width: 60%;
 }
 
 @font-face {
@@ -59,7 +61,7 @@ body {
 }
 
 main {
-    width: 60%;
+    width: var(--main-width);
     /* height: 100%; */
     margin: 0 auto;
     position: relative;
@@ -93,6 +95,22 @@ header {
     color: var(--rock);
 }
 
+/* 
+* Main Footer 
+*/
+#main-footer {
+    position: fixed;
+    bottom: 0;
+    width: var(--main-width);
+    margin: 0 auto;
+    padding: .5em .5em;
+    background: rgba(0, 0, 0, 0.884);
+    backdrop-filter: blur(5px);
+    /* z-index: 1; */
+}
+#main-footer img {
+    height: 1.2em;
+}
 
 
 h1 {
@@ -171,6 +189,9 @@ button:hover {
 
 .ai-c {
     align-items: center;
+}
+.ai-s {
+    align-items: start;
 }
 
 .jc-sb {

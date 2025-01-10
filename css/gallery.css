@@ -55,7 +55,7 @@
 
 .row .image-container, .row .photo-set {
     width: 33.33%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .row .two {
