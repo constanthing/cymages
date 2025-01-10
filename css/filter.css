@@ -215,6 +215,7 @@ NEW FILTER LIST
     left: 0;
 }
 
+/* sections containg filter category outputs ex maelstrom, the mox */
 #filter-output > section > div {
     position: relative;
     height: 100%;
@@ -222,6 +223,10 @@ NEW FILTER LIST
     padding: 0 2em;
     /* hide background image */
     overflow: hidden;
+    transition: width .5s ease;
+}
+#filter-output > section > div:hover {
+    width: 15em;
 }
 
 #filter-output > section > div:nth-child(even) {
