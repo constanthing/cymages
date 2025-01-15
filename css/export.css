@@ -1,178 +1,227 @@
 #export {
-    width: var(--main-width);
-    margin: 0 auto;
-    height: 90%;
-    position: fixed;
-    top: 10%;
-    /* background: rgba(0, 0, 0, 0.929); */
-    /* backdrop-filter: blur(9px); */
-    background: rgb(35, 35, 35);
-    border-top: .1em solid var(--white);
-    flex-direction: row-reverse;
-}
-#export > img {
-    width: 55%;
-    /* height: 80%; */
-}
-#export-output {
     height: 100%;
-    width: 45%;
-}
-
-
-/* START EXPORT BODY */
-#export-body {
-    height: 90%;
-    /* height: 60vh; */
     width: 100%;
-    background: #201f1f;
-
-    position: relative;
-}
-#export-image {
-    width: 60%;
-}
-/* END EXPORT BODY */
-
-
-/* START EXPORT FOOTER */
-#export-image-actions {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-}
-
-
-/* START EXPORT ACTIONS */
-
-/* logos of actions */
-#export-actions img {
-    height: 1em;
-}
-
-/* hiding radio button (only want label to show) */
-#export-actions input {
-    display: none;
-}
-
-/* turn the label (with img) to gray (differentiates between selected) */
-.export-action {
-    filter: invert(.5);
-}
-
-/* consider chaning this to li { ...!important } */
-#export-image-actions li {
-    list-style-type: none;
-}
-#export-image-actions img {
-    height: 1em;
-}
-#export-footer {
-    height: 20%;
-    width: 100%;
+    position: fixed;
+    top: 0;
     background: black;
-    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
 }
-.radiogroup img {
-    padding-right: .2em;
-}
-.clicked.export-action { 
-    filter: unset;
+#export button {
+    appearance: none;
+    border: none;
 }
 
-/* START EXPORT METADATA */
-#export-slider {
-    max-width: 100%;
-    min-width: 40%;
+#export button:not([data-to]) {
+    pointer-events: none;
+    opacity: .5;
+}
+
+#export button.clickable {
+    pointer-events: unset;
+    opacity: unset;
+}
+#export button {
+    appearance: none;
+    border: none;
+    border-radius: 0;
+}
+
+#export-image-container {
     width: fit-content;
-    /* height: 100%; */
-    /* overflow-y: scroll; */
-    scrollbar-width: none;
-
-    /* text-align: right; */
+    position: relative;
+    height: 100%;
 }
-#export-metadata li {
-    list-style-type: none;
+
+#export #logo {
+    position: absolute;
+
+    top: 2em;
+    left: 2em;
+}
+
+#export-image-container img {
+    height: 100%;
+}
+
+/* EXPORT NAVBAR */
+#export-navbar {
+    position: absolute;
+    bottom: 1em;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    border-radius: 5em;
+    box-shadow: 0px 3px 10px rgba(13, 13, 13, 0.18);
+    /* width: 20em; */
+    width: fit-content;
+    /* max-width: 25em; */
+    max-width: 90%;
+    height: 3.5em;
+    overflow-x: hidden;
+    display: flex;
+}
+
+.export-action-button {
+    display: flex;
+}
+.export-action-button img {
+    height: 1.3em;
+}
+
+/* EXPORT NAV */
+/* navigation lists e.g. appearance, framing, main-menu */
+.export-nav {
     width: 100%;
-}
-#export-metadata ul:nth-of-type(even) {
-    margin: 0 1em;
-}
-#export-metadata ul:last-child {
-    margin-right: 0;
-}
-.metadata-title {
-    color: var(--rock);
-    margin-right: 2em;
-}
-/* END OF METADATA */
-
-
-
-/* START OF SLIDER */
-#export-slider {
-    overflow: hidden;
+    justify-content: center;
+    display: none;
+    align-items: center;
 }
 
-#slider-container {
+.export-nav.reveal {
+    /* #export>form.selected { */
+    display: flex;
+}
+
+.export-nav li button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+    background: transparent;
+    color: white;
+}
+
+.export-nav li img {
+    height: 1.5em;
+}
+
+.export-nav li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.export-nav-image {
+    height: 1em;
+    padding: 0 1em;
+}
+
+/* END EXPORT NAV ELEMENT */
+
+
+/* 
+        SLIDERS
+        */
+#slider {
+    padding: 0;
+}
+
+.slider-images {
+    display: flex;
+}
+
+.slider-images img {
+    height: 3.5em;
+    /* height: fit-content; */
+}
+
+#custom-slider {
     position: relative;
 }
 
-/* do not want to make input:slider visible just functional */
-#export-input-slider {
+#slider input[type="range"] {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
+    width: 100%;
+    /* perhaps for mobile screen when too small make slider vertical */
+    /* writing-mode: vertical-lr; */
     opacity: 0;
-}
-#export-input-slider:hover {
     cursor: grab;
 }
-#export-input-slider:active {
+#slider input[type="range"]:active {
     cursor: grabbing;
 }
 
-.value {
-    appearance: none;
-    border: none;
-    width: 10%;
-    background: var(--rock);
-    text-align: center;
-    -moz-appearance: textfield;
-}
-/* value is input:number which has default up and down arrows next to text 
-this removes the up and down arrows
-*/
-.value::-webkit-inner-spin-button, .value::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
-}
-
-.value h4 {
-    position: absolute;
-}
-
-#slider-container {
-    width: 90%;
-}
-.slider-images {
-    height: 100%;
-    width: fit-content;
-}
-.slider-images img {
-    margin: 0;
-    /* height: 100%; */
-    width: 20%;
-}
-
-/* bar user "drags" */
-.bar {
-    height: 100%;
-    width: .4em;
-    background: red;
+#slider-thumb {
     position: absolute;
     top: 0;
-    box-shadow: 0px 5px 10px 5px #000000;
+    left: 0;
+    height: 100%;
+    width: .7em;
+    background: blue;
+}
+
+/* END ___ SLIDERS */
+
+
+/* EXPORT BUTTONS -> BACK & RESET & SAVE */
+#export-back, #export-download {
+    /* DO NOT set height 100% ! ! ! ! let align-items: stretch on the parent container do the WORK! ! ! !  */
+    background: gray;
+    color: black;
+    padding: 0 1em 0 1.5em;
+}
+#export-download {
+    background: rgb(29 142 29);
+    padding: 0 1em;
+}
+
+.export-reset-save-container {
+    display: flex;
+    height: 100%;
+}
+
+.export-reset,
+.export-save,
+#export-back,
+#export-download {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.export-reset {
+    padding: 0 1em 0 1em;
+    background: red;
+    /* color: red; */
+    /* border: .1em solid; */
+    /* border-color: rgb(0, 0, 0, 0); */
+
+    opacity: .5;
+    filter: grayscale(.5);
+    user-select: none;
+    pointer-events: none;
+}
+
+.export-save {
+    padding: 0 1em;
+    background: rgb(25, 102, 203);
+    color: rgb(24, 186, 24);
+
+    opacity: .5;
+    filter: grayscale(.5);
+    user-select: none;
+    pointer-events: none;
+}
+
+/* END OF EXPORT BUTTONS -> RESET &&&&&& SAVE */
+
+
+/* MAIN MENU */
+#main-menu {
+    padding: 1em 2em;
+}
+
+#appearance {
+    padding: 0 2em 0 0;
+}
+
+
+
+#export-image {
+    height: 25em;
 }

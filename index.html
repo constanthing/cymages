@@ -16,7 +16,6 @@
     </div>
 
     <main class="">
-        <div id="filter-dimmer" class="hidden"></div>
         <header class="flex fd-c">
 
             <div class="flex width100 jc-sb ai-c" id="header-visible" style="">
@@ -36,13 +35,37 @@
                 </div>
             </div>
 
-            <!-- <section id="filter" class="flex jc-sb ai-c"> -->
             <section id="filter" class="hidden flex jc-sb ai-c">
                 <!-- <section id="filter" class=""> -->
-                <div id="filter-scroll">
-                    <img src="/cymages/vectors/arrow-right.svg" alt="" id="scroll-left" class="hidden">
-                    <img src="/cymages/vectors/arrow-right.svg" alt="" id="scroll-right" class="hidden">
-                </div>
+                <!-- <div id="filter-scroll">
+                    <img src="/vectors/arrow-right.svg" alt="" id="scroll-left" class="hidden" />
+                    <img src="/vectors/arrow-right.svg" alt="" id="scroll-right" class="hidden" />
+                </div> -->
+                <section id="filter-options" class="flex fd-c jc-sb">
+                    <form id="filter-list" class="radiogroup filter-metadata">
+                        <h3 class="filter-metadata-heading">FILTERS</h3>
+                        <div class="flex fd-c">
+                            <input type="radio" name="filter-list" id="location">
+                            <label for="location" class="clickable f-l">location</label>
+                            <input type="radio" name="filter-list" id="gang">
+                            <label for="gang" class="clickable f-g">gang</label>
+                            <input type="radio" name="filter-list" id="time">
+                            <label for="time" class="clickable f-t">time</label>
+                            <input type="radio" name="filter-list" id="feeling">
+                            <label for="feeling" class="clickable f-f">feeling</label>
+                        </div>
+                    </form>
+                    <div id="filter-actions" class="filter-metadata flex fd-c ai-s">
+                        <h3 class="filter-metadata-heading">RESET</h3>
+                        <div class="joined-button flex" id="filter-reset-buttons">
+                            <button class="jb-left red-button" id="filter-reset-current">current</button>
+                            <button class="jb-right red-button">all</button>
+                        </div>
+                        <!-- <br> -->
+                        <!-- <button id="filter-apply">&gt;&gt;apply&lt;&lt;</button> -->
+                    </div>
+                </section>
+
                 <section id="filter-output">
                     <section id="filter-output-feeling" class="hidden  flex jc-sb">
                         <div class="feeling center" data-index="0">
@@ -178,35 +201,9 @@
                         </div>
                     </section>
                 </section>
+            <!-- <section id="filter" class="flex jc-sb ai-c"> -->
+        </section></header>
 
-
-                <section id="filter-options" class="flex fd-c jc-sb ai-e">
-                    <form id="filter-list" class="radiogroup filter-metadata">
-                        <h3 class="filter-metadata-heading">FILTERS</h3>
-                        <div class="flex ai-e fd-c">
-                            <input type="radio" name="filter-list" id="location">
-                            <label for="location" class="clickable f-l">location</label>
-                            <input type="radio" name="filter-list" id="gang">
-                            <label for="gang" class="clickable f-g">gang</label>
-                            <input type="radio" name="filter-list" id="time">
-                            <label for="time" class="clickable f-t">time</label>
-                            <input type="radio" name="filter-list" id="feeling">
-                            <label for="feeling" class="clickable f-f">feeling</label>
-                        </div>
-                    </form>
-                    <div id="filter-actions" class="filter-metadata ">
-                        <h3 class="filter-metadata-heading">RESET</h3>
-                        <div class="flex ai-e fd-c" id="filter-reset-buttons">
-                            <button class="red-button" id="filter-reset-current">current</button>
-                            <button class="red-button">all</button>
-                        </div>
-                        <!-- <br> -->
-                        <!-- <button id="filter-apply">&gt;&gt;apply&lt;&lt;</button> -->
-                    </div>
-                </section>
-            </section>
-
-        </header>
 
         <div id="gallery-scroll" class="">
             <img loading="lazy" src="/cymages/vectors/arrow-right.svg" alt="" id="scroll-up" class="hidden">
@@ -215,39 +212,39 @@
 
         <div id="ic-options" class="flex center gap1_5">
             <!-- <img src="/vectors/metadata.svg" alt=""> -->
-            <img src="/cymages/vectors/enlarge-purple.svg" alt="" data-option="enlarge" data-color="purple">
-            <img src="/cymages/vectors/adjust-blue.svg" alt="" data-option="adjust" data-color="blue">
-            <img src="/cymages/vectors/download-lime.svg" alt="" data-option="download" data-color="lime">
+            <button class="bare-button"><img src="/cymages/vectors/enlarge-purple.svg" alt="" class="colored-vector"></button>
+            <button class="bare-button" id="adjust-button"><img src="/cymages/vectors/adjust-blue.svg" alt="" class="colored-vector"></button>
+            <button class="bare-button"><img src="/cymages/vectors/download-lime.svg" alt="" class="colored-vector"></button>
         </div>
 
         <div class="ic-metadata flex fd-c gap_5">
             <div class="flex jc-sb ai-c">
                 <p id="ic-title">""</p>
-                <img src="/cymages/vectors/star.svg" alt="" style="height: 1.2em">
+                <button class="bare-button"><img src="/cymages/vectors/star.svg" alt="" style="height: 1.2em"></button>
             </div>
-            <div class="flex jc-sb fw">
-                <ul>
-                    <li class="flex jc-sb"><span class="metadata-title">creator</span> <a href="#" class="metadata-description clickable" id="ic-creator">N/A</a>
+            <div class="flex jc-sb fw width100">
+                <ul class="flex fd-c">
+                    <li class="flex jc-sb gap1"><span class="metadata-title">creator</span> <a href="#" class="metadata-description clickable" id="ic-creator">N/A</a>
                     </li>
-                    <li class="flex jc-sb"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
+                    <li class="flex jc-sb gap1"><span class="metadata-title">location</span> <span class="metadata-description">N/A</span>
                     </li>
-                    <li class="flex jc-sb"><span class="metadata-title">mood</span> <span class="metadata-description" id="ic-mood">neutral</span>
+                    <li class="flex jc-sb gap1"><span class="metadata-title">mood</span> <span class="metadata-description" id="ic-mood">neutral</span>
                     </li>
-                    <li class="flex jc-sb"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
+                    <li class="flex jc-sb gap1"><span class="metadata-title">gang</span> <span class="metadata-description">valentinos</span>
                     </li>
-                    <li class="flex jc-sb"><span class="metadata-title">time</span> <span class="metadata-description" id="ic-time">noon</span></li>
+                    <li class="flex jc-sb gap1"><span class="metadata-title">time</span> <span class="metadata-description" id="ic-time">noon</span></li>
                 </ul>
-                <ul>
-                    <li class="flex jc-sb"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
+                <ul class="flex fd-c">
+                    <li class="flex jc-sb gap1"><span class="metadata-title">filter</span> <span class="metadata-description">none</span>
                     </li>
                     <!-- <li><span class="metadata-title">crop</span> <span class="metadata-description">0</span> </li> -->
-                    <li class="flex jc-sb"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
+                    <li class="flex jc-sb gap1"><span class="metadata-title">contrast</span> <span class="metadata-description" id="metadata-contrast">100</span>
                     </li>
-                    <li class="flex jc-sb"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
+                    <li class="flex jc-sb gap_5"><span class="metadata-title">brightness</span> <span class="metadata-description" id="metadata-brightness">100</span>
                     </li>
-                    <li class="flex jc-sb"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
+                    <li class="flex jc-sb gap1"><span class="metadata-title">vignette</span> <span class="metadata-description">100</span>
                     </li>
-                    <li class="flex jc-sb"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
+                    <li class="flex jc-sb gap1"><span class="metadata-title">aspect ratio</span> <span class="metadata-description">default</span> </li>
                     <!-- <sup> causes margin that i don't like... aka uneven lines -->
                 </ul>
 
@@ -375,15 +372,9 @@
                 
             </div>
             
+            <div id="filter-dimmer" class="hidden"></div>
         </section>
 
-        <!-- <footer class="flex jc-sb ai-c">
-            <small id="possible-action">[POSSIBLE ACTION]</small>
-            <div class="flex ai-c">
-                <img loading="lazy"src="./vectors/images.svg" alt="">
-                <small>pending: 0</small>
-            </div>
-        </footer> -->
 
         <!-- 
         make image zoom-able 
@@ -401,67 +392,99 @@
             and images to the left
             -->
         
-
-        <div id="export" class="flex ai-c gap1_5 hidden">
-            <!-- option to hide all details and show only the image and download button -->
-            <img src="/cymages/p/green.webp" alt="">
-            <div class="flex fd-c" id="export-output">
-                <form id="export-actions" class="radiogroup flex jc-sb width100">
-                    <div class="flex ai-c gap05">
-                        <div>
-                            <input type="radio" name="export-menu" id="contrast">
-                            <label for="contrast" class="clickable export-action flex ai-c"><img src="/cymages/vectors/contrast.svg" draggable="false" alt=""><span>contrast</span></label>
-                        </div>
-
-                        <div>
-                            <input type="radio" name="export-menu" id="brightness">
-                            <label for="brightness" class="clickable export-action flex ai-c"><img src="/cymages/vectors/exposure.svg" draggable="false" alt=""><span>brightness</span></label>
-                        </div>
-                        <div>
-                            <input type="radio" name="export-menu" id="vignette">
-                            <label for="vignette" class="clickable export-action flex ai-c"><img src="/cymages/vectors/vignette.svg" draggable="false" alt=""><span>vignette</span></label>
-                        </div>
-                    </div>
-                    <!-- filters -->
-                    <!-- aspect ratio -->
-                    <!-- <li><img loading="lazy"src="./vectors/crop.svg" alt="" draggable="false" title="crop">crop</li> -->
-                    <!-- <li><img loading="lazy"src="./vectors/location.svg" alt="" draggable="false" title="location">location</li> -->
-                    <!-- <li><img loading="lazy"src="./vectors/rotate-orientation.svg" alt="" draggable="false" title="rotate orientation">rotate orientation</li> -->
-                </form>
-                <div id="export-slider" class="flex width100">
-                    <input type="number" class="value flex" value="100" min="0" max="200">
-                    <div id="slider-container">
-
-                        <!-- <datalist id="marker">
-                        <option value="100"></option>
-                    </datalist>
--->
-                        <div class="slider-images flex">
-                            <img loading="lazy" src="/cymages/p/green.webp" alt="" draggable="false">
-                            <img loading="lazy" src="/cymages/p/green.webp" alt="" draggable="false">
-                            <img loading="lazy" src="/cymages/p/green.webp" alt="" draggable="false">
-                            <img loading="lazy" src="/cymages/p/green.webp" alt="" draggable="false">
-                            <img loading="lazy" src="/cymages/p/green.webp" alt="" draggable="false">
-                        </div>
-                        <div class="bar">
-                            <!-- <div class="something"></div> -->
-                        </div>
-                        <input id="export-input-slider" class="width100" type="range" value="100" min="0" max="200" list="marker">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="flex jc-sb ai-c" id="main-footer">
-            <small style="color: var(--rock)">In Development</small>
-
-            <div class="flex ai-c gap_5">
-                <img src="/cymages/vectors/github.svg" alt="">
-                <img src="/cymages/vectors/twitter.svg" alt="">
-            </div>
-        </footer>
     </main>
 
+    <!-- 
+    EXPORT
+    -->
+    <div id="export" class="flex hidden">
+        <div id="export-image-container">
+            <img src="/cymages/p/vr-high.png" alt="" id="export-image">
+            <!-- <img src="/p/still.webp" alt=""> -->
+            <div id="logo" class="flex fd-c">
+                <!-- clicking logo should take to github page -->
+                <h1>CYMAGES</h1>
+                <small>no mods - sfw - exportable</small>
+            </div>
+            <button id="export-download" class="bare-button">
+                <img src="/cymages/vectors/download-lime.svg" alt="" class="colored-vector">
+            </button>
+        </div>
+        <div id="export-navbar">
+            <button id="export-back" class="export-action-button"><img src="/cymages/vectors/go-back.svg" alt=""></button>
+            <button id="export-download" class="export-action-button clickable"><img src="/cymages/vectors/download.svg" alt=""></button>
+            <ul id="main-menu" class="export-nav gap1_5">
+                <!-- <h3>main menu</h3> -->
+                <li><button data-to="appearance">appearance</button></li>
+                <li><button data-to="framing">framing</button></li>
+                <li><button data-to="metadata">metadata</button></li>
+            </ul>
+            <ul id="appearance" class="export-nav gap1_5">
+                <div id="appearance-RESET" class="export-reset export-action-button"><img src="/cymages/vectors/close.svg" alt=""></div>
+                <!-- <h3>appearance</h3> -->
+                <!-- 
+            DEFAULTS:
+            operator = %
+            min = 0
+            max = 200
+            default = 100
+              -->
+                <li><button data-to="slider" data-type="contrast" data-default="100" data-min="0" data-max="200" data-operator="%" data-value="100" data-saveClickable="" data-resetClickable=""><img src="/cymages/vectors/contrast.svg" alt="">contrast</button>
+                </li>
+                <li><button data-to="slider" data-type="saturate" data-default="100" data-min="0" data-max="200" data-operator="%" data-value="100" data-saveClickable="" data-resetClickable=""><img src="/cymages/vectors/saturate.svg" alt="">saturate</button>
+                </li>
+                <li><button data-to="slider" data-type="brightness" data-default="100" data-min="0" data-max="200" data-operator="%" data-value="100" data-saveClickable="" data-resetClickable=""><img src="/cymages/vectors/exposure.svg" alt="">brightness</button>
+                </li>
+                <li><button data-to="slider" data-type="hue-rotate" data-default="0" data-min="0" data-max="360" data-operator="deg" data-value="0" data-saveClickable="" data-resetClickable=""><img src="/cymages/vectors/hue.svg" alt="">hue-rotate</button>
+                </li>
+            </ul>
+            <ul id="slider" class="export-nav">
+                <!--  slider image of input -->
+
+                <img src="enlarge-purple.svg" alt="" class="export-nav-image">
+                <div class="export-reset-save-container">
+                    <button id="slider-RESET" class="export-reset export-action-button"><img src="/cymages/vectors/close.svg" alt=""></button>
+                    <br>
+                    <button id="slider-SAVE" class="export-save export-action-button"><img src="/cymages/vectors/save.svg" alt=""></button>
+                </div>
+                <div id="custom-slider">
+                    <div class="slider-images">
+                        <img src="/cymages/p/vr-high.png" alt="">
+                        <img src="/cymages/p/vr-high.png" alt="">
+                        <img src="/cymages/p/vr-high.png" alt="">
+                        <img src="/cymages/p/vr-high.png" alt="">
+                        <img src="/cymages/p/vr-high.png" alt="">
+                    </div>
+                    <div id="slider-thumb"></div>
+                    <input type="range" min="0" value="100" max="200">
+                </div>
+                <div style="display: none;">
+                    <h3>slider</h3>
+                    <li>filter: <span id="slider-filter"></span></li>
+                    <li>type: <span id="slider-type"></span></li>
+                    <li>min: <span id="slider-min"></span></li>
+                    <li>max: <span id="slider-max"></span></li>
+                    <li>default: <span id="slider-default"></span></li>
+                    <li>operator: <span id="slider-operator"></span></li>
+                    <li>value: <span id="slider-value"></span></li>
+                    <li>temp value: <span id="slider-temp-value"></span></li>
+                    <li>save clickable: <span id="slider-saveclickable"></span></li>
+                    <li>reset clickable: <span id="slider-resetclickable"></span></li>
+                </div>
+            </ul>
+            <ul id="framing" class="export-nav">
+                <h3>framing</h3>
+                <li>crop</li>
+                <li>crop</li>
+            </ul>
+            <ul id="metadata" class="export-nav">
+                <h3>metadata</h3>
+                <li>file</li>
+                <li>aspect ratio</li>
+                <li>location</li>
+            </ul>
+        </div>
+    </div>
 
 
 

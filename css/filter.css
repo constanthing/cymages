@@ -28,14 +28,15 @@
 }
 
 #filter-dimmer {
-    position: fixed;
-    top: 0; left: 0;
+    /* relative to the #gallery element  */
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, .7);
     backdrop-filter: blur(6px);
     transition: backdrop-filter .4s ease;
-    z-index: 1;
 }
 
 /* 
@@ -54,6 +55,7 @@ NEW FILTER LIST
 .f-l::before {
     color: var(--location);
 }
+
 .clicked.f-l {
     background: var(--location);
 }
@@ -62,6 +64,7 @@ NEW FILTER LIST
 .f-g::before {
     color: var(--gang);
 }
+
 .clicked.f-g {
     background: var(--gang);
 }
@@ -70,6 +73,7 @@ NEW FILTER LIST
 .f-t::before {
     color: var(--time);
 }
+
 .clicked.f-t {
     background: var(--time);
 }
@@ -78,33 +82,49 @@ NEW FILTER LIST
 .f-f::before {
     color: var(--feeling);
 }
+
 .clicked.f-f {
     background: var(--feeling);
 }
+
 /* END OF NEW FILTER LIST */
 
 
 
 #filter-options {
-    text-align: right;
     height: 100%;
     width: 20%;
     padding: 1em 0;
 }
 
+/*
+* FILTER ACTIONS
+ */
 #filter-actions div {
-    /* 
-    * ADD FOUNDATIONAL
-    GAP CLASS TOO
-    STANDARDIZE GAP BETWEEN ITEMS
-     */
-    gap: .5em;
-    align-items: stretch;
+    /* align-items: stretch; */
+
 }
-#filter-actions button:hover {
-    /* cursor: none; */
+.jb-left:hover,
+.jb-right:hover {
+    color: rgb(112, 3, 3);
+    background: red;
 }
 
+.jb-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: .1em solid red;
+}
+
+.jb-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+/* 
+* FILTER OUTPUT
+ */
 #filter-output {
     /* background: rgb(38, 38, 38);
     background: linear-gradient(102deg, rgba(38, 38, 38, 1) 0%, rgba(25, 25, 25, 1) 100%); */
@@ -125,6 +145,7 @@ NEW FILTER LIST
     opacity: .6;
     /* transform: translate(50%, -50%) scale(1.1); */
 }
+
 :is(.time, .location, .gang, .mood):is(.output-option-selected):hover .dimmer {
     opacity: .5;
 }
@@ -163,10 +184,12 @@ NEW FILTER LIST
 .output-option-selected .dimmer {
     opacity: .4;
 }
+
 .output-option-selected .filter-oo-bg {
     filter: grayscale(0);
     transform: translate(50%, -50%) scale(1.1);
 }
+
 .output-option-selected .filter-oo-l {
     filter: grayscale(0);
     transform: scale(1.5);
@@ -208,7 +231,7 @@ NEW FILTER LIST
 }
 
 
-#filter-output > section {
+#filter-output>section {
     width: fit-content;
     height: 100%;
     position: absolute;
@@ -217,7 +240,7 @@ NEW FILTER LIST
 }
 
 /* sections containg filter category outputs ex maelstrom, the mox */
-#filter-output > section > div {
+#filter-output>section>div {
     position: relative;
     height: 100%;
     width: 10em;
@@ -226,11 +249,12 @@ NEW FILTER LIST
     overflow: hidden;
     transition: width .5s ease;
 }
-#filter-output > section > div:hover {
+
+#filter-output>section>div:hover {
     width: 15em;
 }
 
-#filter-output > section > div:nth-child(even) {
+#filter-output>section>div:nth-child(even) {
     border: 2px solid black;
     border-top: none;
     border-bottom: none;
