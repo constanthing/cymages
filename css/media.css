@@ -50,7 +50,7 @@
 
     #filter {
         height: 70vh;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     #filter-options {
         flex-direction: unset;
@@ -70,6 +70,26 @@
     .export-action span {
         display: none;
     }
+
+    #export {
+        height: 100%;
+        width: 100%;
+    }
+    #export-image-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #export-image {
+        height: fit-content !important;
+        width: 100%;
+    }
+    #export-navbar {
+        flex-direction: column;
+        height: unset;
+    }
+
 }
 
 

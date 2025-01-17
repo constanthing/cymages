@@ -41,7 +41,7 @@
     left: 2em;
 }
 
-#export-image-container img {
+#export-image {
     height: 100%;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .export-nav li img {
-    height: 1.5em;
+    height: 1.2em;
 }
 
 .export-nav li {
@@ -184,6 +184,10 @@
     justify-content: center;
 }
 
+#export-back img {
+    height: 1.2em;
+}
+
 .export-reset {
     padding: 0 1em 0 1em;
     background: red;
@@ -218,10 +222,4 @@
 
 #appearance {
     padding: 0 2em 0 0;
-}
-
-
-
-#export-image {
-    height: 25em;
 }

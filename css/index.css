@@ -78,7 +78,7 @@ header {
     position: sticky;
     /* mobile padding: 1em 2em */
     background: black;
-    border-bottom: .1em solid var(--white);
+    /* border-bottom: .1em solid var(--white); */
     z-index: 1;
 }
 #header-visible {
@@ -239,6 +239,10 @@ button:hover {
 
 .hidden {
     display: none !important;
+}
+
+.fg-1 {
+    flex-grow: 1;
 }
 
 .gap_25 {

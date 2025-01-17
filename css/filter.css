@@ -12,6 +12,9 @@
     border-bottom-width: .3em;
     border-left-color: var(--time);
 }
+#filter-button:hover {
+    cursor: pointer;
+}
 
 
 #filter {
@@ -20,7 +23,10 @@
     height: 40vh;
     background: black;
     /* padding: 2em 0; */
-    border-top: .1em solid var(--white);
+
+    /* border-top: .1em solid var(--white); */
+
+    border-top: .1em solid rgb(145, 145, 145);
 
     position: absolute;
     /* visible header is 10vh height */
